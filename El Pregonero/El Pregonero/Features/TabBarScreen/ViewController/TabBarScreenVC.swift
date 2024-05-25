@@ -27,6 +27,7 @@ class TabBarScreenVC: UITabBarController, StoryboardInfo, Coordinating {
             newsScreen.title = "News"
             usersScreen.title = "Users"
             
+            newsScreen.setViewModel(viewModel: NewsScreenViewModel())
             viewControllers = [newsScreen, usersScreen]
         }
     }
