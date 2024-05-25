@@ -8,9 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0C508F6429EF3B7342AF47A3 /* Pods_El_PregoneroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E73E90111DED098744D7064F /* Pods_El_PregoneroTests.framework */; };
+		41D9DF772C0215F20080A85E /* TabBarScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D9DF762C0215F20080A85E /* TabBarScreen.storyboard */; };
+		41D9DF7F2C0216E10080A85E /* ClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DF7E2C0216E10080A85E /* ClassInfo.swift */; };
+		41D9DF812C0217A60080A85E /* TabBarScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DF802C0217A60080A85E /* TabBarScreenVC.swift */; };
+		41D9DF832C0218910080A85E /* UsersListScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D9DF822C0218910080A85E /* UsersListScreen.storyboard */; };
+		41D9DF862C0218AC0080A85E /* UsersListScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DF852C0218AC0080A85E /* UsersListScreenVC.swift */; };
+		41D9DF882C02224D0080A85E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DF872C02224D0080A85E /* Coordinator.swift */; };
+		41D9DF8A2C0225180080A85E /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DF892C0225180080A85E /* RootCoordinator.swift */; };
 		41F39EFF2C016A3F00FD04C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */; };
 		41F39F012C016A3F00FD04C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */; };
-		41F39F032C016A3F00FD04C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F022C016A3F00FD04C4 /* ViewController.swift */; };
+		41F39F032C016A3F00FD04C4 /* NewsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F022C016A3F00FD04C4 /* NewsListScreen.swift */; };
 		41F39F062C016A3F00FD04C4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 41F39F052C016A3F00FD04C4 /* Base */; };
 		41F39F082C016A4000FD04C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41F39F072C016A4000FD04C4 /* Assets.xcassets */; };
 		41F39F0B2C016A4000FD04C4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 41F39F0A2C016A4000FD04C4 /* Base */; };
@@ -43,11 +50,18 @@
 		2C43D14F90E98E6660EB1B01 /* Pods-El PregoneroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El PregoneroTests.release.xcconfig"; path = "Target Support Files/Pods-El PregoneroTests/Pods-El PregoneroTests.release.xcconfig"; sourceTree = "<group>"; };
 		34B777B132B4CB5798701178 /* Pods-El Pregonero-El PregoneroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El Pregonero-El PregoneroUITests.release.xcconfig"; path = "Target Support Files/Pods-El Pregonero-El PregoneroUITests/Pods-El Pregonero-El PregoneroUITests.release.xcconfig"; sourceTree = "<group>"; };
 		38667F129ABCCDB7A592BF0C /* Pods-El Pregonero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El Pregonero.debug.xcconfig"; path = "Target Support Files/Pods-El Pregonero/Pods-El Pregonero.debug.xcconfig"; sourceTree = "<group>"; };
+		41D9DF762C0215F20080A85E /* TabBarScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarScreen.storyboard; sourceTree = "<group>"; };
+		41D9DF7E2C0216E10080A85E /* ClassInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfo.swift; sourceTree = "<group>"; };
+		41D9DF802C0217A60080A85E /* TabBarScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarScreenVC.swift; sourceTree = "<group>"; };
+		41D9DF822C0218910080A85E /* UsersListScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UsersListScreen.storyboard; sourceTree = "<group>"; };
+		41D9DF852C0218AC0080A85E /* UsersListScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListScreenVC.swift; sourceTree = "<group>"; };
+		41D9DF872C02224D0080A85E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		41D9DF892C0225180080A85E /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		41F39EFB2C016A3F00FD04C4 /* El Pregonero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "El Pregonero.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		41F39F022C016A3F00FD04C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		41F39F052C016A3F00FD04C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		41F39F022C016A3F00FD04C4 /* NewsListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListScreen.swift; sourceTree = "<group>"; };
+		41F39F052C016A3F00FD04C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NewsListScreen.storyboard; sourceTree = "<group>"; };
 		41F39F072C016A4000FD04C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41F39F0A2C016A4000FD04C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41F39F0C2C016A4000FD04C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +118,128 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		41D9DF6B2C0214E20080A85E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF7D2C0216C70080A85E /* Shared Protocols */,
+				41D9DF7C2C0216B20080A85E /* Utilities */,
+				41D9DF6D2C0214F80080A85E /* LaunchScreen */,
+				41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */,
+				41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		41D9DF6C2C0214E70080A85E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF742C0215D90080A85E /* TabBarScreen */,
+				41D9DF6E2C0215760080A85E /* NewsListScreen */,
+				41D9DF712C0215AE0080A85E /* UsersListScren */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		41D9DF6D2C0214F80080A85E /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				41F39F092C016A4000FD04C4 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		41D9DF6E2C0215760080A85E /* NewsListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF6F2C02157E0080A85E /* View */,
+				41D9DF702C0215820080A85E /* ViewController */,
+			);
+			path = NewsListScreen;
+			sourceTree = "<group>";
+		};
+		41D9DF6F2C02157E0080A85E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41F39F042C016A3F00FD04C4 /* NewsListScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		41D9DF702C0215820080A85E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				41F39F022C016A3F00FD04C4 /* NewsListScreen.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		41D9DF712C0215AE0080A85E /* UsersListScren */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF722C0215B50080A85E /* View */,
+				41D9DF732C0215B90080A85E /* ViewController */,
+			);
+			path = UsersListScren;
+			sourceTree = "<group>";
+		};
+		41D9DF722C0215B50080A85E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF822C0218910080A85E /* UsersListScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		41D9DF732C0215B90080A85E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF852C0218AC0080A85E /* UsersListScreenVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		41D9DF742C0215D90080A85E /* TabBarScreen */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF752C0215E10080A85E /* View */,
+				41D9DF782C0215FE0080A85E /* ViewController */,
+			);
+			path = TabBarScreen;
+			sourceTree = "<group>";
+		};
+		41D9DF752C0215E10080A85E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF762C0215F20080A85E /* TabBarScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		41D9DF782C0215FE0080A85E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF802C0217A60080A85E /* TabBarScreenVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		41D9DF7C2C0216B20080A85E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		41D9DF7D2C0216C70080A85E /* Shared Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF7E2C0216E10080A85E /* ClassInfo.swift */,
+				41D9DF872C02224D0080A85E /* Coordinator.swift */,
+				41D9DF892C0225180080A85E /* RootCoordinator.swift */,
+			);
+			path = "Shared Protocols";
+			sourceTree = "<group>";
+		};
 		41F39EF22C016A3F00FD04C4 = {
 			isa = PBXGroup;
 			children = (
@@ -129,12 +265,9 @@
 		41F39EFD2C016A3F00FD04C4 /* El Pregonero */ = {
 			isa = PBXGroup;
 			children = (
-				41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */,
-				41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */,
-				41F39F022C016A3F00FD04C4 /* ViewController.swift */,
-				41F39F042C016A3F00FD04C4 /* Main.storyboard */,
+				41D9DF6B2C0214E20080A85E /* Core */,
+				41D9DF6C2C0214E70080A85E /* Features */,
 				41F39F072C016A4000FD04C4 /* Assets.xcassets */,
-				41F39F092C016A4000FD04C4 /* LaunchScreen.storyboard */,
 				41F39F0C2C016A4000FD04C4 /* Info.plist */,
 			);
 			path = "El Pregonero";
@@ -278,6 +411,8 @@
 			files = (
 				41F39F082C016A4000FD04C4 /* Assets.xcassets in Resources */,
 				41F39F0B2C016A4000FD04C4 /* Base in Resources */,
+				41D9DF832C0218910080A85E /* UsersListScreen.storyboard in Resources */,
+				41D9DF772C0215F20080A85E /* TabBarScreen.storyboard in Resources */,
 				41F39F062C016A3F00FD04C4 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,9 +541,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41F39F032C016A3F00FD04C4 /* ViewController.swift in Sources */,
+				41D9DF8A2C0225180080A85E /* RootCoordinator.swift in Sources */,
+				41D9DF812C0217A60080A85E /* TabBarScreenVC.swift in Sources */,
+				41F39F032C016A3F00FD04C4 /* NewsListScreen.swift in Sources */,
+				41D9DF7F2C0216E10080A85E /* ClassInfo.swift in Sources */,
+				41D9DF862C0218AC0080A85E /* UsersListScreenVC.swift in Sources */,
 				41F39EFF2C016A3F00FD04C4 /* AppDelegate.swift in Sources */,
 				41F39F012C016A3F00FD04C4 /* SceneDelegate.swift in Sources */,
+				41D9DF882C02224D0080A85E /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,12 +585,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		41F39F042C016A3F00FD04C4 /* Main.storyboard */ = {
+		41F39F042C016A3F00FD04C4 /* NewsListScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				41F39F052C016A3F00FD04C4 /* Base */,
 			);
-			name = Main.storyboard;
+			name = NewsListScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		41F39F092C016A4000FD04C4 /* LaunchScreen.storyboard */ = {
@@ -501,7 +641,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -564,7 +704,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -596,7 +736,7 @@
 				INFOPLIST_FILE = "El Pregonero/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -626,7 +766,7 @@
 				INFOPLIST_FILE = "El Pregonero/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
