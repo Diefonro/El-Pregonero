@@ -1,0 +1,990 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C508F6429EF3B7342AF47A3 /* Pods_El_PregoneroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E73E90111DED098744D7064F /* Pods_El_PregoneroTests.framework */; };
+		41D9DF772C0215F20080A85E /* TabBarScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D9DF762C0215F20080A85E /* TabBarScreen.storyboard */; };
+		41D9DF7F2C0216E10080A85E /* ClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DF7E2C0216E10080A85E /* ClassInfo.swift */; };
+		41D9DF812C0217A60080A85E /* TabBarScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DF802C0217A60080A85E /* TabBarScreenVC.swift */; };
+		41D9DF832C0218910080A85E /* UsersListScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D9DF822C0218910080A85E /* UsersListScreen.storyboard */; };
+		41D9DF862C0218AC0080A85E /* UsersListScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DF852C0218AC0080A85E /* UsersListScreenVC.swift */; };
+		41D9DF882C02224D0080A85E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DF872C02224D0080A85E /* Coordinator.swift */; };
+		41D9DF8A2C0225180080A85E /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DF892C0225180080A85E /* RootCoordinator.swift */; };
+		41D9DFA92C0237AE0080A85E /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DFA82C0237AE0080A85E /* HTTPClient.swift */; };
+		41D9DFAB2C0237D90080A85E /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DFAA2C0237D90080A85E /* RequestMethod.swift */; };
+		41D9DFAD2C0237E50080A85E /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DFAC2C0237E50080A85E /* RequestError.swift */; };
+		41D9DFAF2C0237FA0080A85E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DFAE2C0237FA0080A85E /* Endpoint.swift */; };
+		41D9DFB12C02381E0080A85E /* NewsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DFB02C02381E0080A85E /* NewsEndpoint.swift */; };
+		41D9DFB32C02386B0080A85E /* NewsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DFB22C02386B0080A85E /* NewsServices.swift */; };
+		41D9DFB72C0238AF0080A85E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DFB62C0238AF0080A85E /* News.swift */; };
+		41D9DFB92C0238FE0080A85E /* NewsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9DFB82C0238FE0080A85E /* NewsScreenViewModel.swift */; };
+		41F39EFF2C016A3F00FD04C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */; };
+		41F39F012C016A3F00FD04C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */; };
+		41F39F032C016A3F00FD04C4 /* NewsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F022C016A3F00FD04C4 /* NewsListScreen.swift */; };
+		41F39F062C016A3F00FD04C4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 41F39F052C016A3F00FD04C4 /* Base */; };
+		41F39F082C016A4000FD04C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41F39F072C016A4000FD04C4 /* Assets.xcassets */; };
+		41F39F0B2C016A4000FD04C4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 41F39F0A2C016A4000FD04C4 /* Base */; };
+		41F39F162C016A4000FD04C4 /* El_PregoneroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F152C016A4000FD04C4 /* El_PregoneroTests.swift */; };
+		41F39F202C016A4000FD04C4 /* El_PregoneroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F1F2C016A4000FD04C4 /* El_PregoneroUITests.swift */; };
+		41F39F222C016A4000FD04C4 /* El_PregoneroUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F212C016A4000FD04C4 /* El_PregoneroUITestsLaunchTests.swift */; };
+		4E3E939AB465BE3775C3060F /* Pods_El_Pregonero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97EEE2A3578C2763FEF6C74 /* Pods_El_Pregonero.framework */; };
+		9C9C593ABDFB69D5FB0EE7AB /* Pods_El_Pregonero_El_PregoneroUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8758E919948CFFF8E70F41BA /* Pods_El_Pregonero_El_PregoneroUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		41F39F122C016A4000FD04C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41F39EF32C016A3F00FD04C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41F39EFA2C016A3F00FD04C4;
+			remoteInfo = "El Pregonero";
+		};
+		41F39F1C2C016A4000FD04C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41F39EF32C016A3F00FD04C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41F39EFA2C016A3F00FD04C4;
+			remoteInfo = "El Pregonero";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06AB44234514D4FF1D8C8567 /* Pods-El Pregonero-El PregoneroUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El Pregonero-El PregoneroUITests.debug.xcconfig"; path = "Target Support Files/Pods-El Pregonero-El PregoneroUITests/Pods-El Pregonero-El PregoneroUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2C43D14F90E98E6660EB1B01 /* Pods-El PregoneroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El PregoneroTests.release.xcconfig"; path = "Target Support Files/Pods-El PregoneroTests/Pods-El PregoneroTests.release.xcconfig"; sourceTree = "<group>"; };
+		34B777B132B4CB5798701178 /* Pods-El Pregonero-El PregoneroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El Pregonero-El PregoneroUITests.release.xcconfig"; path = "Target Support Files/Pods-El Pregonero-El PregoneroUITests/Pods-El Pregonero-El PregoneroUITests.release.xcconfig"; sourceTree = "<group>"; };
+		38667F129ABCCDB7A592BF0C /* Pods-El Pregonero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El Pregonero.debug.xcconfig"; path = "Target Support Files/Pods-El Pregonero/Pods-El Pregonero.debug.xcconfig"; sourceTree = "<group>"; };
+		41D9DF762C0215F20080A85E /* TabBarScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarScreen.storyboard; sourceTree = "<group>"; };
+		41D9DF7E2C0216E10080A85E /* ClassInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfo.swift; sourceTree = "<group>"; };
+		41D9DF802C0217A60080A85E /* TabBarScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarScreenVC.swift; sourceTree = "<group>"; };
+		41D9DF822C0218910080A85E /* UsersListScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UsersListScreen.storyboard; sourceTree = "<group>"; };
+		41D9DF852C0218AC0080A85E /* UsersListScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListScreenVC.swift; sourceTree = "<group>"; };
+		41D9DF872C02224D0080A85E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		41D9DF892C0225180080A85E /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		41D9DFA82C0237AE0080A85E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		41D9DFAA2C0237D90080A85E /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		41D9DFAC2C0237E50080A85E /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		41D9DFAE2C0237FA0080A85E /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		41D9DFB02C02381E0080A85E /* NewsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsEndpoint.swift; sourceTree = "<group>"; };
+		41D9DFB22C02386B0080A85E /* NewsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsServices.swift; sourceTree = "<group>"; };
+		41D9DFB62C0238AF0080A85E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		41D9DFB82C0238FE0080A85E /* NewsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsScreenViewModel.swift; sourceTree = "<group>"; };
+		41F39EFB2C016A3F00FD04C4 /* El Pregonero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "El Pregonero.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		41F39F022C016A3F00FD04C4 /* NewsListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListScreen.swift; sourceTree = "<group>"; };
+		41F39F052C016A3F00FD04C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NewsListScreen.storyboard; sourceTree = "<group>"; };
+		41F39F072C016A4000FD04C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		41F39F0A2C016A4000FD04C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		41F39F0C2C016A4000FD04C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41F39F112C016A4000FD04C4 /* El PregoneroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "El PregoneroTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41F39F152C016A4000FD04C4 /* El_PregoneroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = El_PregoneroTests.swift; sourceTree = "<group>"; };
+		41F39F1B2C016A4000FD04C4 /* El PregoneroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "El PregoneroUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41F39F1F2C016A4000FD04C4 /* El_PregoneroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = El_PregoneroUITests.swift; sourceTree = "<group>"; };
+		41F39F212C016A4000FD04C4 /* El_PregoneroUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = El_PregoneroUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8758E919948CFFF8E70F41BA /* Pods_El_Pregonero_El_PregoneroUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_El_Pregonero_El_PregoneroUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFAA3C587FFC03280A3A4E67 /* Pods-El PregoneroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El PregoneroTests.debug.xcconfig"; path = "Target Support Files/Pods-El PregoneroTests/Pods-El PregoneroTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE788A43051F72D8770ACBBA /* Pods-El Pregonero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-El Pregonero.release.xcconfig"; path = "Target Support Files/Pods-El Pregonero/Pods-El Pregonero.release.xcconfig"; sourceTree = "<group>"; };
+		D97EEE2A3578C2763FEF6C74 /* Pods_El_Pregonero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_El_Pregonero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E73E90111DED098744D7064F /* Pods_El_PregoneroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_El_PregoneroTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		41F39EF82C016A3F00FD04C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E3E939AB465BE3775C3060F /* Pods_El_Pregonero.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41F39F0E2C016A4000FD04C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C508F6429EF3B7342AF47A3 /* Pods_El_PregoneroTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41F39F182C016A4000FD04C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C9C593ABDFB69D5FB0EE7AB /* Pods_El_Pregonero_El_PregoneroUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30C910A9F0619B99E0C55D63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38667F129ABCCDB7A592BF0C /* Pods-El Pregonero.debug.xcconfig */,
+				CE788A43051F72D8770ACBBA /* Pods-El Pregonero.release.xcconfig */,
+				06AB44234514D4FF1D8C8567 /* Pods-El Pregonero-El PregoneroUITests.debug.xcconfig */,
+				34B777B132B4CB5798701178 /* Pods-El Pregonero-El PregoneroUITests.release.xcconfig */,
+				BFAA3C587FFC03280A3A4E67 /* Pods-El PregoneroTests.debug.xcconfig */,
+				2C43D14F90E98E6660EB1B01 /* Pods-El PregoneroTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		41D9DF6B2C0214E20080A85E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DFA72C0237A20080A85E /* Networking */,
+				41D9DF7D2C0216C70080A85E /* Shared Protocols */,
+				41D9DF7C2C0216B20080A85E /* Utilities */,
+				41D9DF6D2C0214F80080A85E /* LaunchScreen */,
+				41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */,
+				41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		41D9DF6C2C0214E70080A85E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF742C0215D90080A85E /* TabBarScreen */,
+				41D9DF6E2C0215760080A85E /* NewsListScreen */,
+				41D9DF712C0215AE0080A85E /* UsersListScren */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		41D9DF6D2C0214F80080A85E /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				41F39F092C016A4000FD04C4 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		41D9DF6E2C0215760080A85E /* NewsListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DFB52C02389A0080A85E /* Model */,
+				41D9DFB42C02389A0080A85E /* ViewModel */,
+				41D9DF6F2C02157E0080A85E /* View */,
+				41D9DF702C0215820080A85E /* ViewController */,
+			);
+			path = NewsListScreen;
+			sourceTree = "<group>";
+		};
+		41D9DF6F2C02157E0080A85E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41F39F042C016A3F00FD04C4 /* NewsListScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		41D9DF702C0215820080A85E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				41F39F022C016A3F00FD04C4 /* NewsListScreen.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		41D9DF712C0215AE0080A85E /* UsersListScren */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF722C0215B50080A85E /* View */,
+				41D9DF732C0215B90080A85E /* ViewController */,
+			);
+			path = UsersListScren;
+			sourceTree = "<group>";
+		};
+		41D9DF722C0215B50080A85E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF822C0218910080A85E /* UsersListScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		41D9DF732C0215B90080A85E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF852C0218AC0080A85E /* UsersListScreenVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		41D9DF742C0215D90080A85E /* TabBarScreen */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF752C0215E10080A85E /* View */,
+				41D9DF782C0215FE0080A85E /* ViewController */,
+			);
+			path = TabBarScreen;
+			sourceTree = "<group>";
+		};
+		41D9DF752C0215E10080A85E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF762C0215F20080A85E /* TabBarScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		41D9DF782C0215FE0080A85E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF802C0217A60080A85E /* TabBarScreenVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		41D9DF7C2C0216B20080A85E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		41D9DF7D2C0216C70080A85E /* Shared Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF7E2C0216E10080A85E /* ClassInfo.swift */,
+				41D9DF872C02224D0080A85E /* Coordinator.swift */,
+				41D9DF892C0225180080A85E /* RootCoordinator.swift */,
+			);
+			path = "Shared Protocols";
+			sourceTree = "<group>";
+		};
+		41D9DFA42C0237A20080A85E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DFA82C0237AE0080A85E /* HTTPClient.swift */,
+				41D9DFAA2C0237D90080A85E /* RequestMethod.swift */,
+				41D9DFAC2C0237E50080A85E /* RequestError.swift */,
+				41D9DFAE2C0237FA0080A85E /* Endpoint.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		41D9DFA52C0237A20080A85E /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DFB02C02381E0080A85E /* NewsEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		41D9DFA62C0237A20080A85E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DFB22C02386B0080A85E /* NewsServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		41D9DFA72C0237A20080A85E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DFA42C0237A20080A85E /* Base */,
+				41D9DFA52C0237A20080A85E /* Endpoints */,
+				41D9DFA62C0237A20080A85E /* Services */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		41D9DFB42C02389A0080A85E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DFB82C0238FE0080A85E /* NewsScreenViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		41D9DFB52C02389A0080A85E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DFB62C0238AF0080A85E /* News.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		41F39EF22C016A3F00FD04C4 = {
+			isa = PBXGroup;
+			children = (
+				41F39EFD2C016A3F00FD04C4 /* El Pregonero */,
+				41F39F142C016A4000FD04C4 /* El PregoneroTests */,
+				41F39F1E2C016A4000FD04C4 /* El PregoneroUITests */,
+				41F39EFC2C016A3F00FD04C4 /* Products */,
+				30C910A9F0619B99E0C55D63 /* Pods */,
+				BA16DF9220214F05D88E66C7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		41F39EFC2C016A3F00FD04C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41F39EFB2C016A3F00FD04C4 /* El Pregonero.app */,
+				41F39F112C016A4000FD04C4 /* El PregoneroTests.xctest */,
+				41F39F1B2C016A4000FD04C4 /* El PregoneroUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		41F39EFD2C016A3F00FD04C4 /* El Pregonero */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DF6B2C0214E20080A85E /* Core */,
+				41D9DF6C2C0214E70080A85E /* Features */,
+				41F39F072C016A4000FD04C4 /* Assets.xcassets */,
+				41F39F0C2C016A4000FD04C4 /* Info.plist */,
+			);
+			path = "El Pregonero";
+			sourceTree = "<group>";
+		};
+		41F39F142C016A4000FD04C4 /* El PregoneroTests */ = {
+			isa = PBXGroup;
+			children = (
+				41F39F152C016A4000FD04C4 /* El_PregoneroTests.swift */,
+			);
+			path = "El PregoneroTests";
+			sourceTree = "<group>";
+		};
+		41F39F1E2C016A4000FD04C4 /* El PregoneroUITests */ = {
+			isa = PBXGroup;
+			children = (
+				41F39F1F2C016A4000FD04C4 /* El_PregoneroUITests.swift */,
+				41F39F212C016A4000FD04C4 /* El_PregoneroUITestsLaunchTests.swift */,
+			);
+			path = "El PregoneroUITests";
+			sourceTree = "<group>";
+		};
+		BA16DF9220214F05D88E66C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D97EEE2A3578C2763FEF6C74 /* Pods_El_Pregonero.framework */,
+				8758E919948CFFF8E70F41BA /* Pods_El_Pregonero_El_PregoneroUITests.framework */,
+				E73E90111DED098744D7064F /* Pods_El_PregoneroTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		41F39EFA2C016A3F00FD04C4 /* El Pregonero */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41F39F252C016A4000FD04C4 /* Build configuration list for PBXNativeTarget "El Pregonero" */;
+			buildPhases = (
+				1B186476F220E1D6D397C243 /* [CP] Check Pods Manifest.lock */,
+				41F39EF72C016A3F00FD04C4 /* Sources */,
+				41F39EF82C016A3F00FD04C4 /* Frameworks */,
+				41F39EF92C016A3F00FD04C4 /* Resources */,
+				5B2C81E8EDEA8CB595D78A16 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "El Pregonero";
+			productName = "El Pregonero";
+			productReference = 41F39EFB2C016A3F00FD04C4 /* El Pregonero.app */;
+			productType = "com.apple.product-type.application";
+		};
+		41F39F102C016A4000FD04C4 /* El PregoneroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41F39F282C016A4000FD04C4 /* Build configuration list for PBXNativeTarget "El PregoneroTests" */;
+			buildPhases = (
+				CDFA7B48DCA92DCD2B159384 /* [CP] Check Pods Manifest.lock */,
+				41F39F0D2C016A4000FD04C4 /* Sources */,
+				41F39F0E2C016A4000FD04C4 /* Frameworks */,
+				41F39F0F2C016A4000FD04C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41F39F132C016A4000FD04C4 /* PBXTargetDependency */,
+			);
+			name = "El PregoneroTests";
+			productName = "El PregoneroTests";
+			productReference = 41F39F112C016A4000FD04C4 /* El PregoneroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		41F39F1A2C016A4000FD04C4 /* El PregoneroUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41F39F2B2C016A4000FD04C4 /* Build configuration list for PBXNativeTarget "El PregoneroUITests" */;
+			buildPhases = (
+				7CC73C8281C60CA644A25E16 /* [CP] Check Pods Manifest.lock */,
+				41F39F172C016A4000FD04C4 /* Sources */,
+				41F39F182C016A4000FD04C4 /* Frameworks */,
+				41F39F192C016A4000FD04C4 /* Resources */,
+				529B46048A1BD62A45B5E733 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41F39F1D2C016A4000FD04C4 /* PBXTargetDependency */,
+			);
+			name = "El PregoneroUITests";
+			productName = "El PregoneroUITests";
+			productReference = 41F39F1B2C016A4000FD04C4 /* El PregoneroUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		41F39EF32C016A3F00FD04C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					41F39EFA2C016A3F00FD04C4 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					41F39F102C016A4000FD04C4 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 41F39EFA2C016A3F00FD04C4;
+					};
+					41F39F1A2C016A4000FD04C4 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 41F39EFA2C016A3F00FD04C4;
+					};
+				};
+			};
+			buildConfigurationList = 41F39EF62C016A3F00FD04C4 /* Build configuration list for PBXProject "El Pregonero" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 41F39EF22C016A3F00FD04C4;
+			productRefGroup = 41F39EFC2C016A3F00FD04C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				41F39EFA2C016A3F00FD04C4 /* El Pregonero */,
+				41F39F102C016A4000FD04C4 /* El PregoneroTests */,
+				41F39F1A2C016A4000FD04C4 /* El PregoneroUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		41F39EF92C016A3F00FD04C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41F39F082C016A4000FD04C4 /* Assets.xcassets in Resources */,
+				41F39F0B2C016A4000FD04C4 /* Base in Resources */,
+				41D9DF832C0218910080A85E /* UsersListScreen.storyboard in Resources */,
+				41D9DF772C0215F20080A85E /* TabBarScreen.storyboard in Resources */,
+				41F39F062C016A3F00FD04C4 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41F39F0F2C016A4000FD04C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41F39F192C016A4000FD04C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B186476F220E1D6D397C243 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-El Pregonero-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		529B46048A1BD62A45B5E733 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-El Pregonero-El PregoneroUITests/Pods-El Pregonero-El PregoneroUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-El Pregonero-El PregoneroUITests/Pods-El Pregonero-El PregoneroUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-El Pregonero-El PregoneroUITests/Pods-El Pregonero-El PregoneroUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B2C81E8EDEA8CB595D78A16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-El Pregonero/Pods-El Pregonero-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-El Pregonero/Pods-El Pregonero-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-El Pregonero/Pods-El Pregonero-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CC73C8281C60CA644A25E16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-El Pregonero-El PregoneroUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDFA7B48DCA92DCD2B159384 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-El PregoneroTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		41F39EF72C016A3F00FD04C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41D9DF8A2C0225180080A85E /* RootCoordinator.swift in Sources */,
+				41D9DF812C0217A60080A85E /* TabBarScreenVC.swift in Sources */,
+				41F39F032C016A3F00FD04C4 /* NewsListScreen.swift in Sources */,
+				41D9DFB72C0238AF0080A85E /* News.swift in Sources */,
+				41D9DFAD2C0237E50080A85E /* RequestError.swift in Sources */,
+				41D9DF7F2C0216E10080A85E /* ClassInfo.swift in Sources */,
+				41D9DF862C0218AC0080A85E /* UsersListScreenVC.swift in Sources */,
+				41D9DFA92C0237AE0080A85E /* HTTPClient.swift in Sources */,
+				41F39EFF2C016A3F00FD04C4 /* AppDelegate.swift in Sources */,
+				41F39F012C016A3F00FD04C4 /* SceneDelegate.swift in Sources */,
+				41D9DFAB2C0237D90080A85E /* RequestMethod.swift in Sources */,
+				41D9DFAF2C0237FA0080A85E /* Endpoint.swift in Sources */,
+				41D9DFB12C02381E0080A85E /* NewsEndpoint.swift in Sources */,
+				41D9DFB92C0238FE0080A85E /* NewsScreenViewModel.swift in Sources */,
+				41D9DFB32C02386B0080A85E /* NewsServices.swift in Sources */,
+				41D9DF882C02224D0080A85E /* Coordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41F39F0D2C016A4000FD04C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41F39F162C016A4000FD04C4 /* El_PregoneroTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41F39F172C016A4000FD04C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41F39F202C016A4000FD04C4 /* El_PregoneroUITests.swift in Sources */,
+				41F39F222C016A4000FD04C4 /* El_PregoneroUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		41F39F132C016A4000FD04C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41F39EFA2C016A3F00FD04C4 /* El Pregonero */;
+			targetProxy = 41F39F122C016A4000FD04C4 /* PBXContainerItemProxy */;
+		};
+		41F39F1D2C016A4000FD04C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41F39EFA2C016A3F00FD04C4 /* El Pregonero */;
+			targetProxy = 41F39F1C2C016A4000FD04C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		41F39F042C016A3F00FD04C4 /* NewsListScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41F39F052C016A3F00FD04C4 /* Base */,
+			);
+			name = NewsListScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		41F39F092C016A4000FD04C4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41F39F0A2C016A4000FD04C4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		41F39F232C016A4000FD04C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		41F39F242C016A4000FD04C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		41F39F262C016A4000FD04C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38667F129ABCCDB7A592BF0C /* Pods-El Pregonero.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R83QFJW7B8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "El Pregonero/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Diefonro.El-Pregonero";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		41F39F272C016A4000FD04C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE788A43051F72D8770ACBBA /* Pods-El Pregonero.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R83QFJW7B8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "El Pregonero/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Diefonro.El-Pregonero";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		41F39F292C016A4000FD04C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFAA3C587FFC03280A3A4E67 /* Pods-El PregoneroTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R83QFJW7B8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Diefonro.El-PregoneroTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/El Pregonero.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/El Pregonero";
+			};
+			name = Debug;
+		};
+		41F39F2A2C016A4000FD04C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C43D14F90E98E6660EB1B01 /* Pods-El PregoneroTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R83QFJW7B8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Diefonro.El-PregoneroTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/El Pregonero.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/El Pregonero";
+			};
+			name = Release;
+		};
+		41F39F2C2C016A4000FD04C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06AB44234514D4FF1D8C8567 /* Pods-El Pregonero-El PregoneroUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R83QFJW7B8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Diefonro.El-PregoneroUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "El Pregonero";
+			};
+			name = Debug;
+		};
+		41F39F2D2C016A4000FD04C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34B777B132B4CB5798701178 /* Pods-El Pregonero-El PregoneroUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R83QFJW7B8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Diefonro.El-PregoneroUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "El Pregonero";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		41F39EF62C016A3F00FD04C4 /* Build configuration list for PBXProject "El Pregonero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41F39F232C016A4000FD04C4 /* Debug */,
+				41F39F242C016A4000FD04C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41F39F252C016A4000FD04C4 /* Build configuration list for PBXNativeTarget "El Pregonero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41F39F262C016A4000FD04C4 /* Debug */,
+				41F39F272C016A4000FD04C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41F39F282C016A4000FD04C4 /* Build configuration list for PBXNativeTarget "El PregoneroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41F39F292C016A4000FD04C4 /* Debug */,
+				41F39F2A2C016A4000FD04C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41F39F2B2C016A4000FD04C4 /* Build configuration list for PBXNativeTarget "El PregoneroUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41F39F2C2C016A4000FD04C4 /* Debug */,
+				41F39F2D2C016A4000FD04C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 41F39EF32C016A3F00FD04C4 /* Project object */;
+}
