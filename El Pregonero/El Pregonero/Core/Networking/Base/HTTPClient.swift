@@ -38,6 +38,8 @@ extension HTTPClient {
                 return .failure(.noResponse)
             }
             
+            print("JSON DATA: \(await String(data: request.response.data ?? Data(), encoding: .utf8) ?? "")")
+            
             switch response.statusCode {
             case 200...299:
                 guard let decodedResponse = try? await request.value else {

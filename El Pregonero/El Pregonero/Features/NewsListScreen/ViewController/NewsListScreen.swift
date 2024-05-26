@@ -14,9 +14,14 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
     
     var viewModel: NewsScreenViewModel?
     
+    @IBOutlet weak var titleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.getNews()
+        viewModel?.getNews {
+            DispatchQueue.main.async {
+                self.titleLabel.text = DataManager.newsData.first?.title ?? "not available"
+            }
+        }
     }
 
     func setViewModel(viewModel: NewsScreenViewModel) {

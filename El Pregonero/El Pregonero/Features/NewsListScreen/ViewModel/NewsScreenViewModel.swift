@@ -11,12 +11,13 @@ class NewsScreenViewModel {
     
     let newsServices = NewsServices()
     
-    func getNews() {
+    func getNews(completion: @escaping () -> Void) {
         Task(priority: .userInitiated) {
             let result = await newsServices.getNews()
             switch result {
             case .success(let news):
-                print("NEWS DATA: \(news)")
+                DataManager.newsData = news
+                completion()
             case .failure(let error):
                 AppError.handle(error: error)
             }
