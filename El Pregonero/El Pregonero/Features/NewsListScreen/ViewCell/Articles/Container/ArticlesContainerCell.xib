@@ -24,8 +24,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RuY-FB-zYV" userLabel="NewsLetterView">
                                 <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nHf-8w-kCN">
-                                        <rect key="frame" x="20" y="10" width="30" height="30"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nHf-8w-kCN">
+                                        <rect key="frame" x="20" y="11.999999999999998" width="30" height="26.666666666666664"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="DsK-XV-Ucu"/>
                                             <constraint firstAttribute="height" constant="30" id="JgJ-kT-cBo"/>
@@ -38,7 +38,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <constraints>
                                     <constraint firstItem="nHf-8w-kCN" firstAttribute="centerY" secondItem="RuY-FB-zYV" secondAttribute="centerY" id="A5P-am-GoC"/>
                                     <constraint firstAttribute="trailing" secondItem="3R3-Zy-GUI" secondAttribute="trailing" constant="20" id="O9J-fl-HO5"/>
@@ -50,7 +50,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zek-J0-tw2" userLabel="CollectionContainerView">
                                 <rect key="frame" x="0.0" y="50" width="374" height="262"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -88,11 +88,12 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray3Color">
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

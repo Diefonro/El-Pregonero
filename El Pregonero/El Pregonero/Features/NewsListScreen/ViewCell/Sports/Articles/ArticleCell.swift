@@ -7,8 +7,10 @@
 
 import UIKit
 
-class ArticleCell: UICollectionViewCell {
-
+class ArticleCell: UICollectionViewCell, CellInfo {
+    
+    static var reuseIdentifier = "ArticleCell"
+    
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var newsHeadlineLabel: UILabel!
     @IBOutlet weak var newsAuthorImageView: UIImageView!

@@ -7,7 +7,9 @@
 
 import UIKit
 
-class LineArticleCell: UICollectionViewCell {
+class LineArticleCell: UICollectionViewCell, CellInfo {
+    static var reuseIdentifier = "LineArticleCell"
+    
 
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var newsHeadlineLabel: UILabel!

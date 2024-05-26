@@ -21,8 +21,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ue-18-4fA" userLabel="ContainerView">
                         <rect key="frame" x="0.0" y="0.0" width="421" height="105"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U0c-lq-TJi">
-                                <rect key="frame" x="0.0" y="0.0" width="120" height="105"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="U0c-lq-TJi">
+                                <rect key="frame" x="0.0" y="-0.6666666666666643" width="120" height="105.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="hqM-ek-1sL"/>
                                 </constraints>
@@ -34,8 +34,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="glQ-cO-jkw">
-                                <rect key="frame" x="140" y="65" width="30" height="30"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newspaper.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="glQ-cO-jkw">
+                                <rect key="frame" x="140" y="65.333333333333329" width="30" height="29.666666666666671"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="EA6-uX-J8K"/>
                                     <constraint firstAttribute="height" constant="30" id="HOa-z5-dOu"/>
@@ -109,6 +109,8 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="newspaper.fill" catalog="system" width="128" height="112"/>
+        <image name="trash.fill" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

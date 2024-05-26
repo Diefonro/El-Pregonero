@@ -13,12 +13,27 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="NewsListScreenVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="NewsListScreenVC" customModule="El_Pregonero" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="MainView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNr-VD-dTF" userLabel="CollectionViewContainer">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cNr-VD-dTF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3aL-Cz-XGu"/>
+                            <constraint firstItem="cNr-VD-dTF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5ql-Aj-h6j"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cNr-VD-dTF" secondAttribute="bottom" id="CrD-AU-NY1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cNr-VD-dTF" secondAttribute="trailing" id="tqg-NT-D4x"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionContainerView" destination="cNr-VD-dTF" id="aQY-vz-Qmd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
