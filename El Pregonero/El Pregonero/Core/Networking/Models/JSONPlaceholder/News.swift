@@ -20,4 +20,4 @@ struct NewsElement: Codable {
     }
 }
 
-typealias News = [NewsElement]
+typealias JPNews = [NewsElement]

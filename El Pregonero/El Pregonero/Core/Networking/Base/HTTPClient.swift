@@ -38,6 +38,9 @@ extension HTTPClient {
                 return .failure(.noResponse)
             }
             
+            print("* * * * * * * * * ")
+            urlRequest.printFullRequest()
+            print("* * * * * * * * * ")
             print("JSON DATA: \(await String(data: request.response.data ?? Data(), encoding: .utf8) ?? "")")
             
             switch response.statusCode {
@@ -55,6 +58,24 @@ extension HTTPClient {
             }
         } catch {
             return .failure(.unknown)
+        }
+    }
+}
+
+extension URLRequest {
+    func printFullRequest() {
+        let method = self.httpMethod ?? ""
+        let url = self.url ?? URL(string: "")!
+        print("\n\(method) : \(url)")
+        if let headers = self.allHTTPHeaderFields {
+            print("\nHEADERS :")
+            for (value, key) in headers {
+                print("\n\(value) : \(key)")
+            }
+        }
+        
+        if let body = String(data: self.httpBody ?? Data(), encoding: .utf8) {
+            print("\nBODY : \(body) \n")
         }
     }
 }

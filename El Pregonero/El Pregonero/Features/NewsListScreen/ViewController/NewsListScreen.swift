@@ -27,6 +27,9 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        viewModel?.getDJNews {}
+        viewModel?.getJPNews {}
+        viewModel?.getTNNews {}
     }
     
     func setViewModel(viewModel: NewsScreenViewModel) {
