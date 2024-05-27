@@ -16,6 +16,12 @@ class NewsSectionCell: UICollectionViewCell, CellInfo {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        newsSectionImageView.addCircularGradient()
+    }
+    
+    func setupCellH(image: String?, sport: String?) {
+        self.newsSectionImageView.setImage(from: URL(string: image!)!)
+        self.newsSectionNameLabel.text = sport
     }
 
 }

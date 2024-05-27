@@ -55,7 +55,8 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
             }
         case 2:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsSectionCell.reuseIdentifier, for: indexPath) as? NewsSectionCell {
-                cell.newsSectionNameLabel.text = "Section NAME"
+                let data = viewModel?.newsArray[index]
+                cell.setupCellH(image: data?.newsImage, sport: data?.newsTitle)
                 return cell
             }
         case 3:

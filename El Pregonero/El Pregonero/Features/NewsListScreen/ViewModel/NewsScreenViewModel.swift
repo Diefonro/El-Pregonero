@@ -57,22 +57,7 @@ class NewsScreenViewModel {
         return ""
     }
     
-    //MARK: ShowsAPI
-    func getShows(completion: @escaping () -> Void) {
-        Task(priority: .userInitiated) {
-            let result = await showsServices.getShows()
-            switch result {
-            case .success(let shows):
-                let data = shows.getShows()
-                DataManager.showsData = data
-                print("SHOWS DATA: \(DataManager.showsData.count), \(DataManager.showsData)")
-                completion()
-            case .failure(let error):
-                AppError.handle(error: error)
-            }
-        }
-    }
-
+    //MARK: NewsAPI's
     func getNews(completion: @escaping () -> Void) {
         Task(priority: .userInitiated) {
             async let jpNewsResult = newsServices.getJPNews()
@@ -109,6 +94,42 @@ class NewsScreenViewModel {
             completion()
         }
     }
+    
+    //MARK: ShowsAPI
+    func getShows(completion: @escaping () -> Void) {
+        Task(priority: .userInitiated) {
+            let result = await showsServices.getShows()
+            switch result {
+            case .success(let shows):
+                let data = shows.getShows()
+                DataManager.showsData = data
+                print("SHOWS DATA: \(DataManager.showsData.count), \(DataManager.showsData)")
+                completion()
+            case .failure(let error):
+                AppError.handle(error: error)
+            }
+        }
+    }
+
+    //MARK: Sections Dummy Data
+    struct NewsCellData {
+        let newsTitle: String
+        let newsImage: String
+    }
+
+    let newsArray: [NewsCellData] = [
+        NewsCellData(newsTitle: "Politics", newsImage: "https://wwd.com/wp-content/uploads/2020/10/political-story-main.jpg"),
+        NewsCellData(newsTitle: "Economy", newsImage: "https://hmarkets.com/wp-media/2022/11/Background-screen-saver-on-economic-news-compressed-1024x614.jpg"),
+        NewsCellData(newsTitle: "Technology", newsImage: "https://miro.medium.com/v2/resize:fit:554/1*vuJHrhjlkx5H9XxB4zcwtA.jpeg"),
+        NewsCellData(newsTitle: "Health", newsImage: "https://domf5oio6qrcr.cloudfront.net/medialibrary/12031/e8e80fe7-0a4a-40f2-9163-b773c86e52e4.jpg"),
+        NewsCellData(newsTitle: "Science", newsImage: "https://play-lh.googleusercontent.com/gh3LvP3YXG1Bh5QwQ9r1jXdBcealicPNDqqmyv1JTs_tFkGkb70ltIVlUfZmosF3DA"),
+        NewsCellData(newsTitle: "Environment", newsImage: "https://cdn.outsideonline.com/wp-content/uploads/2019/05/02/good-news-environment_h.jpg"),
+        NewsCellData(newsTitle: "Education", newsImage: "https://static01.nyt.com/images/2023/07/13/multimedia/13a2_ITT-gpvk/13a2_ITT-gpvk-articleLarge.jpg?quality=75&auto=webp&disable=upscale"),
+        NewsCellData(newsTitle: "Sports", newsImage: "https://blog.feedspot.com/wp-content/uploads/2017/11/sports.jpg?x30630"),
+        NewsCellData(newsTitle: "Entertainment", newsImage: "https://cdn.cnn.com/cnnnext/dam/assets/221206144523-handler-jones-leguizamo-split-large-tease.jpg"),
+        NewsCellData(newsTitle: "World", newsImage: "https://media.cnn.com/api/v1/images/stellar/prod/240526184946-rafah-airstrike-052624-dle-card.jpg?c=16x9&q=h_438,w_780,c_fill")
+    ]
+
 }
 
 extension Notification.Name {
