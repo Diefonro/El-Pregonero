@@ -8,6 +8,7 @@
 import UIKit
 
 extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 4
     }
@@ -15,7 +16,7 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 1
+            return DataManager.showsData.count
         case 1:
             return 3
         case 2:
@@ -33,7 +34,8 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
         switch section {
         case 0:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgramCell.reuseIdentifier, for: indexPath) as? ProgramCell {
-                cell.imageView.image = UIImage(systemName: "car.fill")
+                let data = DataManager.showsData[indexPath.row]
+                cell.setupCell(with: data)
                 return cell
             }
         case 1:

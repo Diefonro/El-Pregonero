@@ -14,12 +14,12 @@ struct Shows: Codable {
     let nextCursor: String
     
     func getShows() -> [Show] {
-        guard let shows = shows, !shows.isEmpty else {
-            return []
-        }
+            guard let shows = shows, !shows.isEmpty else {
+                return []
+            }
 
-        return shows
-    }
+            return shows
+        }
 }
 
 // MARK: - Show
@@ -46,6 +46,10 @@ struct Show: Codable {
         case tmdbID = "tmdbId"
         case title, overview, releaseYear, originalTitle, genres, directors, cast, rating, imageSet, streamingOptions, firstAirYear, lastAirYear, creators, seasonCount, episodeCount
     }
+    
+    func getImageSet() -> ShowImageSet {
+            return self.imageSet
+        }
 }
 
 // MARK: - Genre
@@ -59,18 +63,34 @@ struct ShowImageSet: Codable {
     let horizontalPoster: Horizontal
     let verticalBackdrop: Vertical?
     let horizontalBackdrop: Horizontal?
+    
+    func getVerticalPoster() -> Vertical {
+            return self.verticalPoster
+        }
+        
+        func getHorizontalPoster() -> Horizontal {
+            return self.horizontalPoster
+        }
+    
 }
 
 // MARK: - Horizontal
 struct Horizontal: Codable {
     let w360, w480, w720, w1080: String
     let w1440: String
+    func on720() -> String {
+            return self.w720
+        }
+    
 }
 
 // MARK: - Vertical
 struct Vertical: Codable {
     let w240, w360, w480, w600: String
     let w720: String
+    func on720() -> String {
+            return self.w720
+        }
 }
 
 enum ItemType: String, Codable {
@@ -84,23 +104,23 @@ enum ShowType: String, Codable {
 
 // MARK: - StreamingOptions
 struct StreamingOptions: Codable {
-    let us: [Me]
+    let us: [Me]?
 }
 
 // MARK: - Me
 struct Me: Codable {
     let service: Addon
     let type: TypeEnum
+    let addon: Addon?
     let link: String
     let quality: Quality?
     let audios: [Audio]
     let subtitles: [Subtitle]
-    let price: Price?
     let expiresSoon: Bool
     let availableSince: Int
+    let price: Price?
     let videoLink: String?
     let expiresOn: Int?
-    let addon: Addon?
 }
 
 // MARK: - Addon
@@ -119,11 +139,7 @@ struct AddonImageSet: Codable {
 // MARK: - Audio
 struct Audio: Codable {
     let language: String
-    let region: Region?
-}
-
-enum Region: String, Codable {
-    case usa = "USA"
+    let region: String?
 }
 
 // MARK: - Price

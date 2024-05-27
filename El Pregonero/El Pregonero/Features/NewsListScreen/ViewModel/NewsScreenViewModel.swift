@@ -65,6 +65,7 @@ class NewsScreenViewModel {
             case .success(let shows):
                 let data = shows.getShows()
                 DataManager.showsData = data
+                print("SHOWS DATA: \(DataManager.showsData.count), \(DataManager.showsData)")
                 completion()
             case .failure(let error):
                 AppError.handle(error: error)

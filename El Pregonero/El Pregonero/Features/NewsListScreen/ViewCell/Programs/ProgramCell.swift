@@ -12,12 +12,18 @@ class ProgramCell: UICollectionViewCell, CellInfo{
     static var reuseIdentifier = "ProgramCell"
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var showNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    func setupCell(url: String?) {
-        self.imageView.setImage(from: URL(string: url!)!)
+    func setupCell(with data: Show) {
+        if let imageUrl = URL(string: data.getImageSet().getVerticalPoster().on720()) {
+            self.imageView.setImage(from: imageUrl)
+        } else {
+            self.imageView.image = UIImage(named: "movieclapper.fill")
+        }
+        self.showNameLabel.text = data.title
     }
 }

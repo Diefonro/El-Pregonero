@@ -29,7 +29,7 @@ extension ShowsEndpoint: Endpoint {
     var queryItems: [URLQueryItem]? {
         switch self {
         case .shows:
-            return [URLQueryItem(name: "country", value: "us")]
+            return [URLQueryItem(name: "country", value: "us"), URLQueryItem(name: "cursor", value: "240855:'Neath Canadian Skies")]
         }
     }
     

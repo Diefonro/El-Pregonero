@@ -30,7 +30,12 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
         setupCollectionView()
         viewModel?.getNews {
             DispatchQueue.main.async {
-                print("Data available :D")
+            }
+        }
+        viewModel?.getShows {
+            DispatchQueue.main.async {
+                self.collectionView!.reloadSections(IndexSet(integer: 0))
+                print("Data available :D, \(DataManager.showsData.count)")
             }
         }
     }
@@ -80,16 +85,16 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
                 // Spacing between items
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 0)
                 
                 // Group size
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3), heightDimension: .estimated(200))
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3), heightDimension: .estimated(250))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
                 
                 // Section
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
-                section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 40, trailing: 0)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 50, leading: 20, bottom: 40, trailing: 0)
                 
                 // Header
                 let header = NSCollectionLayoutBoundarySupplementaryItem(
