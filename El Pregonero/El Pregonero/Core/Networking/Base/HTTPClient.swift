@@ -42,6 +42,7 @@ extension HTTPClient {
             urlRequest.printFullRequest()
             print("* * * * * * * * * ")
             print("JSON DATA: \(await String(data: request.response.data ?? Data(), encoding: .utf8) ?? "")")
+            print("END JSON DATA * * * * * * * * * ")
             
             switch response.statusCode {
             case 200...299:

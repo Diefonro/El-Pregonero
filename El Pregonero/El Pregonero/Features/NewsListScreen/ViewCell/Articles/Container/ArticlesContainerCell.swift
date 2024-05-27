@@ -15,6 +15,13 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
     @IBOutlet weak var newsLetterNameLabel: UILabel!
     @IBOutlet weak var collectionViewContainer: UIView!
     
+    var cellIndex = 0
+    var section: Int = 0 {
+        didSet {
+            cellIndex = section
+        }
+    }
+    
     private lazy var collectionView: UICollectionView? = {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -25,6 +32,15 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
+    }
+    
+    func setupCell(image: String, name: String) {
+        self.newsLetterNameLabel.text = name
+        if let imageUrl = URL(string: image) {
+            self.newsLetterImageView.setImage(from: imageUrl)
+        } else {
+            self.newsLetterImageView.image = UIImage(systemName: "newspaper")
+        }
     }
     
     func setupCollectionView() {
@@ -61,12 +77,12 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
             // Group size
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(100))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item])
-                
-                // Section
-                let section = NSCollectionLayoutSection(group: group)
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10)
-                
-                return section
+            
+            // Section
+            let section = NSCollectionLayoutSection(group: group)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10)
+            
+            return section
         }
         let layout = UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
         return layout
@@ -75,12 +91,43 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
 
 extension ArticlesContainerCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        let JPData = DataManager.newsJPData
+        let TNData = DataManager.newsTNData
+        let DJData = DataManager.newsDJData
+        
+        switch cellIndex {
+        case 0:
+            return JPData.count - 90
+        case 1:
+            return TNData.count
+        case 2:
+            return DJData.count
+        default:
+            return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LineArticleCell.reuseIdentifier, for: indexPath) as? LineArticleCell {
-            cell.newsHeadlineLabel.text = "Dequeued perfectly"
+            let index = indexPath.row
+            let JPData = DataManager.newsJPData[index]
+//            let TNData = DataManager.newsTNData[index]
+//            let DJData = DataManager.newsDJData[index]
+
+            switch cellIndex {
+            case 0:
+                cell.newsHeadlineLabel.text = JPData.title
+                cell.articleImageView.setImage(from: URL(string: JPData.image)!)
+                cell.newsAuthorImageView.setImage(from: URL(string: JPData.thumbnail)!)
+                cell.newsAuthorNameLabel.text = JPData.slug
+            case 1:
+                break
+            case 2:
+                break
+            default:
+                break
+            }
+            
             return cell
         }
         return UICollectionViewCell()

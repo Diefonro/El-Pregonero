@@ -27,8 +27,11 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
-        viewModel?.getJPNews {}
+        viewModel?.getJPNews {
+            DispatchQueue.main.async {
+                self.setupCollectionView()
+            }
+        }
 //        viewModel?.getDJNews {}
 //        viewModel?.getTNNews {}
 //        viewModel?.getShows {}

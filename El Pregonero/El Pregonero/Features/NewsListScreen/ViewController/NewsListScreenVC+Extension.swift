@@ -13,11 +13,23 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 3
+        case 2:
+            return 10
+        case 3:
+            return 1
+        default:
+            return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let section = indexPath.section
+        let index = indexPath.item
         switch section {
         case 0:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgramCell.reuseIdentifier, for: indexPath) as? ProgramCell {
@@ -26,7 +38,17 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
             }
         case 1:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticlesContainerCell.reuseIdentifier, for: indexPath) as? ArticlesContainerCell {
-                cell.newsLetterNameLabel.text = "Dequeued correctly"
+                switch index {
+                case 0:
+                    cell.setupCell(image: (viewModel?.getJPImageURL())!, name: (viewModel?.getJPName())!)
+                case 1:
+                    cell.setupCell(image: (viewModel?.getTNImageURL())!, name: (viewModel?.getTNName())!)
+                case 2:
+                    cell.setupCell(image: (viewModel?.getDJImageURL())!, name: (viewModel?.getDJName())!)
+                default:
+                    print("Failed to get newspaper info.")
+                }
+                cell.section = index
                 return cell
             }
         case 2:
