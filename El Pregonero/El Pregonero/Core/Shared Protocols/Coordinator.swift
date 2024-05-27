@@ -14,6 +14,7 @@ protocol Coordinator {
     func showNavigationBar(animated: Bool)
     func hideNavigationBar(animated: Bool)
     func disableDragPopGesture()
+    func popToRootController(animated: Bool)
 }
 
 extension Coordinator {
@@ -34,8 +35,19 @@ extension Coordinator {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    func enableDragPopGesture() {
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
     func disableDragPopGesture() {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
+    func popToRootController(animated: Bool) {
+        if let navigationControllers = self.navigationController?.viewControllers,
+           navigationControllers.count > 2 {
+            self.navigationController?.popToViewController(navigationControllers[1], animated: animated)
+        }
     }
 }
 

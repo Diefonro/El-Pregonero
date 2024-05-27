@@ -12,7 +12,7 @@ class HeaderView: UICollectionReusableView {
     let label: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         label.text = "This is a header"
         return label
     }()
@@ -20,7 +20,6 @@ class HeaderView: UICollectionReusableView {
     let button: UIButton = {
         let button = UIButton()
         button.setTitle("Ver todos", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
         button.setTitleColor(.orange, for: .normal)
         button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
         return button

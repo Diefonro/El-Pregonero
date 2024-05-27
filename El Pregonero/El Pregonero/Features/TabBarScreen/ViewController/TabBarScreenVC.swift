@@ -8,7 +8,8 @@
 import UIKit
 
 class TabBarScreenVC: UITabBarController, StoryboardInfo, Coordinating {
-    var coordinator: (any Coordinator)?
+    
+    var coordinator: Coordinator?
     
     static var storyboard = "TabBarScreen"
     static var identifier = "TabBarScreenVC"
@@ -18,18 +19,46 @@ class TabBarScreenVC: UITabBarController, StoryboardInfo, Coordinating {
         self.configureControllers()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.coordinator?.showNavigationBar(animated: true)
+        self.navigationItem.title = "El Pregonero"
+        self.navigationItem.hidesBackButton = true
+        addNavBarImage()
+    }
+    
+    func setCoordinator(coordinator: Coordinator?) {
+        self.coordinator = coordinator
+    }
+    
+    func addNavBarImage() {
+        let navController = navigationController!
+        var imageView = UIImageView(image: UIImage())
+        if let originalImage = UIImage(named: "ElPregoneroLogo") {
+            let targetSize = CGSize(width: 150, height: 35)
+            if let resizedImage = originalImage.resized(to: targetSize) {
+                imageView = UIImageView(image: resizedImage)
+            }
+        }
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
+    }
+    
     func configureControllers() {
-        //MARK: Here you must add new controllers for tabbar items
+        
         if let newsScreen = UIStoryboard(name: NewsListScreenVC.storyboard, bundle: nil)
             .instantiateViewController(withIdentifier: NewsListScreenVC.identifier) as? NewsListScreenVC,
            let usersScreen = UIStoryboard(name: UsersListScreenVC.storyboard, bundle: nil)
             .instantiateViewController(withIdentifier: UsersListScreenVC.identifier) as? UsersListScreenVC {
-            newsScreen.title = "News"
-            usersScreen.title = "Users"
             
+            newsScreen.title = "News"
+            newsScreen.tabBarItem.image = UIImage(systemName: "newspaper.fill")
+            usersScreen.title = "Users"
+            usersScreen.tabBarItem.image = UIImage(systemName: "person.fill")
+            
+            newsScreen.setCoordinator(coordinator: NewsScreenCoordinator(coordinator: self.coordinator))
             newsScreen.setViewModel(viewModel: NewsScreenViewModel())
             viewControllers = [newsScreen, usersScreen]
         }
     }
-
 }

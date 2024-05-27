@@ -10,6 +10,7 @@ import Foundation
 class NewsScreenViewModel {
     
     let newsServices = NewsServices()
+    let showsServices = ShowsServices()
     
     func getJPNews(completion: @escaping () -> Void) {
         Task(priority: .userInitiated) {
@@ -56,6 +57,20 @@ class NewsScreenViewModel {
             case .failure(let error):
                 AppError.handle(error: error)
                 completion()
+            }
+        }
+    }
+    
+    func getShows(completion: @escaping () -> Void) {
+        Task(priority: .userInitiated) {
+            let result = await showsServices.getShows()
+            switch result {
+            case .success(let shows):
+                let data = shows.getShows()
+                DataManager.showsData = data
+                completion()
+            case .failure(let error):
+                AppError.handle(error: error)
             }
         }
     }

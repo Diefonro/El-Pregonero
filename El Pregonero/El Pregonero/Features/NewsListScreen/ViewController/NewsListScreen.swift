@@ -13,6 +13,7 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
     static var identifier = "NewsListScreenVC"
     
     var viewModel: NewsScreenViewModel?
+    var newsCoordinator: NewsScreenCoordinator?
     
     @IBOutlet weak var collectionContainerView: UIView!
     
@@ -20,20 +21,29 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
-        collectionView.backgroundColor = .systemGray6
+        collectionView.backgroundColor = .white
         return collectionView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        viewModel?.getDJNews {}
         viewModel?.getJPNews {}
-        viewModel?.getTNNews {}
+//        viewModel?.getDJNews {}
+//        viewModel?.getTNNews {}
+//        viewModel?.getShows {}
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func setViewModel(viewModel: NewsScreenViewModel) {
         self.viewModel = viewModel
+    }
+    
+    func setCoordinator(coordinator: NewsScreenCoordinator?) {
+        self.newsCoordinator = coordinator
     }
     
     func setupCollectionView() {
@@ -64,7 +74,6 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
         let sectionProvider = { (sectionIndex: Int, layoutEnviroment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             switch sectionIndex {
             case 0:
-                print("Tried to layout section 0")
                 // Item size
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -81,9 +90,17 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
                 section.orthogonalScrollingBehavior = .continuous
                 section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 40, trailing: 0)
                 
+                // Header
+                let header = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(35)),
+                    elementKind: UICollectionView.elementKindSectionHeader,
+                    alignment: .topLeading)
+                header.contentInsets = NSDirectionalEdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0)
+                
+                section.boundarySupplementaryItems = [header]
+                
                 return section
             case 1:
-                print("Tried to layout section 1")
                 // Item size
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -186,47 +203,3 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
     }
     
 }
-
-extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 4
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let section = indexPath.section
-        switch section {
-        case 0:
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgramCell.reuseIdentifier, for: indexPath) as? ProgramCell {
-                cell.imageView.image = UIImage(systemName: "car.fill")
-                return cell
-            }
-        case 1:
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticlesContainerCell.reuseIdentifier, for: indexPath) as? ArticlesContainerCell {
-                cell.newsLetterNameLabel.text = "Dequeued correctly"
-                return cell
-            }
-        case 2:
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsSectionCell.reuseIdentifier, for: indexPath) as? NewsSectionCell {
-                cell.newsSectionNameLabel.text = "Section NAME"
-                return cell
-            }
-        case 3:
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SportsHighlightsCell.reuseIdentifier, for: indexPath) as? SportsHighlightsCell {
-                cell.homeTeamImageView.image = UIImage(systemName: "person")
-                cell.awayTeamImageView.image = UIImage(systemName: "person.fill")
-                cell.awayTeamNameLabel.text = "XDD"
-                return cell
-            }
-        default:
-            print("Failed to dequeue cell")
-            return UICollectionViewCell()
-        }
-        return UICollectionViewCell()
-    }
-    
-    
-}
-
