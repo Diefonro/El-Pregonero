@@ -27,14 +27,12 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.getJPNews {
+        setupCollectionView()
+        viewModel?.getNews {
             DispatchQueue.main.async {
-                self.setupCollectionView()
+                print("Data available :D")
             }
         }
-//        viewModel?.getDJNews {}
-//        viewModel?.getTNNews {}
-//        viewModel?.getShows {}
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +63,7 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
             collectionView!.bottomAnchor.constraint(equalTo: collectionContainerView.bottomAnchor)
         ])
         
-       //MARK: Cells registration
+        //MARK: Cells registration
         collectionView!.register(UINib(nibName: ProgramCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: ProgramCell.reuseIdentifier)
         collectionView!.register(UINib(nibName: ArticlesContainerCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: ArticlesContainerCell.reuseIdentifier)
         collectionView!.register(UINib(nibName: NewsSectionCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: NewsSectionCell.reuseIdentifier)
@@ -127,7 +125,7 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
                     alignment: .topLeading)
                 section.boundarySupplementaryItems = [header]
                 return section
-
+                
             case 2:
                 // Item size
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
@@ -177,7 +175,7 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
                     alignment: .topLeading)
                 section.boundarySupplementaryItems = [header]
                 return section
-          
+                
                 
             default:
                 print("Failed to layout section")
@@ -205,4 +203,7 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
         return layout
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }

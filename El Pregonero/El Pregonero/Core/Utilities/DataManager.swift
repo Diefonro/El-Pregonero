@@ -9,7 +9,7 @@ import Foundation
 
 class DataManager {
     static var newsJPData: JPNews = []
-    static var newsDJData: [Post] = []
     static var newsTNData: [Datum] = []
+    static var newsDJData: [Post] = []
     static var showsData: [Show] = []
 }

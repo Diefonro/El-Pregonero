@@ -13,21 +13,6 @@ class NewsScreenViewModel {
     let showsServices = ShowsServices()
     
     //MARK: JSONPlaceholder functions
-    func getJPNews(completion: @escaping () -> Void) {
-        Task(priority: .userInitiated) {
-            let result = await newsServices.getJPNews()
-            switch result {
-            case .success(let news):
-                DataManager.newsJPData = news
-                print("JP DATA: \(news)")
-                print("JP DATA END")
-                completion()
-            case .failure(let error):
-                AppError.handle(error: error)
-                completion()            }
-        }
-    }
-    
     func getJPName() -> String {
         return "JSONPlaceholder News"
     }
@@ -43,23 +28,6 @@ class NewsScreenViewModel {
     }
 
     //MARK: TheNewsAPI functions
-    func getTNNews(completion: @escaping () -> Void) {
-        Task(priority: .userInitiated) {
-            let result = await newsServices.getTNNews()
-            switch result {
-            case .success(let news):
-                let data = news.getNews()
-                DataManager.newsTNData = data
-                print("TN DATA: \(news)")
-                print("TN DATA END")
-                completion()
-            case .failure(let error):
-                AppError.handle(error: error)
-                completion()
-            }
-        }
-    }
-    
     func getTNName() -> String {
         return "TheNewsAPI News"
     }
@@ -75,23 +43,6 @@ class NewsScreenViewModel {
     }
 
     //MARK: DummyJSON functions
-    func getDJNews(completion: @escaping () -> Void) {
-        Task(priority: .userInitiated) {
-            let result = await newsServices.getDJNews()
-            switch result {
-            case .success(let news):
-                let data = news.getNews()
-                DataManager.newsDJData = data
-                print("DJ DATA: \(news)")
-                print("DJ DATA END")
-                completion()
-            case .failure(let error):
-                AppError.handle(error: error)
-                completion()
-            }
-        }
-    }
-    
     func getDJName() -> String {
         return "DummyJSON News"
     }
@@ -121,4 +72,46 @@ class NewsScreenViewModel {
         }
     }
 
+    func getNews(completion: @escaping () -> Void) {
+        Task(priority: .userInitiated) {
+            async let jpNewsResult = newsServices.getJPNews()
+            async let tnNewsResult = newsServices.getTNNews()
+            async let djNewsResult = newsServices.getDJNews()
+            
+            let jpNewsOutcome = await jpNewsResult
+            let tnNewsOutcome = await tnNewsResult
+            let djNewsOutcome = await djNewsResult
+            
+            switch jpNewsOutcome {
+            case .success(let news):
+                DataManager.newsJPData = news
+                NotificationCenter.default.post(name: .didUpdateJPNewsData, object: nil)
+            case .failure(let error):
+                AppError.handle(error: error)
+            }
+            
+            switch tnNewsOutcome {
+            case .success(let news):
+                DataManager.newsTNData = news.getNews()
+                NotificationCenter.default.post(name: .didUpdateJPNewsData, object: nil)
+            case .failure(let error):
+                AppError.handle(error: error)
+            }
+            
+            switch djNewsOutcome {
+            case .success(let news):
+                DataManager.newsDJData = news.getNews()
+                NotificationCenter.default.post(name: .didUpdateDJNewsData, object: nil)
+            case .failure(let error):
+                AppError.handle(error: error)
+            }
+            completion()
+        }
+    }
+}
+
+extension Notification.Name {
+    static let didUpdateDJNewsData = Notification.Name("didUpdateDJNewsData")
+    static let didUpdateJPNewsData = Notification.Name("didUpdateJPNewsData")
+    static let didUpdateTNNewsData = Notification.Name("didUpdateTNNewsData")
 }

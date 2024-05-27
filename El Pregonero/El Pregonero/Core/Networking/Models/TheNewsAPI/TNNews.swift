@@ -22,22 +22,15 @@ struct TNNews: Codable {
 
 // MARK: - Datum
 struct Datum: Codable {
-    let uuid, title, description, keywords: String
-    let snippet: String
+    let title, description: String
     let url: String
     let imageURL: String
-    let language, publishedAt, source: String
-    let categories: [String]
-    let relevanceScore: String?
-    let locale: String
+    let publishedAt, source: String
 
     enum CodingKeys: String, CodingKey {
-        case uuid, title, description, keywords, snippet, url
+        case title, description, url
         case imageURL = "image_url"
-        case language
         case publishedAt = "published_at"
-        case source, categories
-        case relevanceScore = "relevance_score"
-        case locale
+        case source
     }
 }

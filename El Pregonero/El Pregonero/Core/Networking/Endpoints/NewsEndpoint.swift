@@ -40,7 +40,7 @@ extension NewsEndpoint: Endpoint {
         case .newsJP, .newsDJ:
             return nil
         case .newsTN:
-            let token = "7ei0SMjmSgIGEtYaM1KiTzNL3inQ9QYPz2Iij0qj"
+            let token = "2GCiu7nqoos8QakFoDQRqrpkyAXMlp1i5KViRaf0"
             return [URLQueryItem(name: "api_token", value: token), URLQueryItem(name: "locale", value: "ar"), URLQueryItem(name: "page", value: "1")]
         }
     }

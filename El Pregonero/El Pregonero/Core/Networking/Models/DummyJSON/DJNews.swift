@@ -23,14 +23,12 @@ struct DJNews: Codable {
 
 // MARK: - Post
 struct Post: Codable {
-    let id: Int
     let title, body: String
-    let tags: [String]
     let reactions: Reactions
     let views, userID: Int
 
     enum CodingKeys: String, CodingKey {
-        case id, title, body, tags, reactions, views
+        case title, body, reactions, views
         case userID = "userId"
     }
 }

@@ -32,6 +32,15 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateJPNewsData), name: .didUpdateDJNewsData, object: nil)
+               NotificationCenter.default.addObserver(self, selector: #selector(didUpdateJPNewsData), name: .didUpdateJPNewsData, object: nil)
+               NotificationCenter.default.addObserver(self, selector: #selector(didUpdateJPNewsData), name: .didUpdateTNNewsData, object: nil)
+    }
+    
+    @objc func didUpdateJPNewsData() {
+        DispatchQueue.main.async {
+            self.collectionView!.reloadData()
+        }
     }
     
     func setupCell(image: String, name: String) {
@@ -48,6 +57,8 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
         //MARK: Delegates assingment
         collectionView!.dataSource = self
         collectionView!.delegate = self
+        collectionView!.prefetchDataSource = self
+        collectionView!.isPrefetchingEnabled = true
         
         //MARK: CollectionView size setup.
         collectionViewContainer.addSubview(collectionView!)
@@ -89,19 +100,34 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
     }
 }
 
-extension ArticlesContainerCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ArticlesContainerCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            switch cellIndex {
+            case 0:
+                guard indexPath.row < DataManager.newsJPData.count else { continue }
+                let _ = DataManager.newsJPData[indexPath.row]
+            case 1:
+                guard indexPath.row < DataManager.newsTNData.count else { continue }
+                let _ = DataManager.newsTNData[indexPath.row]
+            case 2:
+                guard indexPath.row < DataManager.newsDJData.count else { continue }
+                let _ = DataManager.newsDJData[indexPath.row]
+            default:
+                continue
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let JPData = DataManager.newsJPData
-        let TNData = DataManager.newsTNData
-        let DJData = DataManager.newsDJData
-        
         switch cellIndex {
         case 0:
-            return JPData.count - 90
+            return DataManager.newsJPData.count - 90
         case 1:
-            return TNData.count
+            return DataManager.newsTNData.count
         case 2:
-            return DJData.count
+            return DataManager.newsDJData.count - 20
         default:
             return 1
         }
@@ -109,21 +135,19 @@ extension ArticlesContainerCell: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LineArticleCell.reuseIdentifier, for: indexPath) as? LineArticleCell {
-            let index = indexPath.row
-            let JPData = DataManager.newsJPData[index]
-//            let TNData = DataManager.newsTNData[index]
-//            let DJData = DataManager.newsDJData[index]
-
             switch cellIndex {
             case 0:
-                cell.newsHeadlineLabel.text = JPData.title
-                cell.articleImageView.setImage(from: URL(string: JPData.image)!)
-                cell.newsAuthorImageView.setImage(from: URL(string: JPData.thumbnail)!)
-                cell.newsAuthorNameLabel.text = JPData.slug
+                let index = indexPath.row
+                let JPData = DataManager.newsJPData[index]
+                cell.setupJPCell(with: JPData)
             case 1:
-                break
+                let index = indexPath.row
+                let TNData = DataManager.newsTNData[index]
+                cell.setupTNCell(with: TNData)
             case 2:
-                break
+                let index = indexPath.row
+                let DJData = DataManager.newsDJData[index]
+                cell.setupDJCell(with: DJData)
             default:
                 break
             }

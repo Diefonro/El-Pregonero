@@ -73,7 +73,6 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let newsScreen = UIStoryboard(name: UsersListScreenVC.storyboard, bundle: nil)
             .instantiateViewController(withIdentifier: UsersListScreenVC.identifier) as? UsersListScreenVC {
-            self.newsCoordinator?.pushToSubcategoryDetail()
         }
     }
     
@@ -96,6 +95,7 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
         }
         return UICollectionReusableView()
     }
+    
 }
 
 
