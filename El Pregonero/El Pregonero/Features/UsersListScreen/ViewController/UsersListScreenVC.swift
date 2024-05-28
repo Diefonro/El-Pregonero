@@ -14,6 +14,7 @@ class UsersListScreenVC: UIViewController, StoryboardInfo {
     
     var viewModel: UserListScreenViewModel?
     var usersCoordinator: UsersListScreenCoordinator?
+    var data: User?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var findUsersButton: UIButton!
@@ -23,7 +24,7 @@ class UsersListScreenVC: UIViewController, StoryboardInfo {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: UserInfoCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: UserInfoCell.reuseIdentifier)
-        findUsersButton.backgroundColor = .black
+        findUsersButton.tintColor = .black
         viewModel?.getUsers {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -49,8 +50,12 @@ class UsersListScreenVC: UIViewController, StoryboardInfo {
         self.usersCoordinator = coordinator
     }
     
+    func recoverIndexFromArray(with index: Int) -> Int{
+        return index
+    }
+    
     @IBAction func findUsersButtonAction(_ sender: Any) {
-        
+        self.usersCoordinator?.pushToUserMap(with: User(id: 0, firstname: "", lastname: "", email: "", birthDate: "", address: Address(street: "", suite: "", city: "", zipcode: "", geo: Geo(lat: "0.0", lng: "0.0")), phone: "", website: "", company: Company(name: "", catchPhrase: "", bs: "")), showAllUsers: true)
     }
     
 }
@@ -63,11 +68,17 @@ extension UsersListScreenVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: UserInfoCell.reuseIdentifier) as? UserInfoCell {
             let userData = DataManager.usersData[indexPath.row]
+            self.data = userData
             let pictureData = DataManager.usersPictures[indexPath.item]
             cell.configureCell(userData: userData, pictureData: pictureData)
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let userData = DataManager.usersData[indexPath.row]
+        self.usersCoordinator?.pushToUserMap(with: userData, showAllUsers: false)
     }
     
     

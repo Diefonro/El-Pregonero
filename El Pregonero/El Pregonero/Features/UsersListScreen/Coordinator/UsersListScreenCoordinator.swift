@@ -38,11 +38,11 @@ class UsersListScreenCoordinator: Coordinating {
         self.coordinator?.disableDragPopGesture()
     }
     
-    func pushToProgramDetail(with data: Show, navTitle: String) {
-        if let detailScreen = UIStoryboard(name: ProgramDetailScreenVC.storyboard, bundle: nil)
-            .instantiateViewController(withIdentifier: ProgramDetailScreenVC.identifier) as? ProgramDetailScreenVC {
+    func pushToUserMap(with data: User, showAllUsers: Bool = false) {
+        if let detailScreen = UIStoryboard(name: UserListMapScreenVC.storyboard, bundle: nil)
+            .instantiateViewController(withIdentifier: UserListMapScreenVC.identifier) as? UserListMapScreenVC {
             detailScreen.data = data
-            detailScreen.navTitle = navTitle
+            detailScreen.showAllUsers = showAllUsers
             self.coordinator?.push(viewController: detailScreen, animated: true)
         }
     }

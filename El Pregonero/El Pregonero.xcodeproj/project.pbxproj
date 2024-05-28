@@ -69,6 +69,8 @@
 		41E47F7C2C06441800DBF6B9 /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41E47F7B2C06441800DBF6B9 /* UserInfoCell.xib */; };
 		41E47F7D2C06441800DBF6B9 /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F7A2C06441800DBF6B9 /* UserInfoCell.swift */; };
 		41E47F802C064A7C00DBF6B9 /* UserPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F7F2C064A7C00DBF6B9 /* UserPicture.swift */; };
+		41E47F822C06657500DBF6B9 /* UsersListMapScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41E47F812C06657500DBF6B9 /* UsersListMapScreen.storyboard */; };
+		41E47F842C0665A300DBF6B9 /* UserListMapScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F832C0665A300DBF6B9 /* UserListMapScreenVC.swift */; };
 		41F39EFF2C016A3F00FD04C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */; };
 		41F39F012C016A3F00FD04C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */; };
 		41F39F032C016A3F00FD04C4 /* NewsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F022C016A3F00FD04C4 /* NewsListScreen.swift */; };
@@ -165,6 +167,8 @@
 		41E47F7A2C06441800DBF6B9 /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
 		41E47F7B2C06441800DBF6B9 /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
 		41E47F7F2C064A7C00DBF6B9 /* UserPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPicture.swift; sourceTree = "<group>"; };
+		41E47F812C06657500DBF6B9 /* UsersListMapScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UsersListMapScreen.storyboard; sourceTree = "<group>"; };
+		41E47F832C0665A300DBF6B9 /* UserListMapScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListMapScreenVC.swift; sourceTree = "<group>"; };
 		41F39EFB2C016A3F00FD04C4 /* El Pregonero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "El Pregonero.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -304,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				41D9DF822C0218910080A85E /* UsersListScreen.storyboard */,
+				41E47F812C06657500DBF6B9 /* UsersListMapScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				41D9DF852C0218AC0080A85E /* UsersListScreenVC.swift */,
+				41E47F832C0665A300DBF6B9 /* UserListMapScreenVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -814,6 +820,7 @@
 				41E47F5C2C05B73000DBF6B9 /* ProgramDetailScreen.storyboard in Resources */,
 				41D9DFCB2C02ED7B0080A85E /* LineArticleCell.xib in Resources */,
 				41E47F692C061E7800DBF6B9 /* MatchDetailScreen.storyboard in Resources */,
+				41E47F822C06657500DBF6B9 /* UsersListMapScreen.storyboard in Resources */,
 				41F39F082C016A4000FD04C4 /* Assets.xcassets in Resources */,
 				41D9DFC32C02EB460080A85E /* ArticlesContainerCell.xib in Resources */,
 				41E47F632C05F94F00DBF6B9 /* NewsDetailScreen.storyboard in Resources */,
@@ -980,6 +987,7 @@
 				41D9DFBB2C0262670080A85E /* DataManager.swift in Sources */,
 				41D9DFDA2C03540C0080A85E /* HeaderView.swift in Sources */,
 				41F39F012C016A3F00FD04C4 /* SceneDelegate.swift in Sources */,
+				41E47F842C0665A300DBF6B9 /* UserListMapScreenVC.swift in Sources */,
 				41D9DFAB2C0237D90080A85E /* RequestMethod.swift in Sources */,
 				41E47F512C055D7700DBF6B9 /* SportsServices.swift in Sources */,
 				41E47F552C055DC100DBF6B9 /* Matches.swift in Sources */,
