@@ -57,6 +57,9 @@ class TabBarScreenVC: UITabBarController, StoryboardInfo, Coordinating {
             
             newsScreen.setCoordinator(coordinator: NewsScreenCoordinator(coordinator: self.coordinator))
             newsScreen.setViewModel(viewModel: NewsScreenViewModel())
+            
+            usersScreen.setCoordinator(coordinator: UsersListScreenCoordinator(coordinator: self.coordinator))
+            usersScreen.setViewModel(viewModel: UserListScreenViewModel())
             viewControllers = [newsScreen, usersScreen]
         }
     }
