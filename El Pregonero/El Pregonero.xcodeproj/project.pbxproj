@@ -53,6 +53,9 @@
 		41E47F512C055D7700DBF6B9 /* SportsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F502C055D7700DBF6B9 /* SportsServices.swift */; };
 		41E47F552C055DC100DBF6B9 /* Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F542C055DC100DBF6B9 /* Matches.swift */; };
 		41E47F592C058D3800DBF6B9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F582C058D3800DBF6B9 /* UIColor+Extension.swift */; };
+		41E47F5C2C05B73000DBF6B9 /* ProgramDetailScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41E47F5B2C05B73000DBF6B9 /* ProgramDetailScreen.storyboard */; };
+		41E47F5E2C05B74E00DBF6B9 /* ProgramDetailScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F5D2C05B74E00DBF6B9 /* ProgramDetailScreenVC.swift */; };
+		41E47F602C05CC2500DBF6B9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F5F2C05CC2500DBF6B9 /* String+Extension.swift */; };
 		41F39EFF2C016A3F00FD04C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */; };
 		41F39F012C016A3F00FD04C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */; };
 		41F39F032C016A3F00FD04C4 /* NewsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F022C016A3F00FD04C4 /* NewsListScreen.swift */; };
@@ -133,6 +136,9 @@
 		41E47F502C055D7700DBF6B9 /* SportsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsServices.swift; sourceTree = "<group>"; };
 		41E47F542C055DC100DBF6B9 /* Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matches.swift; sourceTree = "<group>"; };
 		41E47F582C058D3800DBF6B9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		41E47F5B2C05B73000DBF6B9 /* ProgramDetailScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProgramDetailScreen.storyboard; sourceTree = "<group>"; };
+		41E47F5D2C05B74E00DBF6B9 /* ProgramDetailScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDetailScreenVC.swift; sourceTree = "<group>"; };
+		41E47F5F2C05CC2500DBF6B9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		41F39EFB2C016A3F00FD04C4 /* El Pregonero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "El Pregonero.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -393,6 +399,7 @@
 				41D9DFD42C02F0820080A85E /* UIImageView+Extension.swift */,
 				41E47F432C03C70400DBF6B9 /* UIImage+Extension.swift */,
 				41E47F582C058D3800DBF6B9 /* UIColor+Extension.swift */,
+				41E47F5F2C05CC2500DBF6B9 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -400,8 +407,9 @@
 		41D9DFD62C02F1A60080A85E /* Programs */ = {
 			isa = PBXGroup;
 			children = (
-				41D9DFBD2C02EB200080A85E /* ProgramCell.swift */,
-				41D9DFBE2C02EB200080A85E /* ProgramCell.xib */,
+				41E47F5A2C05B70600DBF6B9 /* CellRelated */,
+				41E47F5B2C05B73000DBF6B9 /* ProgramDetailScreen.storyboard */,
+				41E47F5D2C05B74E00DBF6B9 /* ProgramDetailScreenVC.swift */,
 			);
 			path = Programs;
 			sourceTree = "<group>";
@@ -552,6 +560,15 @@
 				41E47F542C055DC100DBF6B9 /* Matches.swift */,
 			);
 			path = Sports;
+			sourceTree = "<group>";
+		};
+		41E47F5A2C05B70600DBF6B9 /* CellRelated */ = {
+			isa = PBXGroup;
+			children = (
+				41D9DFBD2C02EB200080A85E /* ProgramCell.swift */,
+				41D9DFBE2C02EB200080A85E /* ProgramCell.xib */,
+			);
+			path = CellRelated;
 			sourceTree = "<group>";
 		};
 		41F39EF22C016A3F00FD04C4 = {
@@ -723,6 +740,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41E47F5C2C05B73000DBF6B9 /* ProgramDetailScreen.storyboard in Resources */,
 				41D9DFCB2C02ED7B0080A85E /* LineArticleCell.xib in Resources */,
 				41F39F082C016A4000FD04C4 /* Assets.xcassets in Resources */,
 				41D9DFC32C02EB460080A85E /* ArticlesContainerCell.xib in Resources */,
@@ -888,6 +906,7 @@
 				41E47F552C055DC100DBF6B9 /* Matches.swift in Sources */,
 				41D9DFAF2C0237FA0080A85E /* Endpoint.swift in Sources */,
 				41E47F4F2C055BDF00DBF6B9 /* SportsEndpoint.swift in Sources */,
+				41E47F5E2C05B74E00DBF6B9 /* ProgramDetailScreenVC.swift in Sources */,
 				41D9DFD52C02F0820080A85E /* UIImageView+Extension.swift in Sources */,
 				41E47F4B2C03C85800DBF6B9 /* CustomLaunchScreenVC.swift in Sources */,
 				41E47F422C03BDE600DBF6B9 /* NewsScreenCoordinator.swift in Sources */,
@@ -901,6 +920,7 @@
 				41E47F592C058D3800DBF6B9 /* UIColor+Extension.swift in Sources */,
 				41E47F3A2C03B8A200DBF6B9 /* ShowsServices.swift in Sources */,
 				41D9DF882C02224D0080A85E /* Coordinator.swift in Sources */,
+				41E47F602C05CC2500DBF6B9 /* String+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

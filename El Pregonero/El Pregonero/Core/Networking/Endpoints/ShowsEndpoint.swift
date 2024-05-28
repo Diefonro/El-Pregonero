@@ -43,7 +43,7 @@ extension ShowsEndpoint: Endpoint {
     var header: [String : String]? {
         switch self {
         case .shows:
-            let token = "f672e7f4d8mshc7d8dbac66c9a19p1c585bjsnb19e2dd1ddda"
+            let token = "b2a680a2b2mshdac6c381464f077p10b8afjsnfb015790333f"
             return [
                 "x-rapidapi-key": token,
                 "x-rapidapi-host" : self.host

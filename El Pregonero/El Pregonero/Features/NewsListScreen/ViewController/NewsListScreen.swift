@@ -47,6 +47,7 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.title = "News List"
     }
     
     func setViewModel(viewModel: NewsScreenViewModel) {

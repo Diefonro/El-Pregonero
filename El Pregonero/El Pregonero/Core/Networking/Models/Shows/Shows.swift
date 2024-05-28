@@ -14,32 +14,32 @@ struct Shows: Codable {
     let nextCursor: String
     
     func getShows() -> [Show] {
-            guard let shows = shows, !shows.isEmpty else {
-                return []
-            }
-
-            return shows
+        guard let shows = shows, !shows.isEmpty else {
+            return []
         }
+        
+        return shows
+    }
 }
 
 // MARK: - Show
 struct Show: Codable {
     let itemType: ItemType
-    let showType: ShowType
+    let showType: String
     let id, imdbID, tmdbID, title: String
     let overview: String
     let releaseYear: Int?
     let originalTitle: String
-    let genres: [Genre]
+    let genres: [Genre]?
     let directors: [String]?
-    let cast: [String]
+    let cast: [String]?
     let rating: Int
     let imageSet: ShowImageSet
     let streamingOptions: StreamingOptions
     let firstAirYear, lastAirYear: Int?
     let creators: [String]?
     let seasonCount, episodeCount: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case itemType, showType, id
         case imdbID = "imdbId"
@@ -48,13 +48,45 @@ struct Show: Codable {
     }
     
     func getImageSet() -> ShowImageSet {
-            return self.imageSet
+        return self.imageSet
+    }
+    
+    func getStreamingOptions() -> StreamingOptions {
+        return self.streamingOptions
+    }
+    
+    func getGenres() -> [Genre] {
+        guard let genres = genres, !genres.isEmpty else {
+            return []
         }
+
+        return genres
+    }
+    
+    func getDirectors() -> [String] {
+        guard let directors = directors, !directors.isEmpty else {
+            return []
+        }
+
+        return directors
+    }
+    
+    func getCast() -> [String] {
+        guard let cast = cast, !cast.isEmpty else {
+            return []
+        }
+
+        return cast
+    }
 }
 
 // MARK: - Genre
 struct Genre: Codable {
     let id, name: String
+    
+    func getGenre() -> String {
+        return self.name
+    }
 }
 
 // MARK: - ShowImageSet
@@ -65,12 +97,12 @@ struct ShowImageSet: Codable {
     let horizontalBackdrop: Horizontal?
     
     func getVerticalPoster() -> Vertical {
-            return self.verticalPoster
-        }
-        
-        func getHorizontalPoster() -> Horizontal {
-            return self.horizontalPoster
-        }
+        return self.verticalPoster
+    }
+    
+    func getHorizontalPoster() -> Horizontal {
+        return self.horizontalPoster
+    }
     
 }
 
@@ -79,8 +111,8 @@ struct Horizontal: Codable {
     let w360, w480, w720, w1080: String
     let w1440: String
     func on720() -> String {
-            return self.w720
-        }
+        return self.w720
+    }
     
 }
 
@@ -89,22 +121,24 @@ struct Vertical: Codable {
     let w240, w360, w480, w600: String
     let w720: String
     func on720() -> String {
-            return self.w720
-        }
+        return self.w720
+    }
 }
 
 enum ItemType: String, Codable {
     case show = "show"
 }
 
-enum ShowType: String, Codable {
-    case movie = "movie"
-    case series = "series"
-}
-
 // MARK: - StreamingOptions
 struct StreamingOptions: Codable {
     let us: [Me]?
+    
+    func getProviders() -> [Me] {
+        guard let us = us, !us.isEmpty else {
+            return []
+        }
+        return us
+    }
 }
 
 // MARK: - Me
@@ -121,6 +155,22 @@ struct Me: Codable {
     let price: Price?
     let videoLink: String?
     let expiresOn: Int?
+    
+    func getServiceName() -> String {
+        return self.service.name
+    }
+    
+    func getFormattedPrice() -> String? {
+        return self.price?.formatted
+    }
+    
+    func getType() -> String {
+        return self.type.rawValue.capitalized
+    }
+    
+    func getLink() -> String {
+        return self.link
+    }
 }
 
 // MARK: - Addon

@@ -38,10 +38,12 @@ class NewsScreenCoordinator: Coordinating {
         self.coordinator?.disableDragPopGesture()
     }
     
-    func pushToSubcategoryDetail() {
-        if let subcategoryDetailController = UIStoryboard(name: UsersListScreenVC.storyboard, bundle: nil)
-            .instantiateViewController(withIdentifier: UsersListScreenVC.identifier) as? UsersListScreenVC {
-            self.coordinator?.push(viewController: subcategoryDetailController, animated: true)
+    func pushToProgramDetail(with data: Show, navTitle: String) {
+        if let detailScreen = UIStoryboard(name: ProgramDetailScreenVC.storyboard, bundle: nil)
+            .instantiateViewController(withIdentifier: ProgramDetailScreenVC.identifier) as? ProgramDetailScreenVC {
+            detailScreen.data = data
+            detailScreen.navTitle = navTitle
+            self.coordinator?.push(viewController: detailScreen, animated: true)
         }
     }
 }

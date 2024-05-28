@@ -36,7 +36,7 @@ class LineArticleCell: UICollectionViewCell, CellInfo {
     func setupDJCell(with data: Post) {
         self.newsHeadlineLabel.text = data.title
         self.articleImageView.image = UIImage(systemName: "newspaper")
-        self.newsAuthorNameLabel.text = String(data.userID)
+        self.newsAuthorNameLabel.text = "User \(data.userID)"
     }
 
 }

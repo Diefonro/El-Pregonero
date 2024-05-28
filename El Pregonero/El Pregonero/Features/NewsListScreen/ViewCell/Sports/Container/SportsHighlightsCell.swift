@@ -47,11 +47,11 @@ class SportsHighlightsCell: UICollectionViewCell, CellInfo {
         self.awayTeamScoreLabel.text = String(data.score.away)
         self.homeTeamNameLabel.text = data.homeTeam.nameShort
         self.awayTeamNameLabel.text = data.awayTeam.nameShort
-        self.matchStatusLabel.text = capitalizeFirstCharacter(of: data.status)
+        self.matchStatusLabel.text = data.status.capitalizeFirstCharacter()
         self.homeTeamImageView.setImage(from: URL(string: data.homeTeam.crest)!)
         self.awayTeamImageView.setImage(from: URL(string: data.awayTeam.crest)!)
         
-        let status = capitalizeFirstCharacter(of: data.status)
+        let status = data.status.capitalizeFirstCharacter()
         
         if status == "L" {
             self.matchStatusLabel.textColor = UIColor().colorFromHex("#008f00")
@@ -59,14 +59,6 @@ class SportsHighlightsCell: UICollectionViewCell, CellInfo {
         } else if status == "U" {
             self.matchStatusLabel.textColor = UIColor().colorFromHex("#00538f")
         }
-    }
-    
-    func capitalizeFirstCharacter(of string: String) -> String? {
-        guard let firstCharacter = string.first else {
-            return nil
-        }
-        
-        return String(firstCharacter).uppercased()
     }
     
     @objc func didUpdateData() {
