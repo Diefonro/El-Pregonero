@@ -47,12 +47,31 @@ class NewsScreenCoordinator: Coordinating {
         }
     }
     
-    func pushToNewsDetail(with data: NewsElement, navTitle: String) {
+    func pushToJPNewsDetail(with jpData: NewsElement, navTitle: String) {
         if let detailScreen = UIStoryboard(name: NewsDetailScreenVC.storyboard, bundle: nil)
             .instantiateViewController(withIdentifier: NewsDetailScreenVC.identifier) as? NewsDetailScreenVC {
-            detailScreen.data = data
+            detailScreen.jpData = jpData
             detailScreen.navTitle = navTitle
             self.coordinator?.push(viewController: detailScreen, animated: true)
         }
     }
+
+    func pushToTNNewsDetail(with tnData: Datum, navTitle: String) {
+        if let detailScreen = UIStoryboard(name: NewsDetailScreenVC.storyboard, bundle: nil)
+            .instantiateViewController(withIdentifier: NewsDetailScreenVC.identifier) as? NewsDetailScreenVC {
+            detailScreen.tnData = tnData
+            detailScreen.navTitle = navTitle
+            self.coordinator?.push(viewController: detailScreen, animated: true)
+        }
+    }
+
+    func pushToDJNewsDetail(with djData: Post, navTitle: String) {
+        if let detailScreen = UIStoryboard(name: NewsDetailScreenVC.storyboard, bundle: nil)
+            .instantiateViewController(withIdentifier: NewsDetailScreenVC.identifier) as? NewsDetailScreenVC {
+            detailScreen.djData = djData
+            detailScreen.navTitle = navTitle
+            self.coordinator?.push(viewController: detailScreen, animated: true)
+        }
+    }
+
 }

@@ -167,6 +167,7 @@
                         <outlet property="newsImageView" destination="8oW-uZ-MNO" id="50e-0n-xT3"/>
                         <outlet property="newsStatusLabel" destination="MP6-il-Bbo" id="IYQ-ey-kSB"/>
                         <outlet property="newsTitleLabel" destination="NuU-QF-MBm" id="89w-2M-bnR"/>
+                        <outlet property="retrievedFromLabel" destination="7dd-3G-RVw" id="dP3-LZ-g8M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -53,10 +53,9 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
             }
         case 1:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticlesContainerCell.reuseIdentifier, for: indexPath) as? ArticlesContainerCell {
+                cell.coordinator = self.newsCoordinator
                 switch index {
                 case 0:
-                    cell.coordinator = self.newsCoordinator
-                    cell.navTitle = "Top News"
                     cell.setupCell(image: (viewModel?.getJPImageURL())!, name: (viewModel?.getJPName())!)
                 case 1:
                     cell.setupCell(image: (viewModel?.getTNImageURL())!, name: (viewModel?.getTNName())!)

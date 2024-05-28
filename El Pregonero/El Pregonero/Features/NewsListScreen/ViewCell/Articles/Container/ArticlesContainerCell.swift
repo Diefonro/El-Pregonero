@@ -164,9 +164,18 @@ extension ArticlesContainerCell: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let JPData = DataManager.newsJPData[indexPath.row]
-        self.coordinator?.pushToNewsDetail(with: JPData, navTitle: JPData.title)
+        switch cellIndex {
+        case 0:
+            let JPData = DataManager.newsJPData[indexPath.row]
+            self.coordinator?.pushToJPNewsDetail(with: JPData, navTitle: JPData.title)
+        case 1:
+            let TNData = DataManager.newsTNData[indexPath.row]
+            self.coordinator?.pushToTNNewsDetail(with: TNData, navTitle: TNData.title)
+        case 2:
+            let DJData = DataManager.newsDJData[indexPath.row]
+            self.coordinator?.pushToDJNewsDetail(with: DJData, navTitle: DJData.title)
+        default:
+            break
+        }
     }
-    
-    
 }
