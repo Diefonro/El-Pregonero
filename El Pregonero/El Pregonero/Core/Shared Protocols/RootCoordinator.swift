@@ -16,9 +16,9 @@ class RootCoordinator: Coordinator {
     }
     
     func start() {
-        if let tabBarScreen = UIStoryboard(name: TabBarScreenVC.storyboard, bundle: nil)
-            .instantiateViewController(withIdentifier: TabBarScreenVC.identifier) as? TabBarScreenVC {
-            var controller: UIViewController & Coordinating = tabBarScreen
+        if let launchScreen = UIStoryboard(name: CustomLaunchScreenVC.storyboard, bundle: nil)
+            .instantiateViewController(withIdentifier: CustomLaunchScreenVC.identifier) as? CustomLaunchScreenVC {
+            var controller: UIViewController & Coordinating = launchScreen
             controller.coordinator = self
             navigationController?.setViewControllers([controller], animated: false)
         }

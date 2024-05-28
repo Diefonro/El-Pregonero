@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ArticlesContainerCell" customModule="El_Pregonero" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="312"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="374" height="312"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1m-zb-TJU" userLabel="ContainerView">
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="312"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RuY-FB-zYV" userLabel="NewsLetterView">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nHf-8w-kCN">
+                                        <rect key="frame" x="20" y="11.999999999999998" width="30" height="26.666666666666664"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="DsK-XV-Ucu"/>
+                                            <constraint firstAttribute="height" constant="30" id="JgJ-kT-cBo"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Newsletter Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3R3-Zy-GUI">
+                                        <rect key="frame" x="60" y="14.999999999999998" width="294" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstItem="nHf-8w-kCN" firstAttribute="centerY" secondItem="RuY-FB-zYV" secondAttribute="centerY" id="A5P-am-GoC"/>
+                                    <constraint firstAttribute="trailing" secondItem="3R3-Zy-GUI" secondAttribute="trailing" constant="20" id="O9J-fl-HO5"/>
+                                    <constraint firstAttribute="height" constant="50" id="cDv-OJ-iAV"/>
+                                    <constraint firstItem="nHf-8w-kCN" firstAttribute="leading" secondItem="RuY-FB-zYV" secondAttribute="leading" constant="20" id="kUb-sT-8nI"/>
+                                    <constraint firstItem="3R3-Zy-GUI" firstAttribute="centerY" secondItem="nHf-8w-kCN" secondAttribute="centerY" id="sCy-wM-8dA"/>
+                                    <constraint firstItem="3R3-Zy-GUI" firstAttribute="leading" secondItem="nHf-8w-kCN" secondAttribute="trailing" constant="10" id="w4E-Nf-LB9"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zek-J0-tw2" userLabel="CollectionContainerView">
+                                <rect key="frame" x="0.0" y="50" width="374" height="262"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zek-J0-tw2" firstAttribute="leading" secondItem="T1m-zb-TJU" secondAttribute="leading" id="DpI-0P-xdL"/>
+                            <constraint firstItem="RuY-FB-zYV" firstAttribute="leading" secondItem="T1m-zb-TJU" secondAttribute="leading" id="Kht-hx-B7g"/>
+                            <constraint firstAttribute="trailing" secondItem="zek-J0-tw2" secondAttribute="trailing" id="YxH-Ej-JAo"/>
+                            <constraint firstItem="RuY-FB-zYV" firstAttribute="top" secondItem="T1m-zb-TJU" secondAttribute="top" id="diG-vl-r7r"/>
+                            <constraint firstAttribute="bottom" secondItem="zek-J0-tw2" secondAttribute="bottom" id="vCS-qT-57c"/>
+                            <constraint firstItem="zek-J0-tw2" firstAttribute="top" secondItem="RuY-FB-zYV" secondAttribute="bottom" id="w96-xM-vMI"/>
+                            <constraint firstAttribute="trailing" secondItem="RuY-FB-zYV" secondAttribute="trailing" id="wh1-ys-odB"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="T1m-zb-TJU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="K0j-Yz-y6f"/>
+                <constraint firstItem="T1m-zb-TJU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Wek-nl-hA8"/>
+                <constraint firstAttribute="trailing" secondItem="T1m-zb-TJU" secondAttribute="trailing" id="dJe-At-MWf"/>
+                <constraint firstAttribute="bottom" secondItem="T1m-zb-TJU" secondAttribute="bottom" id="fhb-pc-BE0"/>
+            </constraints>
+            <size key="customSize" width="374" height="312"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="25"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="collectionViewContainer" destination="zek-J0-tw2" id="I8k-dP-3e3"/>
+                <outlet property="newsLetterImageView" destination="nHf-8w-kCN" id="aQJ-77-gXe"/>
+                <outlet property="newsLetterNameLabel" destination="3R3-Zy-GUI" id="sdM-f6-v7J"/>
+            </connections>
+            <point key="canvasLocation" x="222.90076335877862" y="80.985915492957744"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

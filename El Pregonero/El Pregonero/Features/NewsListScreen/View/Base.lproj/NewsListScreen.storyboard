@@ -13,24 +13,27 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="NewsListScreenVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="NewsListScreenVC" customModule="El_Pregonero" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="MainView">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEWS LIST" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Un-4h-Ytw">
-                                <rect key="frame" x="150" y="416" width="93.333333333333314" height="20.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNr-VD-dTF" userLabel="CollectionViewContainer">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3Un-4h-Ytw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9z7-RQ-QFe"/>
-                            <constraint firstItem="3Un-4h-Ytw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HdA-7a-jI4"/>
+                            <constraint firstItem="cNr-VD-dTF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3aL-Cz-XGu"/>
+                            <constraint firstItem="cNr-VD-dTF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5ql-Aj-h6j"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cNr-VD-dTF" secondAttribute="bottom" id="CrD-AU-NY1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cNr-VD-dTF" secondAttribute="trailing" id="tqg-NT-D4x"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionContainerView" destination="cNr-VD-dTF" id="aQY-vz-Qmd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
