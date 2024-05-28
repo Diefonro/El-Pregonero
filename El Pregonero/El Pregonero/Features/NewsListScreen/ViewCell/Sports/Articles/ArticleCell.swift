@@ -20,5 +20,12 @@ class ArticleCell: UICollectionViewCell, CellInfo {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    func setupCell(with data: News) {
+        self.newsAuthorImageView.image = UIImage(systemName: "newspaper")
+        self.articleImageView.setImage(from: URL(string: data.urlImage)!)
+        self.newsHeadlineLabel.text = data.title
+        self.newsAuthorNameLabel.text = data.author
+    }
 
 }

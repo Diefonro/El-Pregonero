@@ -49,6 +49,10 @@
 		41E47F492C03C84000DBF6B9 /* CustomLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41E47F482C03C84000DBF6B9 /* CustomLaunchScreen.storyboard */; };
 		41E47F4B2C03C85800DBF6B9 /* CustomLaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F4A2C03C85800DBF6B9 /* CustomLaunchScreenVC.swift */; };
 		41E47F4D2C04C9B900DBF6B9 /* NewsListScreenVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F4C2C04C9B900DBF6B9 /* NewsListScreenVC+Extension.swift */; };
+		41E47F4F2C055BDF00DBF6B9 /* SportsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F4E2C055BDF00DBF6B9 /* SportsEndpoint.swift */; };
+		41E47F512C055D7700DBF6B9 /* SportsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F502C055D7700DBF6B9 /* SportsServices.swift */; };
+		41E47F552C055DC100DBF6B9 /* Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F542C055DC100DBF6B9 /* Matches.swift */; };
+		41E47F592C058D3800DBF6B9 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E47F582C058D3800DBF6B9 /* UIColor+Extension.swift */; };
 		41F39EFF2C016A3F00FD04C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */; };
 		41F39F012C016A3F00FD04C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */; };
 		41F39F032C016A3F00FD04C4 /* NewsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F39F022C016A3F00FD04C4 /* NewsListScreen.swift */; };
@@ -125,6 +129,10 @@
 		41E47F482C03C84000DBF6B9 /* CustomLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomLaunchScreen.storyboard; sourceTree = "<group>"; };
 		41E47F4A2C03C85800DBF6B9 /* CustomLaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLaunchScreenVC.swift; sourceTree = "<group>"; };
 		41E47F4C2C04C9B900DBF6B9 /* NewsListScreenVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsListScreenVC+Extension.swift"; sourceTree = "<group>"; };
+		41E47F4E2C055BDF00DBF6B9 /* SportsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsEndpoint.swift; sourceTree = "<group>"; };
+		41E47F502C055D7700DBF6B9 /* SportsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsServices.swift; sourceTree = "<group>"; };
+		41E47F542C055DC100DBF6B9 /* Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matches.swift; sourceTree = "<group>"; };
+		41E47F582C058D3800DBF6B9 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		41F39EFB2C016A3F00FD04C4 /* El Pregonero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "El Pregonero.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41F39EFE2C016A3F00FD04C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41F39F002C016A3F00FD04C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -333,6 +341,7 @@
 			children = (
 				41D9DFB02C02381E0080A85E /* NewsEndpoint.swift */,
 				41E47F362C03B6F300DBF6B9 /* ShowsEndpoint.swift */,
+				41E47F4E2C055BDF00DBF6B9 /* SportsEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -342,6 +351,7 @@
 			children = (
 				41D9DFB22C02386B0080A85E /* NewsServices.swift */,
 				41E47F392C03B8A200DBF6B9 /* ShowsServices.swift */,
+				41E47F502C055D7700DBF6B9 /* SportsServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -382,6 +392,7 @@
 				41D9DFD22C02EE7E0080A85E /* UIView+Extension.swift */,
 				41D9DFD42C02F0820080A85E /* UIImageView+Extension.swift */,
 				41E47F432C03C70400DBF6B9 /* UIImage+Extension.swift */,
+				41E47F582C058D3800DBF6B9 /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -461,6 +472,7 @@
 		41E47F2E2C03941500DBF6B9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				41E47F522C055DAB00DBF6B9 /* Sports */,
 				41E47F3B2C03B91200DBF6B9 /* Shows */,
 				41E47F312C03943200DBF6B9 /* TheNewsAPI */,
 				41E47F302C03942C00DBF6B9 /* DummyJSON */,
@@ -532,6 +544,14 @@
 				41E47F4A2C03C85800DBF6B9 /* CustomLaunchScreenVC.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		41E47F522C055DAB00DBF6B9 /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				41E47F542C055DC100DBF6B9 /* Matches.swift */,
+			);
+			path = Sports;
 			sourceTree = "<group>";
 		};
 		41F39EF22C016A3F00FD04C4 = {
@@ -864,7 +884,10 @@
 				41D9DFDA2C03540C0080A85E /* HeaderView.swift in Sources */,
 				41F39F012C016A3F00FD04C4 /* SceneDelegate.swift in Sources */,
 				41D9DFAB2C0237D90080A85E /* RequestMethod.swift in Sources */,
+				41E47F512C055D7700DBF6B9 /* SportsServices.swift in Sources */,
+				41E47F552C055DC100DBF6B9 /* Matches.swift in Sources */,
 				41D9DFAF2C0237FA0080A85E /* Endpoint.swift in Sources */,
+				41E47F4F2C055BDF00DBF6B9 /* SportsEndpoint.swift in Sources */,
 				41D9DFD52C02F0820080A85E /* UIImageView+Extension.swift in Sources */,
 				41E47F4B2C03C85800DBF6B9 /* CustomLaunchScreenVC.swift in Sources */,
 				41E47F422C03BDE600DBF6B9 /* NewsScreenCoordinator.swift in Sources */,
@@ -875,6 +898,7 @@
 				41D9DFB32C02386B0080A85E /* NewsServices.swift in Sources */,
 				41E47F352C0394A100DBF6B9 /* DJNews.swift in Sources */,
 				41E47F4D2C04C9B900DBF6B9 /* NewsListScreenVC+Extension.swift in Sources */,
+				41E47F592C058D3800DBF6B9 /* UIColor+Extension.swift in Sources */,
 				41E47F3A2C03B8A200DBF6B9 /* ShowsServices.swift in Sources */,
 				41D9DF882C02224D0080A85E /* Coordinator.swift in Sources */,
 			);

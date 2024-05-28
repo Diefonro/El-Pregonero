@@ -32,12 +32,12 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
-        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateJPNewsData), name: .didUpdateDJNewsData, object: nil)
-               NotificationCenter.default.addObserver(self, selector: #selector(didUpdateJPNewsData), name: .didUpdateJPNewsData, object: nil)
-               NotificationCenter.default.addObserver(self, selector: #selector(didUpdateJPNewsData), name: .didUpdateTNNewsData, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateDJNewsData, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateJPNewsData, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateTNNewsData, object: nil)
     }
     
-    @objc func didUpdateJPNewsData() {
+    @objc func didUpdateData() {
         DispatchQueue.main.async {
             self.collectionView!.reloadData()
         }
@@ -97,6 +97,10 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
         }
         let layout = UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
         return layout
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

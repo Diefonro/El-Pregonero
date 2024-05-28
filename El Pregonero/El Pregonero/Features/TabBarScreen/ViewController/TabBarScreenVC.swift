@@ -32,7 +32,6 @@ class TabBarScreenVC: UITabBarController, StoryboardInfo, Coordinating {
     }
     
     func addNavBarImage() {
-        let navController = navigationController!
         var imageView = UIImageView(image: UIImage())
         if let originalImage = UIImage(named: "ElPregoneroLogo") {
             let targetSize = CGSize(width: 150, height: 35)

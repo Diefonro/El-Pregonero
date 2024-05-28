@@ -35,7 +35,12 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
         viewModel?.getShows {
             DispatchQueue.main.async {
                 self.collectionView!.reloadSections(IndexSet(integer: 0))
-                print("Data available :D, \(DataManager.showsData.count)")
+            }
+        }
+        viewModel?.getSports {
+            DispatchQueue.main.async {
+                self.collectionView!.reloadSections(IndexSet(integer: 3))
+                print("Data matches available :D, \(DataManager.matchesData.count)")
             }
         }
     }
@@ -208,7 +213,4 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
         return layout
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
 }

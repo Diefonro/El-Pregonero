@@ -16,13 +16,21 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return DataManager.showsData.count
+            if DataManager.showsData.isEmpty {
+                return 5
+            } else {
+                return DataManager.showsData.count
+            }
         case 1:
             return 3
         case 2:
             return 10
         case 3:
-            return 1
+            if DataManager.matchesData.isEmpty {
+                return 2
+            } else {
+                return DataManager.matchesData.count
+            }
         default:
             return 1
         }
@@ -34,8 +42,13 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
         switch section {
         case 0:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgramCell.reuseIdentifier, for: indexPath) as? ProgramCell {
-                let data = DataManager.showsData[indexPath.row]
-                cell.setupCell(with: data)
+                if DataManager.showsData.isEmpty {
+                    cell.imageView.image = UIImage(named: "movieclapper.fill")
+                    cell.showNameLabel.text = "Show title"
+                } else {
+                    let data = DataManager.showsData[indexPath.row]
+                    cell.setupCell(with: data)
+                }
                 return cell
             }
         case 1:
@@ -61,9 +74,9 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
             }
         case 3:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SportsHighlightsCell.reuseIdentifier, for: indexPath) as? SportsHighlightsCell {
-                cell.homeTeamImageView.image = UIImage(systemName: "person")
-                cell.awayTeamImageView.image = UIImage(systemName: "person.fill")
-                cell.awayTeamNameLabel.text = "XDD"
+                let data = DataManager.matchesData[indexPath.item]
+                cell.setupCell(with: data)
+                cell.cellIndex = indexPath.item
                 return cell
             }
         default:

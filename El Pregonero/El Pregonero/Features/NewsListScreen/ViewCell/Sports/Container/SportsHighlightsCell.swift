@@ -10,7 +10,7 @@ import UIKit
 class SportsHighlightsCell: UICollectionViewCell, CellInfo {
     
     static var reuseIdentifier = "SportsHighlightsCell"
-
+    
     @IBOutlet weak var tournamentNameLabel: UILabel!
     @IBOutlet weak var homeTeamImageView: UIImageView!
     @IBOutlet weak var awayTeamImageView: UIImageView!
@@ -20,6 +20,13 @@ class SportsHighlightsCell: UICollectionViewCell, CellInfo {
     @IBOutlet weak var awayTeamNameLabel: UILabel!
     @IBOutlet weak var matchStatusLabel: UILabel!
     @IBOutlet weak var collectionContainerView: UIView!
+    
+    var cellIndex = 0
+    var section: Int = 0 {
+        didSet {
+            cellIndex = section
+        }
+    }
     
     private lazy var collectionView: UICollectionView? = {
         let layout = createLayout()
@@ -31,6 +38,41 @@ class SportsHighlightsCell: UICollectionViewCell, CellInfo {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateMatchesData, object: nil)
+    }
+    
+    func setupCell(with data: MatchElement) {
+        self.tournamentNameLabel.text = data.competition
+        self.homeTeamScoreLabel.text = String(data.score.home)
+        self.awayTeamScoreLabel.text = String(data.score.away)
+        self.homeTeamNameLabel.text = data.homeTeam.nameShort
+        self.awayTeamNameLabel.text = data.awayTeam.nameShort
+        self.matchStatusLabel.text = capitalizeFirstCharacter(of: data.status)
+        self.homeTeamImageView.setImage(from: URL(string: data.homeTeam.crest)!)
+        self.awayTeamImageView.setImage(from: URL(string: data.awayTeam.crest)!)
+        
+        let status = capitalizeFirstCharacter(of: data.status)
+        
+        if status == "L" {
+            self.matchStatusLabel.textColor = UIColor().colorFromHex("#008f00")
+            
+        } else if status == "U" {
+            self.matchStatusLabel.textColor = UIColor().colorFromHex("#00538f")
+        }
+    }
+    
+    func capitalizeFirstCharacter(of string: String) -> String? {
+        guard let firstCharacter = string.first else {
+            return nil
+        }
+        
+        return String(firstCharacter).uppercased()
+    }
+    
+    @objc func didUpdateData() {
+        DispatchQueue.main.async {
+            self.collectionView!.reloadData()
+        }
     }
     
     func setupCollectionView() {
@@ -38,6 +80,8 @@ class SportsHighlightsCell: UICollectionViewCell, CellInfo {
         //MARK: Delegates assingment
         collectionView!.dataSource = self
         collectionView!.delegate = self
+        collectionView!.prefetchDataSource = self
+        collectionView!.isPrefetchingEnabled = true
         
         //MARK: CollectionView size setup.
         collectionContainerView.addSubview(collectionView!)
@@ -53,7 +97,7 @@ class SportsHighlightsCell: UICollectionViewCell, CellInfo {
         //MARK: Cells registration
         collectionView!.register(UINib(nibName: ArticleCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: ArticleCell.reuseIdentifier)
     }
-
+    
     func createLayout() -> UICollectionViewLayout {
         
         let sectionProvider = { (sectionIndex: Int, layoutEnviroment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
@@ -77,27 +121,53 @@ class SportsHighlightsCell: UICollectionViewCell, CellInfo {
         let layout = UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
         return layout
     }
-
-
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
 }
 
-extension SportsHighlightsCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SportsHighlightsCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            switch cellIndex {
+            case 0:
+                guard indexPath.row < DataManager.matchesData.count else { continue }
+                let _ = DataManager.matchesData[indexPath.row]
+            default:
+                continue
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticleCell.reuseIdentifier, for: indexPath) as? ArticleCell {
-            print("dequeued linearticle successfully")
-            cell.newsAuthorImageView.image = UIImage(systemName: "trash")
-            cell.newsHeadlineLabel.text = "Sports Headline Label"
-            cell.articleImageView.image = UIImage(systemName: "pencil")
+            let data: News
+            
+            switch cellIndex {
+            case 0:
+                data = DataManager.matchesNewsOne[indexPath.row]
+            case 1:
+                data = DataManager.matchesNewsTwo[indexPath.row]
+            case 2:
+                data = DataManager.matchesNewsThree[indexPath.row]
+            case 3:
+                data = DataManager.matchesNewsFour[indexPath.row]
+            default:
+                data = DataManager.matchesNewsOne[indexPath.row]
+            }
+            
+            cell.setupCell(with: data)
             return cell
         } else {
             print("not dequedes asd")
         }
         return UICollectionViewCell()
     }
-    
     
 }

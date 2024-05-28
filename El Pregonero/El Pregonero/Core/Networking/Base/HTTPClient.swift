@@ -40,6 +40,8 @@ extension HTTPClient {
             
             print("* * * * * * * * * ")
             urlRequest.printFullRequest()
+            print(await request.response)
+            print(await request.result)
             print("* * * * * * * * * ")
             print("JSON DATA: \(await String(data: request.response.data ?? Data(), encoding: .utf8) ?? "")")
             print("END JSON DATA * * * * * * * * * ")
