@@ -55,6 +55,8 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticlesContainerCell.reuseIdentifier, for: indexPath) as? ArticlesContainerCell {
                 switch index {
                 case 0:
+                    cell.coordinator = self.newsCoordinator
+                    cell.navTitle = "Top News"
                     cell.setupCell(image: (viewModel?.getJPImageURL())!, name: (viewModel?.getJPName())!)
                 case 1:
                     cell.setupCell(image: (viewModel?.getTNImageURL())!, name: (viewModel?.getTNName())!)
@@ -92,6 +94,8 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
         case 0:
             let data = DataManager.showsData[indexPath.row]
             self.newsCoordinator?.pushToProgramDetail(with: data, navTitle: data.title)
+        case 1:
+            print("hi, tap on a new to extend its information :D")
         default:
             print("something")
         }

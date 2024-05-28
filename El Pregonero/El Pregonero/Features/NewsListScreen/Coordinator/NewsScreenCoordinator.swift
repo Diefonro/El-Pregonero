@@ -46,4 +46,13 @@ class NewsScreenCoordinator: Coordinating {
             self.coordinator?.push(viewController: detailScreen, animated: true)
         }
     }
+    
+    func pushToNewsDetail(with data: NewsElement, navTitle: String) {
+        if let detailScreen = UIStoryboard(name: NewsDetailScreenVC.storyboard, bundle: nil)
+            .instantiateViewController(withIdentifier: NewsDetailScreenVC.identifier) as? NewsDetailScreenVC {
+            detailScreen.data = data
+            detailScreen.navTitle = navTitle
+            self.coordinator?.push(viewController: detailScreen, animated: true)
+        }
+    }
 }

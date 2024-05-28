@@ -9,7 +9,7 @@ import Foundation
 
 enum NewsEndpoint {
     case newsJP
-    case newsTN
+    case newsTN(page: Int)
     case newsDJ
 }
 
@@ -39,9 +39,13 @@ extension NewsEndpoint: Endpoint {
         switch self {
         case .newsJP, .newsDJ:
             return nil
-        case .newsTN:
-            let token = "2GCiu7nqoos8QakFoDQRqrpkyAXMlp1i5KViRaf0"
-            return [URLQueryItem(name: "api_token", value: token), URLQueryItem(name: "locale", value: "ar"), URLQueryItem(name: "page", value: "1")]
+        case .newsTN(let page):
+            let token = "renXuXDhdiG9AyAMDBYS8l2dYp2j24R2MYExdkWz"
+            return [
+                URLQueryItem(name: "api_token", value: token),
+                URLQueryItem(name: "locale", value: "ar"),
+                URLQueryItem(name: "page", value: "\(page)")
+            ]
         }
     }
     

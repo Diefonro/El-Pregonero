@@ -9,7 +9,7 @@ import Foundation
 
 protocol NewsServiceable {
     func getJPNews() async -> Result<JPNews, RequestError>
-    func getTNNews() async -> Result<TNNews, RequestError>
+    func getTNNews(page: Int) async -> Result<TNNews, RequestError>
     func getDJNews() async -> Result<DJNews, RequestError>
 }
 
@@ -18,8 +18,8 @@ class NewsServices: HTTPClient, NewsServiceable {
         return await sendRequest(endpoint: NewsEndpoint.newsJP, responseModel: JPNews.self)
     }
     
-    func getTNNews() async -> Result<TNNews, RequestError> {
-        return await sendRequest(endpoint: NewsEndpoint.newsTN, responseModel: TNNews.self)
+    func getTNNews(page: Int) async -> Result<TNNews, RequestError> {
+        return await sendRequest(endpoint: NewsEndpoint.newsTN(page: page), responseModel: TNNews.self)
     }
     
     func getDJNews() async -> Result<DJNews, RequestError> {

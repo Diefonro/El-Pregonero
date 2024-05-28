@@ -33,12 +33,55 @@ class NewsScreenViewModel {
     func getNews(completion: @escaping () -> Void) {
         Task(priority: .userInitiated) {
             async let jpNewsResult = newsServices.getJPNews()
-//            async let tnNewsResult = newsServices.getTNNews()
             async let djNewsResult = newsServices.getDJNews()
             
             let jpNewsOutcome = await jpNewsResult
-//            let tnNewsOutcome = await tnNewsResult
             let djNewsOutcome = await djNewsResult
+            
+            async let initialTNNewsResult = newsServices.getTNNews(page: 1)
+            
+            async let tnNewsPage2Result = newsServices.getTNNews(page: 2)
+            async let tnNewsPage3Result = newsServices.getTNNews(page: 3)
+            async let tnNewsPage4Result = newsServices.getTNNews(page: 4)
+            
+            let initialOutcome = await initialTNNewsResult
+            let page2Outcome = await tnNewsPage2Result
+            let page3Outcome = await tnNewsPage3Result
+            let page4Outcome = await tnNewsPage4Result
+            
+            var combinedNews: [Datum] = []
+            
+            switch initialOutcome {
+            case .success(let news):
+                combinedNews.append(contentsOf: news.getNews())
+            case .failure(let error):
+                AppError.handle(error: error)
+            }
+            
+            switch page2Outcome {
+            case .success(let news):
+                combinedNews.append(contentsOf: news.getNews())
+            case .failure(let error):
+                AppError.handle(error: error)
+            }
+            
+            switch page3Outcome {
+            case .success(let news):
+                combinedNews.append(contentsOf: news.getNews())
+            case .failure(let error):
+                AppError.handle(error: error)
+            }
+            
+            switch page4Outcome {
+            case .success(let news):
+                combinedNews.append(contentsOf: news.getNews())
+            case .failure(let error):
+                AppError.handle(error: error)
+            }
+
+            DataManager.newsTNData = combinedNews
+            
+            NotificationCenter.default.post(name: .didUpdateTNNewsData, object: nil)
             
             switch jpNewsOutcome {
             case .success(let news):
@@ -48,13 +91,6 @@ class NewsScreenViewModel {
                 AppError.handle(error: error)
             }
             
-//            switch tnNewsOutcome {
-//            case .success(let news):
-//                DataManager.newsTNData = news.getNews()
-//                NotificationCenter.default.post(name: .didUpdateJPNewsData, object: nil)
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
             
             switch djNewsOutcome {
             case .success(let news):
@@ -74,14 +110,14 @@ class NewsScreenViewModel {
     
     func getJPImageURL() -> String {
         let url: String? = "https://t4.ftcdn.net/jpg/04/90/12/03/360_F_490120385_ItvA6z5uXYx1x89dpWBgK0wTEHrMWO78.jpg"
-
+        
         if let imageURL = url {
             return imageURL
         }
         
         return ""
     }
-
+    
     //MARK: TheNewsAPI functions
     func getTNName() -> String {
         return "TheNewsAPI News"
@@ -89,14 +125,14 @@ class NewsScreenViewModel {
     
     func getTNImageURL() -> String {
         let url: String? = "https://cdn-images-1.medium.com/max/1200/1*On6A3Q86PMCZYgv8qYzqiA.jpeg"
-
+        
         if let imageURL = url {
             return imageURL
         }
         
         return ""
     }
-
+    
     //MARK: DummyJSON functions
     func getDJName() -> String {
         return "DummyJSON News"
@@ -104,20 +140,20 @@ class NewsScreenViewModel {
     
     func getDJImageURL() -> String {
         let url: String? = "https://media.licdn.com/dms/image/D4D0BAQFoGJnV8KPtyg/company-logo_200_200/0/1716490112820/dummyjson_logo?e=1724889600&v=beta&t=qQnRGJ2-AazQCU5QLYgS-P8bsU5WrYsf34TPzX_yMwk"
-
+        
         if let imageURL = url {
             return imageURL
         }
         
         return ""
     }
-
+    
     //MARK: Sections Dummy Data
     struct NewsCellData {
         let newsTitle: String
         let newsImage: String
     }
-
+    
     let newsArray: [NewsCellData] = [
         NewsCellData(newsTitle: "Politics", newsImage: "https://wwd.com/wp-content/uploads/2020/10/political-story-main.jpg"),
         NewsCellData(newsTitle: "Economy", newsImage: "https://hmarkets.com/wp-media/2022/11/Background-screen-saver-on-economic-news-compressed-1024x614.jpg"),
@@ -133,52 +169,52 @@ class NewsScreenViewModel {
     
     //MARK: SportsAPI
     func getSports(completion: @escaping () -> Void) {
-            Task(priority: .userInitiated) {
-                let result = await sportsServices.getMatches()
-                switch result {
-                case .success(let matches):
-                    let matchesData = matches.flatMap { $0.getMatches() }
-                    DataManager.matchesData = matchesData
-
-                    func setMatchNews(startIndex: Int, endIndex: Int, target: inout [News]) {
-                        let slice = matchesData[startIndex..<endIndex]
-                        let news = slice.flatMap { $0.getNews() }
-                        target = news
-                    }
-
-                    var matchesNews: [[News]] = []
-
-                    for i in 0..<4 {
-                        let startIndex = i
-                        let endIndex = min(i + 3, matchesData.count)
-                        var matchNews: [News] = []
-                        setMatchNews(startIndex: startIndex, endIndex: endIndex, target: &matchNews)
-                        matchesNews.append(matchNews)
-                        
-                        switch i {
-                        case 0:
-                            DataManager.matchesNewsOne = matchNews
-                        case 1:
-                            DataManager.matchesNewsTwo = matchNews
-                        case 2:
-                            DataManager.matchesNewsThree = matchNews
-                        case 3:
-                            DataManager.matchesNewsFour = matchNews
-                        default:
-                            break
-                        }
-                    }
-
-                    NotificationCenter.default.post(name: .didUpdateMatchesData, object: nil)
-                    completion()
-
-                case .failure(let error):
-                    AppError.handle(error: error)
+        Task(priority: .userInitiated) {
+            let result = await sportsServices.getMatches()
+            switch result {
+            case .success(let matches):
+                let matchesData = matches.flatMap { $0.getMatches() }
+                DataManager.matchesData = matchesData
+                
+                func setMatchNews(startIndex: Int, endIndex: Int, target: inout [News]) {
+                    let slice = matchesData[startIndex..<endIndex]
+                    let news = slice.flatMap { $0.getNews() }
+                    target = news
                 }
                 
+                var matchesNews: [[News]] = []
+                
+                for i in 0..<4 {
+                    let startIndex = i
+                    let endIndex = min(i + 3, matchesData.count)
+                    var matchNews: [News] = []
+                    setMatchNews(startIndex: startIndex, endIndex: endIndex, target: &matchNews)
+                    matchesNews.append(matchNews)
+                    
+                    switch i {
+                    case 0:
+                        DataManager.matchesNewsOne = matchNews
+                    case 1:
+                        DataManager.matchesNewsTwo = matchNews
+                    case 2:
+                        DataManager.matchesNewsThree = matchNews
+                    case 3:
+                        DataManager.matchesNewsFour = matchNews
+                    default:
+                        break
+                    }
+                }
+                
+                NotificationCenter.default.post(name: .didUpdateMatchesData, object: nil)
+                completion()
+                
+            case .failure(let error):
+                AppError.handle(error: error)
             }
+            
         }
-
+    }
+    
 }
 
 extension Notification.Name {

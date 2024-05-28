@@ -25,18 +25,21 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
         return collectionView
     }()
     
+    var page = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         viewModel?.getNews {
-            DispatchQueue.main.async {
-            }
+            print("hi :D")
         }
-        viewModel?.getShows {
-            DispatchQueue.main.async {
-                self.collectionView!.reloadSections(IndexSet(integer: 0))
-            }
-        }
+        
+//        viewModel?.getShows {
+//            DispatchQueue.main.async {
+//                self.collectionView!.reloadSections(IndexSet(integer: 0))
+//            }
+//        }
+        
         viewModel?.getSports {
             DispatchQueue.main.async {
                 self.collectionView!.reloadSections(IndexSet(integer: 3))

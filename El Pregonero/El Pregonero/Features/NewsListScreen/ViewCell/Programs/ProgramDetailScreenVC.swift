@@ -35,7 +35,6 @@ class ProgramDetailScreenVC: UIViewController, StoryboardInfo {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = navTitle
-        self.navigationItem.title = navTitle
         if let data = data {
             setupView(with: data)
             serviceProviderPicker.dataSource = self

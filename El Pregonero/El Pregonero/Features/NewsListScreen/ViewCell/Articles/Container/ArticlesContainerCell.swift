@@ -21,6 +21,8 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
             cellIndex = section
         }
     }
+    var navTitle = ""
+    var coordinator: NewsScreenCoordinator?
     
     private lazy var collectionView: UICollectionView? = {
         let layout = createLayout()
@@ -127,11 +129,11 @@ extension ArticlesContainerCell: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch cellIndex {
         case 0:
-            return DataManager.newsJPData.count - 90
+            return DataManager.newsJPData.count - 88
         case 1:
             return DataManager.newsTNData.count
         case 2:
-            return DataManager.newsDJData.count - 20
+            return DataManager.newsDJData.count - 18
         default:
             return 1
         }
@@ -159,6 +161,11 @@ extension ArticlesContainerCell: UICollectionViewDelegate, UICollectionViewDataS
             return cell
         }
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let JPData = DataManager.newsJPData[indexPath.row]
+        self.coordinator?.pushToNewsDetail(with: JPData, navTitle: JPData.title)
     }
     
     

@@ -12,11 +12,11 @@ struct NewsElement: Codable {
     let slug: String
     let url: String
     let title, content: String
-    let image, thumbnail: String
+    let image, thumbnail, status: String
     let publishedAt, updatedAt: String
 
     enum CodingKeys: String, CodingKey {
-        case url, title, content, image, thumbnail, publishedAt, updatedAt, slug
+        case url, title, content, image, thumbnail, publishedAt, updatedAt, slug, status
     }
 }
 

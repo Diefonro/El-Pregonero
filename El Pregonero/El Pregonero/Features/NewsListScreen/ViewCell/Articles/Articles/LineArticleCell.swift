@@ -20,11 +20,16 @@ class LineArticleCell: UICollectionViewCell, CellInfo {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
+
     func setupJPCell(with data: NewsElement) {
         self.newsHeadlineLabel.text = data.title
         self.articleImageView.setImage(from: URL(string: data.image)!)
         self.newsAuthorNameLabel.text = data.slug
+        
+        let dateString = data.publishedAt
+        if let date = dateString.toDate() {
+            publishedTimeLabel.text = "Published \(date.timeAgoSinceNow())."
+        }
     }
     
     func setupTNCell(with data: Datum) {
