@@ -74,4 +74,15 @@ class NewsScreenCoordinator: Coordinating {
         }
     }
 
+    func pushToMatchDetail(with data: News, with matchData: MatchElement, navTitle: String) {
+        if let detailScreen = UIStoryboard(name: MatchDetailScreenVC.storyboard, bundle: nil)
+            .instantiateViewController(withIdentifier: MatchDetailScreenVC.identifier) as? MatchDetailScreenVC {
+            detailScreen.matchData = matchData
+            detailScreen.data = data
+            detailScreen.navTitle = navTitle
+            self.coordinator?.push(viewController: detailScreen, animated: true)
+        }
+    }
+    
+    
 }

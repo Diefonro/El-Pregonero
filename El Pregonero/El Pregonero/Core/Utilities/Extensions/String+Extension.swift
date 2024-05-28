@@ -9,14 +9,13 @@ import Foundation
 
 extension String {
     func capitalizeFirstCharacter() -> String {
-        guard let firstCharacter = self.first else {
-            return self
+            guard let firstCharacter = self.first else {
+                return self
+            }
+            return firstCharacter.uppercased()
         }
-        
-        return firstCharacter.uppercased() + self.dropFirst()
-    }
     
-    func toDate(withFormats formats: [String] = ["dd/MM/yyyy HH:mm:ss", "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"]) -> Date? {
+    func toDate(withFormats formats: [String] = ["dd/MM/yyyy HH:mm:ss", "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'", "yyyy-MM-dd'T'HH:mm:ss'Z'"]) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.locale = Locale.current
@@ -28,7 +27,6 @@ extension String {
             }
         }
         return nil
-    }
-    
+    } 
 }
 

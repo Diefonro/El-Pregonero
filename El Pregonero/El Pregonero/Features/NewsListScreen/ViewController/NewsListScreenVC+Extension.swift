@@ -75,7 +75,9 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
             }
         case 3:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SportsHighlightsCell.reuseIdentifier, for: indexPath) as? SportsHighlightsCell {
+                cell.newsCoordinator = self.newsCoordinator
                 let data = DataManager.matchesData[indexPath.item]
+                cell.matchData = data
                 cell.setupCell(with: data)
                 cell.cellIndex = indexPath.item
                 return cell
@@ -93,10 +95,8 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
         case 0:
             let data = DataManager.showsData[indexPath.row]
             self.newsCoordinator?.pushToProgramDetail(with: data, navTitle: data.title)
-        case 1:
-            print("hi, tap on a new to extend its information :D")
         default:
-            print("something")
+            print("hi, tap an item to extend its information :D")
         }
     }
     

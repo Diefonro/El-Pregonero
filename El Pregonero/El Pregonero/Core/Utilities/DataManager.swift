@@ -17,4 +17,5 @@ class DataManager {
     static var matchesNewsTwo: [News] = []
     static var matchesNewsThree: [News] = []
     static var matchesNewsFour: [News] = []
+    static var combinedMatches: [News] = []
 }

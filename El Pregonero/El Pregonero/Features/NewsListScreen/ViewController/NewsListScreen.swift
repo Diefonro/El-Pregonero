@@ -30,9 +30,9 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        viewModel?.getNews {
-            print("hi :D")
-        }
+//        viewModel?.getNews {
+//            print("hi :D")
+//        }
         
 //        viewModel?.getShows {
 //            DispatchQueue.main.async {

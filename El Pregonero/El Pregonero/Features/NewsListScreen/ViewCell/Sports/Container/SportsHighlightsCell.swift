@@ -21,6 +21,9 @@ class SportsHighlightsCell: UICollectionViewCell, CellInfo {
     @IBOutlet weak var matchStatusLabel: UILabel!
     @IBOutlet weak var collectionContainerView: UIView!
     
+    var newsCoordinator: NewsScreenCoordinator?
+    var navTitle = ""
+    var matchData: MatchElement?
     var cellIndex = 0
     var section: Int = 0 {
         didSet {
@@ -42,16 +45,15 @@ class SportsHighlightsCell: UICollectionViewCell, CellInfo {
     }
     
     func setupCell(with data: MatchElement) {
+        let status = data.status.capitalizeFirstCharacter()
         self.tournamentNameLabel.text = data.competition
         self.homeTeamScoreLabel.text = String(data.score.home)
         self.awayTeamScoreLabel.text = String(data.score.away)
         self.homeTeamNameLabel.text = data.homeTeam.nameShort
         self.awayTeamNameLabel.text = data.awayTeam.nameShort
-        self.matchStatusLabel.text = data.status.capitalizeFirstCharacter()
+        self.matchStatusLabel.text = status
         self.homeTeamImageView.setImage(from: URL(string: data.homeTeam.crest)!)
         self.awayTeamImageView.setImage(from: URL(string: data.awayTeam.crest)!)
-        
-        let status = data.status.capitalizeFirstCharacter()
         
         if status == "L" {
             self.matchStatusLabel.textColor = UIColor().colorFromHex("#008f00")
@@ -160,6 +162,27 @@ extension SportsHighlightsCell: UICollectionViewDelegate, UICollectionViewDataSo
             print("not dequedes asd")
         }
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data: News
+        
+        switch cellIndex {
+        case 0:
+            data = DataManager.matchesNewsOne[indexPath.row]
+            self.newsCoordinator?.pushToMatchDetail(with: data, with: self.matchData!, navTitle: data.title)
+        case 1:
+            data = DataManager.matchesNewsTwo[indexPath.row]
+            self.newsCoordinator?.pushToMatchDetail(with: data, with: self.matchData!, navTitle: data.title)
+        case 2:
+            data = DataManager.matchesNewsThree[indexPath.row]
+            self.newsCoordinator?.pushToMatchDetail(with: data, with: self.matchData!, navTitle: data.title)
+        case 3:
+            data = DataManager.matchesNewsFour[indexPath.row]
+            self.newsCoordinator?.pushToMatchDetail(with: data, with: self.matchData!, navTitle: data.title)
+        default:
+            print("Couldn't navigate to match detail :(")
+        }
     }
     
 }
