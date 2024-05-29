@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.9.1)
   - Kingfisher (7.11.0)
+  - lottie-ios (4.4.3)
 
 DEPENDENCIES:
   - Alamofire
   - Kingfisher
+  - lottie-ios
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - lottie-ios
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
+  lottie-ios: fcb5e73e17ba4c983140b7d21095c834b3087418
 
-PODFILE CHECKSUM: b7ee43e3e8a20054bbe8d0d5f4b34629c62b46df
+PODFILE CHECKSUM: e5fb73adba7fec14cb5ac71fb6d74c38de285d14
 
 COCOAPODS: 1.15.2

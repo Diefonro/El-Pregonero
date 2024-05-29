@@ -43,8 +43,7 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
         case 0:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgramCell.reuseIdentifier, for: indexPath) as? ProgramCell {
                 if DataManager.showsData.isEmpty {
-                    cell.imageView.image = UIImage(named: "movieclapper.fill")
-                    cell.showNameLabel.text = "Show title"
+                    cell.imageView.image = UIImage(systemName: "person")
                 } else {
                     let data = DataManager.showsData[indexPath.row]
                     cell.setupCell(with: data)
@@ -54,14 +53,15 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
         case 1:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticlesContainerCell.reuseIdentifier, for: indexPath) as? ArticlesContainerCell {
                 cell.coordinator = self.newsCoordinator
+                let lottieName = "NewsLottie"
                 switch index {
                 case 0:
-                    cell.setupCell(image: (viewModel?.getJPImageURL())!, name: (viewModel?.getJPName())!)
+                    cell.setupCell(image: (viewModel?.getJPImageURL())!, name: (viewModel?.getJPName())!, lottieName: lottieName)
                     cell.tapToSearchLabel.isHidden = false
                 case 1:
-                    cell.setupCell(image: (viewModel?.getTNImageURL())!, name: (viewModel?.getTNName())!)
+                    cell.setupCell(image: (viewModel?.getTNImageURL())!, name: (viewModel?.getTNName())!, lottieName: lottieName)
                 case 2:
-                    cell.setupCell(image: (viewModel?.getDJImageURL())!, name: (viewModel?.getDJName())!)
+                    cell.setupCell(image: (viewModel?.getDJImageURL())!, name: (viewModel?.getDJName())!, lottieName: lottieName)
                 default:
                     print("Failed to get newspaper info.")
                 }
@@ -79,7 +79,7 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
                 cell.newsCoordinator = self.newsCoordinator
                 let data = DataManager.matchesData[indexPath.item]
                 cell.matchData = data
-                cell.setupCell(with: data)
+                cell.setupCell(with: data, lottieName: "NewsSkeleton")
                 cell.cellIndex = indexPath.item
                 return cell
             }

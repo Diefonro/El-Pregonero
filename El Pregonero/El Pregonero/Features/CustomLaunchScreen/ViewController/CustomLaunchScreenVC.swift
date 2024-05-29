@@ -14,6 +14,7 @@ class CustomLaunchScreenVC: UIViewController, StoryboardInfo, Coordinating {
     static var storyboard = "CustomLaunchScreen"
     static var identifier = "CustomLaunchScreenVC"
     
+    @IBOutlet weak var lottieView: NLottieAnimation!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -23,6 +24,7 @@ class CustomLaunchScreenVC: UIViewController, StoryboardInfo, Coordinating {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         view.backgroundColor = .white
+        lottieView.changeLottie(lottieName: "Skeleton")
         self.coordinator?.hideNavigationBar(animated: true)
         self.coordinator?.disableDragPopGesture()
     }

@@ -111,19 +111,35 @@
                                 <rect key="frame" x="0.0" y="110" width="378" height="210"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Up-Od-byJ" customClass="NLottieAnimation" customModule="El_Pregonero" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="378" height="320"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXj-8V-d3J" customClass="NoInfoView" customModule="El_Pregonero" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="378" height="320"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="eXj-8V-d3J" firstAttribute="leading" secondItem="nXi-Pv-dlh" secondAttribute="leading" id="Ako-en-Jqt"/>
                             <constraint firstAttribute="bottom" secondItem="5ym-iP-xeg" secondAttribute="bottom" id="FIL-aI-PUd"/>
+                            <constraint firstAttribute="trailing" secondItem="eXj-8V-d3J" secondAttribute="trailing" id="NBp-dc-X7I"/>
+                            <constraint firstAttribute="bottom" secondItem="2Up-Od-byJ" secondAttribute="bottom" id="O6z-bk-Ptx"/>
                             <constraint firstItem="dO3-LX-Ovc" firstAttribute="top" secondItem="nXi-Pv-dlh" secondAttribute="top" id="PFg-65-vRr"/>
                             <constraint firstItem="dO3-LX-Ovc" firstAttribute="leading" secondItem="nXi-Pv-dlh" secondAttribute="leading" id="Tex-V8-wqY"/>
                             <constraint firstItem="TKU-om-rtH" firstAttribute="top" secondItem="dO3-LX-Ovc" secondAttribute="bottom" id="V0U-ji-tgZ"/>
+                            <constraint firstItem="eXj-8V-d3J" firstAttribute="top" secondItem="nXi-Pv-dlh" secondAttribute="top" id="WPP-1c-Q6S"/>
+                            <constraint firstAttribute="bottom" secondItem="eXj-8V-d3J" secondAttribute="bottom" id="XJS-T6-SvP"/>
                             <constraint firstItem="TKU-om-rtH" firstAttribute="leading" secondItem="nXi-Pv-dlh" secondAttribute="leading" id="XOb-fJ-4kb"/>
+                            <constraint firstItem="2Up-Od-byJ" firstAttribute="top" secondItem="nXi-Pv-dlh" secondAttribute="top" id="Zhi-v0-0MT"/>
+                            <constraint firstAttribute="trailing" secondItem="2Up-Od-byJ" secondAttribute="trailing" id="eB5-bd-WHJ"/>
                             <constraint firstItem="5ym-iP-xeg" firstAttribute="top" secondItem="TKU-om-rtH" secondAttribute="bottom" id="esq-Jo-MnR"/>
                             <constraint firstAttribute="trailing" secondItem="dO3-LX-Ovc" secondAttribute="trailing" id="gqL-6b-FUp"/>
                             <constraint firstAttribute="trailing" secondItem="TKU-om-rtH" secondAttribute="trailing" id="ksx-e4-Znc"/>
                             <constraint firstAttribute="trailing" secondItem="5ym-iP-xeg" secondAttribute="trailing" id="m78-L4-9Pv"/>
                             <constraint firstItem="5ym-iP-xeg" firstAttribute="leading" secondItem="nXi-Pv-dlh" secondAttribute="leading" id="tX5-le-Bbb"/>
+                            <constraint firstItem="2Up-Od-byJ" firstAttribute="leading" secondItem="nXi-Pv-dlh" secondAttribute="leading" id="yrk-sn-Ai2"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -149,7 +165,9 @@
                 <outlet property="homeTeamImageView" destination="J19-0d-rr1" id="Yin-XV-qP7"/>
                 <outlet property="homeTeamNameLabel" destination="jjH-qI-iME" id="ld4-hi-vgh"/>
                 <outlet property="homeTeamScoreLabel" destination="96J-Gv-gHc" id="Hkq-w2-Vkj"/>
+                <outlet property="lottieView" destination="2Up-Od-byJ" id="5eR-LD-xyE"/>
                 <outlet property="matchStatusLabel" destination="C9D-eT-Ajc" id="xcT-Fl-ixC"/>
+                <outlet property="noInfoView" destination="eXj-8V-d3J" id="NFl-t5-Lmf"/>
                 <outlet property="tournamentNameLabel" destination="geh-Xv-rSn" id="BjT-vS-tpr"/>
             </connections>
             <point key="canvasLocation" x="225.95419847328245" y="83.098591549295776"/>
@@ -160,10 +178,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

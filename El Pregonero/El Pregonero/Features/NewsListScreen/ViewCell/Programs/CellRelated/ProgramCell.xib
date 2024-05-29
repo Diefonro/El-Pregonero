@@ -37,24 +37,50 @@
                                     <constraint firstItem="h6v-ew-vOV" firstAttribute="top" secondItem="mBi-lb-HRc" secondAttribute="top" id="xCd-4T-3FD"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor amet preteritus soros" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5f-no-cjQ">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor amet preteritus soros" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5f-no-cjQ">
                                 <rect key="frame" x="10" y="205" width="183" height="40"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAm-31-T9w" customClass="NLottieAnimation" customModule="El_Pregonero" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="203" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOr-1O-vsH" customClass="NoInfoView" customModule="El_Pregonero" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="203" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="bOr-1O-vsH" secondAttribute="bottom" id="7Iu-ax-5qN"/>
                             <constraint firstItem="mBi-lb-HRc" firstAttribute="leading" secondItem="4Ir-V7-jWW" secondAttribute="leading" id="HLL-EB-cyR"/>
                             <constraint firstAttribute="trailing" secondItem="y5f-no-cjQ" secondAttribute="trailing" constant="10" id="IVn-ll-8Ui"/>
                             <constraint firstItem="mBi-lb-HRc" firstAttribute="top" secondItem="4Ir-V7-jWW" secondAttribute="top" id="JeB-xj-9PV"/>
+                            <constraint firstItem="TAm-31-T9w" firstAttribute="top" secondItem="4Ir-V7-jWW" secondAttribute="top" id="JnC-sc-5Ql"/>
+                            <constraint firstAttribute="trailing" secondItem="TAm-31-T9w" secondAttribute="trailing" id="W18-H4-nsP"/>
                             <constraint firstItem="y5f-no-cjQ" firstAttribute="top" secondItem="mBi-lb-HRc" secondAttribute="bottom" constant="5" id="WU3-87-6ry"/>
+                            <constraint firstItem="bOr-1O-vsH" firstAttribute="leading" secondItem="4Ir-V7-jWW" secondAttribute="leading" id="ZIK-wL-SGr"/>
+                            <constraint firstItem="TAm-31-T9w" firstAttribute="leading" secondItem="4Ir-V7-jWW" secondAttribute="leading" id="a6O-mR-VsA"/>
                             <constraint firstItem="y5f-no-cjQ" firstAttribute="leading" secondItem="4Ir-V7-jWW" secondAttribute="leading" constant="10" id="gE4-rU-Bwh"/>
                             <constraint firstAttribute="bottom" secondItem="y5f-no-cjQ" secondAttribute="bottom" constant="5" id="gnw-fq-dO6"/>
+                            <constraint firstAttribute="bottom" secondItem="TAm-31-T9w" secondAttribute="bottom" id="jdN-Ou-qsw"/>
                             <constraint firstAttribute="trailing" secondItem="mBi-lb-HRc" secondAttribute="trailing" id="m95-Wv-09S"/>
+                            <constraint firstAttribute="trailing" secondItem="bOr-1O-vsH" secondAttribute="trailing" id="mBw-lo-JWm"/>
                             <constraint firstAttribute="height" constant="250" id="nLA-SX-fby"/>
+                            <constraint firstItem="bOr-1O-vsH" firstAttribute="top" secondItem="4Ir-V7-jWW" secondAttribute="top" id="uQn-d1-4Pa"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -74,6 +100,8 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="imageView" destination="h6v-ew-vOV" id="zIy-Wn-OHo"/>
+                <outlet property="lottieView" destination="TAm-31-T9w" id="nMZ-2d-Fnb"/>
+                <outlet property="noInfoView" destination="bOr-1O-vsH" id="m8l-0K-tZI"/>
                 <outlet property="showNameLabel" destination="y5f-no-cjQ" id="LJZ-lx-djC"/>
             </connections>
             <point key="canvasLocation" x="92.36641221374046" y="98.591549295774655"/>

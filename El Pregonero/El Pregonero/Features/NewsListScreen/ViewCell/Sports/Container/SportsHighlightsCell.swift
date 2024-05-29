@@ -20,9 +20,12 @@ class SportsHighlightsCell: UICollectionViewCell, CellInfo {
     @IBOutlet weak var awayTeamNameLabel: UILabel!
     @IBOutlet weak var matchStatusLabel: UILabel!
     @IBOutlet weak var collectionContainerView: UIView!
+    @IBOutlet weak var lottieView: NLottieAnimation!
+    @IBOutlet weak var noInfoView: NoInfoView!
     
     var newsCoordinator: NewsScreenCoordinator?
     var navTitle = ""
+    var lottieName = ""
     var matchData: MatchElement?
     var cellIndex = 0
     var section: Int = 0 {
@@ -41,10 +44,12 @@ class SportsHighlightsCell: UICollectionViewCell, CellInfo {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
+        lottieView.changeLottie(lottieName: lottieName)
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateMatchesData, object: nil)
     }
     
-    func setupCell(with data: MatchElement) {
+    func setupCell(with data: MatchElement, lottieName: String) {
+        self.lottieName = lottieName
         let status = data.status.capitalizeFirstCharacter()
         self.tournamentNameLabel.text = data.competition
         self.homeTeamScoreLabel.text = String(data.score.home)

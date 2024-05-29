@@ -9,6 +9,7 @@ target 'El Pregonero' do
 
 pod 'Alamofire' 
 pod 'Kingfisher'
+pod 'lottie-ios'
 
   target 'El PregoneroTests' do
     inherit! :search_paths

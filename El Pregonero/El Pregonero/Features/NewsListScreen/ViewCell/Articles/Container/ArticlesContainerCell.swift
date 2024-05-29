@@ -15,6 +15,8 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
     @IBOutlet weak var newsLetterNameLabel: UILabel!
     @IBOutlet weak var tapToSearchLabel: UILabel!
     @IBOutlet weak var collectionViewContainer: UIView!
+    @IBOutlet weak var lottieView: NLottieAnimation!
+    @IBOutlet weak var noInfoView: NoInfoView!
     
     var cellIndex = 0
     var section: Int = 0 {
@@ -23,6 +25,7 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
         }
     }
     var navTitle = ""
+    var lottieName = ""
     var coordinator: NewsScreenCoordinator?
     
     private lazy var collectionView: UICollectionView? = {
@@ -35,6 +38,7 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
+        lottieView.changeLottie(lottieName: lottieName)
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateDJNewsData, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateJPNewsData, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateTNNewsData, object: nil)
@@ -46,8 +50,9 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
         }
     }
     
-    func setupCell(image: String, name: String) {
+    func setupCell(image: String, name: String, lottieName: String) {
         self.newsLetterNameLabel.text = name
+        self.lottieName = lottieName
         if let imageUrl = URL(string: image) {
             self.newsLetterImageView.setImage(from: imageUrl)
         } else {
