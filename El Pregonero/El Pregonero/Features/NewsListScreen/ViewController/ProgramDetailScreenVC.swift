@@ -59,6 +59,8 @@ class ProgramDetailScreenVC: UIViewController, StoryboardInfo {
         
         self.serviceProviders = data.getStreamingOptions().getProviders()
         updateButton(for: serviceProviders.first)
+        
+        showReleaseYearLabel.text = "\(data.releaseYear ?? 1999)"
     }
     
     func updateButton(for provider: Me?) {
