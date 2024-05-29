@@ -13,6 +13,7 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
     
     @IBOutlet weak var newsLetterImageView: UIImageView!
     @IBOutlet weak var newsLetterNameLabel: UILabel!
+    @IBOutlet weak var tapToSearchLabel: UILabel!
     @IBOutlet weak var collectionViewContainer: UIView!
     
     var cellIndex = 0

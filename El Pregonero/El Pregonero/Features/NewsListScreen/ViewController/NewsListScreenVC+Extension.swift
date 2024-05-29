@@ -57,6 +57,7 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
                 switch index {
                 case 0:
                     cell.setupCell(image: (viewModel?.getJPImageURL())!, name: (viewModel?.getJPName())!)
+                    cell.tapToSearchLabel.isHidden = false
                 case 1:
                     cell.setupCell(image: (viewModel?.getTNImageURL())!, name: (viewModel?.getTNName())!)
                 case 2:
@@ -91,10 +92,18 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.section
+        let item = indexPath.item
         switch index {
         case 0:
             let data = DataManager.showsData[indexPath.row]
             self.newsCoordinator?.pushToProgramDetail(with: data, navTitle: data.title)
+        case 1:
+            if indexPath.item == 0 {
+                let data = DataManager.newsJPData[indexPath.row]
+                self.newsCoordinator?.pushToJPNewsExtended(with: data, with: (viewModel?.getJPName())!, with: item, with: self.newsCoordinator!)
+            } else {
+                print("hi, tap an item to extend its information :D")
+            }
         default:
             print("hi, tap an item to extend its information :D")
         }

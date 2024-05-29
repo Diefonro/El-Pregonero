@@ -30,78 +30,77 @@ class NewsScreenViewModel {
     }
     
     //MARK: NewsAPI's
-//    func getNews(completion: @escaping () -> Void) {
-//        Task(priority: .userInitiated) {
-//            async let jpNewsResult = newsServices.getJPNews()
-//            async let djNewsResult = newsServices.getDJNews()
-//            
-//            let jpNewsOutcome = await jpNewsResult
-//            let djNewsOutcome = await djNewsResult
-//            
-//            async let initialTNNewsResult = newsServices.getTNNews(page: 1)
-//            
-//            async let tnNewsPage2Result = newsServices.getTNNews(page: 2)
-//            async let tnNewsPage3Result = newsServices.getTNNews(page: 3)
-//            async let tnNewsPage4Result = newsServices.getTNNews(page: 4)
-//            
-//            let initialOutcome = await initialTNNewsResult
-//            let page2Outcome = await tnNewsPage2Result
-//            let page3Outcome = await tnNewsPage3Result
-//            let page4Outcome = await tnNewsPage4Result
-//            
-//            var combinedNews: [Datum] = []
-//            
-//            switch initialOutcome {
-//            case .success(let news):
-//                combinedNews.append(contentsOf: news.getNews())
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
-//            
-//            switch page2Outcome {
-//            case .success(let news):
-//                combinedNews.append(contentsOf: news.getNews())
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
-//            
-//            switch page3Outcome {
-//            case .success(let news):
-//                combinedNews.append(contentsOf: news.getNews())
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
-//            
-//            switch page4Outcome {
-//            case .success(let news):
-//                combinedNews.append(contentsOf: news.getNews())
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
-//
-//            DataManager.newsTNData = combinedNews
-//            
-//            NotificationCenter.default.post(name: .didUpdateTNNewsData, object: nil)
-//            
-//            switch jpNewsOutcome {
-//            case .success(let news):
-//                DataManager.newsJPData = news
-//                NotificationCenter.default.post(name: .didUpdateJPNewsData, object: nil)
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
-//            
-//            
-//            switch djNewsOutcome {
-//            case .success(let news):
-//                DataManager.newsDJData = news.getNews()
-//                NotificationCenter.default.post(name: .didUpdateDJNewsData, object: nil)
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
-//            completion()
-//        }
-//    }
+    func getNews(completion: @escaping () -> Void) {
+        Task(priority: .userInitiated) {
+            async let jpNewsResult = newsServices.getJPNews()
+            async let djNewsResult = newsServices.getDJNews()
+            
+            let jpNewsOutcome = await jpNewsResult
+            let djNewsOutcome = await djNewsResult
+            
+            //            async let initialTNNewsResult = newsServices.getTNNews(page: 1)
+            
+            //            async let tnNewsPage2Result = newsServices.getTNNews(page: 2)
+            //            async let tnNewsPage3Result = newsServices.getTNNews(page: 3)
+            //            async let tnNewsPage4Result = newsServices.getTNNews(page: 4)
+            
+            //            let initialOutcome = await initialTNNewsResult
+            //            let page2Outcome = await tnNewsPage2Result
+            //            let page3Outcome = await tnNewsPage3Result
+            //            let page4Outcome = await tnNewsPage4Result
+            
+            var combinedNews: [Datum] = []
+            
+            //            switch initialOutcome {
+            //            case .success(let news):
+            //                combinedNews.append(contentsOf: news.getNews())
+            //            case .failure(let error):
+            //                AppError.handle(error: error)
+            //            }
+            //
+            //            switch page2Outcome {
+            //            case .success(let news):
+            //                combinedNews.append(contentsOf: news.getNews())
+            //            case .failure(let error):
+            //                AppError.handle(error: error)
+            //            }
+            //
+            //            switch page3Outcome {
+            //            case .success(let news):
+            //                combinedNews.append(contentsOf: news.getNews())
+            //            case .failure(let error):
+            //                AppError.handle(error: error)
+            //            }
+            //
+            //            switch page4Outcome {
+            //            case .success(let news):
+            //                combinedNews.append(contentsOf: news.getNews())
+            //            case .failure(let error):
+            //                AppError.handle(error: error)
+            //            }
+            
+            DataManager.newsTNData = combinedNews
+            
+            NotificationCenter.default.post(name: .didUpdateTNNewsData, object: nil)
+            
+            switch jpNewsOutcome {
+            case .success(let news):
+                DataManager.newsJPData = news
+                NotificationCenter.default.post(name: .didUpdateJPNewsData, object: nil)
+            case .failure(let error):
+                AppError.handle(error: error)
+            }
+            
+            switch djNewsOutcome {
+            case .success(let news):
+                DataManager.newsDJData = news.getNews()
+                NotificationCenter.default.post(name: .didUpdateDJNewsData, object: nil)
+            case .failure(let error):
+                AppError.handle(error: error)
+            }
+            completion()
+        }
+    }
     
     //MARK: JSONPlaceholder functions
     func getJPName() -> String {

@@ -19,10 +19,7 @@ class UserInfoCell: UITableViewCell, CellInfo {
     override func awakeFromNib() {
         super.awakeFromNib()
         print("Hi :P user cell")
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        self.selectionStyle = .none
     }
     
     func configureCell(userData: User, pictureData: UsersPics) {

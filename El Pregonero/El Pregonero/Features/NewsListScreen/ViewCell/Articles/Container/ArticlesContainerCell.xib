@@ -22,34 +22,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="374" height="312"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RuY-FB-zYV" userLabel="NewsLetterView">
-                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nHf-8w-kCN">
-                                        <rect key="frame" x="20" y="11.999999999999998" width="30" height="26.666666666666664"/>
+                                        <rect key="frame" x="20" y="22" width="30" height="26.666666666666671"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="DsK-XV-Ucu"/>
                                             <constraint firstAttribute="height" constant="30" id="JgJ-kT-cBo"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Newsletter Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3R3-Zy-GUI">
-                                        <rect key="frame" x="60" y="14.999999999999998" width="294" height="20.333333333333329"/>
+                                        <rect key="frame" x="60" y="25" width="294" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to search news!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFa-dC-9Sh">
+                                        <rect key="frame" x="118.66666666666667" y="50.333333333333336" width="136.66666666666663" height="24.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 <constraints>
-                                    <constraint firstItem="nHf-8w-kCN" firstAttribute="centerY" secondItem="RuY-FB-zYV" secondAttribute="centerY" id="A5P-am-GoC"/>
+                                    <constraint firstItem="3R3-Zy-GUI" firstAttribute="centerY" secondItem="nHf-8w-kCN" secondAttribute="centerY" id="7AA-rp-Rhb"/>
+                                    <constraint firstItem="nHf-8w-kCN" firstAttribute="top" secondItem="RuY-FB-zYV" secondAttribute="top" constant="20" id="A1M-RP-Nhq"/>
                                     <constraint firstAttribute="trailing" secondItem="3R3-Zy-GUI" secondAttribute="trailing" constant="20" id="O9J-fl-HO5"/>
-                                    <constraint firstAttribute="height" constant="50" id="cDv-OJ-iAV"/>
+                                    <constraint firstItem="fFa-dC-9Sh" firstAttribute="top" secondItem="3R3-Zy-GUI" secondAttribute="bottom" constant="5" id="aNu-3T-DET"/>
+                                    <constraint firstAttribute="height" constant="80" id="cDv-OJ-iAV"/>
+                                    <constraint firstAttribute="bottom" secondItem="fFa-dC-9Sh" secondAttribute="bottom" constant="5" id="jey-Qr-QEj"/>
                                     <constraint firstItem="nHf-8w-kCN" firstAttribute="leading" secondItem="RuY-FB-zYV" secondAttribute="leading" constant="20" id="kUb-sT-8nI"/>
-                                    <constraint firstItem="3R3-Zy-GUI" firstAttribute="centerY" secondItem="nHf-8w-kCN" secondAttribute="centerY" id="sCy-wM-8dA"/>
+                                    <constraint firstItem="fFa-dC-9Sh" firstAttribute="centerX" secondItem="RuY-FB-zYV" secondAttribute="centerX" id="okR-CH-gvZ"/>
                                     <constraint firstItem="3R3-Zy-GUI" firstAttribute="leading" secondItem="nHf-8w-kCN" secondAttribute="trailing" constant="10" id="w4E-Nf-LB9"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zek-J0-tw2" userLabel="CollectionContainerView">
-                                <rect key="frame" x="0.0" y="50" width="374" height="262"/>
+                                <rect key="frame" x="0.0" y="80" width="374" height="232"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -83,6 +92,7 @@
                 <outlet property="collectionViewContainer" destination="zek-J0-tw2" id="I8k-dP-3e3"/>
                 <outlet property="newsLetterImageView" destination="nHf-8w-kCN" id="aQJ-77-gXe"/>
                 <outlet property="newsLetterNameLabel" destination="3R3-Zy-GUI" id="sdM-f6-v7J"/>
+                <outlet property="tapToSearchLabel" destination="fFa-dC-9Sh" id="10w-jl-CBb"/>
             </connections>
             <point key="canvasLocation" x="222.90076335877862" y="80.985915492957744"/>
         </collectionViewCell>
