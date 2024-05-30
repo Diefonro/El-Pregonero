@@ -61,28 +61,28 @@
                                 <rect key="frame" x="0.0" y="80" width="374" height="232"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5J-8F-apH" customClass="NLottieAnimation" customModule="El_Pregonero" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="374" height="312"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIv-rk-g1A" customClass="NoInfoView" customModule="El_Pregonero" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="80" width="374" height="232"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AG5-6O-8Rx" customClass="NoInfoView" customModule="El_Pregonero" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5J-8F-apH" customClass="NLottieAnimation" customModule="El_Pregonero" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="374" height="312"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="dIv-rk-g1A" firstAttribute="leading" secondItem="T1m-zb-TJU" secondAttribute="leading" id="23L-JF-0gH"/>
+                            <constraint firstItem="dIv-rk-g1A" firstAttribute="top" secondItem="RuY-FB-zYV" secondAttribute="bottom" id="23T-GH-HhQ"/>
                             <constraint firstAttribute="trailing" secondItem="S5J-8F-apH" secondAttribute="trailing" id="3rv-6m-PYc"/>
                             <constraint firstAttribute="bottom" secondItem="S5J-8F-apH" secondAttribute="bottom" id="AJh-CG-2gd"/>
                             <constraint firstItem="zek-J0-tw2" firstAttribute="leading" secondItem="T1m-zb-TJU" secondAttribute="leading" id="DpI-0P-xdL"/>
-                            <constraint firstAttribute="trailing" secondItem="AG5-6O-8Rx" secondAttribute="trailing" id="F50-0J-qHY"/>
-                            <constraint firstAttribute="bottom" secondItem="AG5-6O-8Rx" secondAttribute="bottom" id="F7z-uX-o4V"/>
                             <constraint firstItem="RuY-FB-zYV" firstAttribute="leading" secondItem="T1m-zb-TJU" secondAttribute="leading" id="Kht-hx-B7g"/>
                             <constraint firstItem="S5J-8F-apH" firstAttribute="leading" secondItem="T1m-zb-TJU" secondAttribute="leading" id="Lpm-55-D4i"/>
                             <constraint firstAttribute="trailing" secondItem="zek-J0-tw2" secondAttribute="trailing" id="YxH-Ej-JAo"/>
-                            <constraint firstItem="AG5-6O-8Rx" firstAttribute="leading" secondItem="T1m-zb-TJU" secondAttribute="leading" id="asm-Qa-68q"/>
+                            <constraint firstAttribute="trailing" secondItem="dIv-rk-g1A" secondAttribute="trailing" id="dEa-AU-YTf"/>
                             <constraint firstItem="RuY-FB-zYV" firstAttribute="top" secondItem="T1m-zb-TJU" secondAttribute="top" id="diG-vl-r7r"/>
-                            <constraint firstItem="AG5-6O-8Rx" firstAttribute="top" secondItem="T1m-zb-TJU" secondAttribute="top" id="rsx-hp-5RI"/>
+                            <constraint firstAttribute="bottom" secondItem="dIv-rk-g1A" secondAttribute="bottom" id="rQe-8m-IU6"/>
                             <constraint firstItem="S5J-8F-apH" firstAttribute="top" secondItem="T1m-zb-TJU" secondAttribute="top" id="tUv-Kl-ciG"/>
                             <constraint firstAttribute="bottom" secondItem="zek-J0-tw2" secondAttribute="bottom" id="vCS-qT-57c"/>
                             <constraint firstItem="zek-J0-tw2" firstAttribute="top" secondItem="RuY-FB-zYV" secondAttribute="bottom" id="w96-xM-vMI"/>
@@ -109,7 +109,7 @@
                 <outlet property="lottieView" destination="S5J-8F-apH" id="a39-j0-fkm"/>
                 <outlet property="newsLetterImageView" destination="nHf-8w-kCN" id="aQJ-77-gXe"/>
                 <outlet property="newsLetterNameLabel" destination="3R3-Zy-GUI" id="sdM-f6-v7J"/>
-                <outlet property="noInfoView" destination="AG5-6O-8Rx" id="7MX-u5-uU5"/>
+                <outlet property="noInfoInside" destination="dIv-rk-g1A" id="oVE-uP-HQp"/>
                 <outlet property="tapToSearchLabel" destination="fFa-dC-9Sh" id="10w-jl-CBb"/>
             </connections>
             <point key="canvasLocation" x="222.90076335877862" y="80.985915492957744"/>

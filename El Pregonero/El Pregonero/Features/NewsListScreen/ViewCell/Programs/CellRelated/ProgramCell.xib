@@ -43,44 +43,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAm-31-T9w" customClass="NLottieAnimation" customModule="El_Pregonero" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s38-Ot-bbh" customClass="NLottieAnimation" customModule="El_Pregonero" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="203" height="250"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOr-1O-vsH" customClass="NoInfoView" customModule="El_Pregonero" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nw-3Z-rtO" customClass="NoInfoView" customModule="El_Pregonero" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="203" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="bOr-1O-vsH" secondAttribute="bottom" id="7Iu-ax-5qN"/>
+                            <constraint firstAttribute="bottom" secondItem="6nw-3Z-rtO" secondAttribute="bottom" id="7xN-o1-63B"/>
+                            <constraint firstAttribute="bottom" secondItem="s38-Ot-bbh" secondAttribute="bottom" id="EEo-pm-s4p"/>
+                            <constraint firstAttribute="trailing" secondItem="s38-Ot-bbh" secondAttribute="trailing" id="HFk-sc-mhd"/>
                             <constraint firstItem="mBi-lb-HRc" firstAttribute="leading" secondItem="4Ir-V7-jWW" secondAttribute="leading" id="HLL-EB-cyR"/>
                             <constraint firstAttribute="trailing" secondItem="y5f-no-cjQ" secondAttribute="trailing" constant="10" id="IVn-ll-8Ui"/>
                             <constraint firstItem="mBi-lb-HRc" firstAttribute="top" secondItem="4Ir-V7-jWW" secondAttribute="top" id="JeB-xj-9PV"/>
-                            <constraint firstItem="TAm-31-T9w" firstAttribute="top" secondItem="4Ir-V7-jWW" secondAttribute="top" id="JnC-sc-5Ql"/>
-                            <constraint firstAttribute="trailing" secondItem="TAm-31-T9w" secondAttribute="trailing" id="W18-H4-nsP"/>
+                            <constraint firstItem="s38-Ot-bbh" firstAttribute="leading" secondItem="4Ir-V7-jWW" secondAttribute="leading" id="Pav-8D-cJB"/>
+                            <constraint firstItem="s38-Ot-bbh" firstAttribute="top" secondItem="4Ir-V7-jWW" secondAttribute="top" id="Pca-nr-HzP"/>
                             <constraint firstItem="y5f-no-cjQ" firstAttribute="top" secondItem="mBi-lb-HRc" secondAttribute="bottom" constant="5" id="WU3-87-6ry"/>
-                            <constraint firstItem="bOr-1O-vsH" firstAttribute="leading" secondItem="4Ir-V7-jWW" secondAttribute="leading" id="ZIK-wL-SGr"/>
-                            <constraint firstItem="TAm-31-T9w" firstAttribute="leading" secondItem="4Ir-V7-jWW" secondAttribute="leading" id="a6O-mR-VsA"/>
+                            <constraint firstItem="6nw-3Z-rtO" firstAttribute="leading" secondItem="4Ir-V7-jWW" secondAttribute="leading" id="Yfj-dE-5dC"/>
                             <constraint firstItem="y5f-no-cjQ" firstAttribute="leading" secondItem="4Ir-V7-jWW" secondAttribute="leading" constant="10" id="gE4-rU-Bwh"/>
                             <constraint firstAttribute="bottom" secondItem="y5f-no-cjQ" secondAttribute="bottom" constant="5" id="gnw-fq-dO6"/>
-                            <constraint firstAttribute="bottom" secondItem="TAm-31-T9w" secondAttribute="bottom" id="jdN-Ou-qsw"/>
                             <constraint firstAttribute="trailing" secondItem="mBi-lb-HRc" secondAttribute="trailing" id="m95-Wv-09S"/>
-                            <constraint firstAttribute="trailing" secondItem="bOr-1O-vsH" secondAttribute="trailing" id="mBw-lo-JWm"/>
                             <constraint firstAttribute="height" constant="250" id="nLA-SX-fby"/>
-                            <constraint firstItem="bOr-1O-vsH" firstAttribute="top" secondItem="4Ir-V7-jWW" secondAttribute="top" id="uQn-d1-4Pa"/>
+                            <constraint firstAttribute="trailing" secondItem="6nw-3Z-rtO" secondAttribute="trailing" id="rGp-VI-5iH"/>
+                            <constraint firstItem="6nw-3Z-rtO" firstAttribute="top" secondItem="4Ir-V7-jWW" secondAttribute="top" id="uFu-pu-KjB"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="25"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -100,8 +89,8 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="imageView" destination="h6v-ew-vOV" id="zIy-Wn-OHo"/>
-                <outlet property="lottieView" destination="TAm-31-T9w" id="nMZ-2d-Fnb"/>
-                <outlet property="noInfoView" destination="bOr-1O-vsH" id="m8l-0K-tZI"/>
+                <outlet property="lottieView" destination="s38-Ot-bbh" id="1s5-dt-CHC"/>
+                <outlet property="noInfoView" destination="6nw-3Z-rtO" id="TRJ-dY-BqJ"/>
                 <outlet property="showNameLabel" destination="y5f-no-cjQ" id="LJZ-lx-djC"/>
             </connections>
             <point key="canvasLocation" x="92.36641221374046" y="98.591549295774655"/>

@@ -16,7 +16,7 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
     @IBOutlet weak var tapToSearchLabel: UILabel!
     @IBOutlet weak var collectionViewContainer: UIView!
     @IBOutlet weak var lottieView: NLottieAnimation!
-    @IBOutlet weak var noInfoView: NoInfoView!
+    @IBOutlet weak var noInfoInside: NoInfoView!
     
     var cellIndex = 0
     var section: Int = 0 {

@@ -31,7 +31,7 @@ extension NewsEndpoint: Endpoint {
         case .newsJP, .newsDJ:
             return "/posts"
         case .newsTN:
-            return "/v1/news/top"
+            return "/v1/news/tops"
         }
     }
     

@@ -44,7 +44,7 @@ class SportsHighlightsCell: UICollectionViewCell, CellInfo {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
-        lottieView.changeLottie(lottieName: lottieName)
+        lottieView.changeLottie(lottieName: "ShowLottie")
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateMatchesData, object: nil)
     }
     

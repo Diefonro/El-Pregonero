@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,21 +26,11 @@
                                             <constraint firstAttribute="width" constant="200" id="yTv-Wx-Anc"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZp-am-wQO" customClass="NLottieAnimation" customModule="El_Pregonero" customModuleProvider="target">
-                                        <rect key="frame" x="146.66666666666666" y="100" width="100" height="100"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="UIG-Hh-5dX"/>
-                                            <constraint firstAttribute="height" constant="100" id="ih9-2r-WHW"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="gIH-1K-pwk" firstAttribute="centerX" secondItem="Q3E-7g-rkl" secondAttribute="centerX" id="1fD-f8-mbG"/>
                                     <constraint firstItem="gIH-1K-pwk" firstAttribute="centerY" secondItem="Q3E-7g-rkl" secondAttribute="centerY" id="8yX-Qt-fg3"/>
-                                    <constraint firstItem="qZp-am-wQO" firstAttribute="centerX" secondItem="Q3E-7g-rkl" secondAttribute="centerX" id="X8j-Y9-lna"/>
-                                    <constraint firstItem="qZp-am-wQO" firstAttribute="top" secondItem="Q3E-7g-rkl" secondAttribute="top" constant="100" id="zLJ-hx-wzj"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -56,7 +45,6 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="gIH-1K-pwk" id="U7f-jd-gbm"/>
-                        <outlet property="lottieView" destination="qZp-am-wQO" id="WLT-Wt-zzW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -66,8 +54,5 @@
     </scenes>
     <resources>
         <image name="ElPregoneroIcon" width="400" height="400"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

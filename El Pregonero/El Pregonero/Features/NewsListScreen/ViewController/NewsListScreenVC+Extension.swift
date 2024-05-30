@@ -42,14 +42,19 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
         switch section {
         case 0:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgramCell.reuseIdentifier, for: indexPath) as? ProgramCell {
-                if DataManager.showsData.isEmpty {
-                    cell.imageView.image = UIImage(systemName: "person")
-                } else {
-                    let data = DataManager.showsData[indexPath.row]
-                    cell.setupCell(with: data)
+                if let hasData = NewsListScreenVC.showsHasData {
+                    if hasData {
+                        let data = DataManager.showsData[indexPath.row]
+                        cell.setupCell(with: data)
+                        cell.updateUIWithData()
+                    } else {
+                        cell.updateUIWithNoData()
+                    }
                 }
+                
                 return cell
             }
+            
         case 1:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticlesContainerCell.reuseIdentifier, for: indexPath) as? ArticlesContainerCell {
                 cell.coordinator = self.newsCoordinator
