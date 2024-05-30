@@ -31,7 +31,7 @@ extension NewsEndpoint: Endpoint {
         case .newsJP, .newsDJ:
             return "/posts"
         case .newsTN:
-            return "/v1/news/tops"
+            return "/v1/news/top"
         }
     }
     
@@ -40,7 +40,7 @@ extension NewsEndpoint: Endpoint {
         case .newsJP, .newsDJ:
             return nil
         case .newsTN(let page):
-            let token = "renXuXDhdiG9AyAMDBYS8l2dYp2j24R2MYExdkWz"
+            let token = "SyJxefpewN4Np01rUETfGVSn0lNBAPWE2afS4wZc"
             return [
                 URLQueryItem(name: "api_token", value: token),
                 URLQueryItem(name: "locale", value: "ar"),

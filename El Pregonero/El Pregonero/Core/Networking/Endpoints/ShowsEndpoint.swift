@@ -22,7 +22,7 @@ extension ShowsEndpoint: Endpoint {
     var path: String {
         switch self {
         case .shows:
-            return "/shows/search/filterss"
+            return "/shows/search/filters"
         }
     }
     
@@ -43,7 +43,7 @@ extension ShowsEndpoint: Endpoint {
     var header: [String : String]? {
         switch self {
         case .shows:
-            let token = "0b3d94b622msh20bc8f3b014f712p1220adjsnd5795fab5706"
+            let token = "63ff6c1525msh99771ce8dac8c28p17daa8jsnfd24d469184a"
             return [
                 "x-rapidapi-key": token,
                 "x-rapidapi-host" : self.host

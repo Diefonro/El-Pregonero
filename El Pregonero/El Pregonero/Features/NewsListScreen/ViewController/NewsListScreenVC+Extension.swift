@@ -49,6 +49,7 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
                         cell.updateUIWithData()
                     } else {
                         cell.updateUIWithNoData()
+                        cell.isUserInteractionEnabled = false
                     }
                 }
                 
@@ -82,7 +83,7 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
             }
         case 3:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SportsHighlightsCell.reuseIdentifier, for: indexPath) as? SportsHighlightsCell {
-                if let hasData = NewsListScreenVC.showsHasData {
+                if NewsListScreenVC.showsHasData != nil {
                     let data = DataManager.matchesData[indexPath.item]
                     cell.matchData = data
                     cell.setupCell(with: data, lottieName: "NewsSkeleton")
