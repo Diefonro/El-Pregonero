@@ -32,6 +32,7 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
     static var newsJPHasData: Bool?
     static var newsTNHasData: Bool?
     static var newsDJHasData: Bool?
+    static var newsHasData: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +80,7 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
             await viewModel?.getJPNews()
             await viewModel?.getTNNews()
             await viewModel?.getDJNews()
+        
         }
 
     }

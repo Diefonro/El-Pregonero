@@ -58,6 +58,7 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
         case 1:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticlesContainerCell.reuseIdentifier, for: indexPath) as? ArticlesContainerCell {
                 cell.coordinator = self.newsCoordinator
+                cell.lottieView.isHidden = true
                 let lottieName = "NewsLottie"
                 switch index {
                 case 0:
@@ -81,10 +82,15 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
             }
         case 3:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SportsHighlightsCell.reuseIdentifier, for: indexPath) as? SportsHighlightsCell {
+                if let hasData = NewsListScreenVC.showsHasData {
+                    let data = DataManager.matchesData[indexPath.item]
+                    cell.matchData = data
+                    cell.setupCell(with: data, lottieName: "NewsSkeleton")
+                } else {
+                    cell.noInfoView.isHidden = false
+                }
+                cell.lottieView.isHidden = true
                 cell.newsCoordinator = self.newsCoordinator
-                let data = DataManager.matchesData[indexPath.item]
-                cell.matchData = data
-                cell.setupCell(with: data, lottieName: "NewsSkeleton")
                 cell.cellIndex = indexPath.item
                 return cell
             }

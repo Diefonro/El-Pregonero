@@ -38,7 +38,7 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
-        lottieView.changeLottie(lottieName: lottieName)
+        lottieView.changeLottie(lottieName: "NewsLottie")
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateDJNewsData, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateJPNewsData, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateTNNewsData, object: nil)
@@ -150,18 +150,33 @@ extension ArticlesContainerCell: UICollectionViewDelegate, UICollectionViewDataS
             switch cellIndex {
             case 0:
                 let index = indexPath.row
-                let JPData = DataManager.newsJPData[index]
-                cell.setupJPCell(with: JPData)
+                let JPData = DataManager.newsJPData
+                if !JPData.isEmpty {
+                    cell.setupJPCell(with: JPData[index])
+
+                } else {
+                    self.noInfoInside.isHidden = false
+                }
             case 1:
                 let index = indexPath.row
-                let TNData = DataManager.newsTNData[index]
-                cell.setupTNCell(with: TNData)
+                let TNData = DataManager.newsTNData
+                if !TNData.isEmpty {
+                    cell.setupTNCell(with: TNData[index])
+                } else {
+                    self.noInfoInside.isHidden = false
+                }
+               
             case 2:
                 let index = indexPath.row
-                let DJData = DataManager.newsDJData[index]
-                cell.setupDJCell(with: DJData)
-            default:
-                break
+                let DJData = DataManager.newsDJData
+                if !DJData.isEmpty {
+                    cell.setupDJCell(with: DJData[index])
+                } else {
+                    self.noInfoInside.isHidden = false
+                }
+                
+                default:
+                print("default in line article dequeue")
             }
             
             return cell

@@ -123,8 +123,15 @@ class NewsScreenViewModel {
                      NewsListScreenVC.newsTNHasData = false
                  }
              }
-
-             DataManager.newsTNData = combinedNews
+             
+             if combinedNews.isEmpty {
+                 await MainActor.run {
+                     NewsListScreenVC.newsHasData = false
+                 }
+             } else {
+                 DataManager.newsTNData = combinedNews
+             }
+             
          }
      }
 

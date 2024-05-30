@@ -65,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="80" width="374" height="232"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5J-8F-apH" customClass="NLottieAnimation" customModule="El_Pregonero" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5J-8F-apH" customClass="NLottieAnimation" customModule="El_Pregonero" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="374" height="312"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
