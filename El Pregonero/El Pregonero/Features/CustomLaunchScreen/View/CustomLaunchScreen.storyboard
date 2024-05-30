@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,7 +27,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="gIH-1K-pwk" firstAttribute="centerX" secondItem="Q3E-7g-rkl" secondAttribute="centerX" id="1fD-f8-mbG"/>
                                     <constraint firstItem="gIH-1K-pwk" firstAttribute="centerY" secondItem="Q3E-7g-rkl" secondAttribute="centerY" id="8yX-Qt-fg3"/>
@@ -36,7 +35,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Q3E-7g-rkl" secondAttribute="trailing" id="Fnc-7l-xaW"/>
                             <constraint firstItem="Q3E-7g-rkl" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Mld-Pl-Egj"/>
@@ -55,8 +54,5 @@
     </scenes>
     <resources>
         <image name="ElPregoneroIcon" width="400" height="400"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

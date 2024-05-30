@@ -20,7 +20,12 @@ class NewsSectionCell: UICollectionViewCell, CellInfo {
     }
     
     func setupCellH(image: String?, sport: String?) {
-        self.newsSectionImageView.setImage(from: URL(string: image!)!)
+        if let imageView = image {
+            self.newsSectionImageView.setImage(from: URL(string: image!)!)
+        } else {
+            self.newsSectionImageView.image = UIImage(systemName: "newspaper.fill")
+        }
+   
         self.newsSectionNameLabel.text = sport
     }
 

@@ -13,7 +13,10 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
     
     @IBOutlet weak var newsLetterImageView: UIImageView!
     @IBOutlet weak var newsLetterNameLabel: UILabel!
+    @IBOutlet weak var tapToSearchLabel: UILabel!
     @IBOutlet weak var collectionViewContainer: UIView!
+    @IBOutlet weak var lottieView: NLottieAnimation!
+    @IBOutlet weak var noInfoInside: NoInfoView!
     
     var cellIndex = 0
     var section: Int = 0 {
@@ -22,6 +25,7 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
         }
     }
     var navTitle = ""
+    var lottieName = ""
     var coordinator: NewsScreenCoordinator?
     
     private lazy var collectionView: UICollectionView? = {
@@ -34,6 +38,7 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
+        lottieView.changeLottie(lottieName: "NewsLottie")
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateDJNewsData, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateJPNewsData, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didUpdateData), name: .didUpdateTNNewsData, object: nil)
@@ -45,8 +50,9 @@ class ArticlesContainerCell: UICollectionViewCell, CellInfo {
         }
     }
     
-    func setupCell(image: String, name: String) {
+    func setupCell(image: String, name: String, lottieName: String) {
         self.newsLetterNameLabel.text = name
+        self.lottieName = lottieName
         if let imageUrl = URL(string: image) {
             self.newsLetterImageView.setImage(from: imageUrl)
         } else {
@@ -144,18 +150,33 @@ extension ArticlesContainerCell: UICollectionViewDelegate, UICollectionViewDataS
             switch cellIndex {
             case 0:
                 let index = indexPath.row
-                let JPData = DataManager.newsJPData[index]
-                cell.setupJPCell(with: JPData)
+                let JPData = DataManager.newsJPData
+                if !JPData.isEmpty {
+                    cell.setupJPCell(with: JPData[index])
+
+                } else {
+                    self.noInfoInside.isHidden = false
+                }
             case 1:
                 let index = indexPath.row
-                let TNData = DataManager.newsTNData[index]
-                cell.setupTNCell(with: TNData)
+                let TNData = DataManager.newsTNData
+                if !TNData.isEmpty {
+                    cell.setupTNCell(with: TNData[index])
+                } else {
+                    self.noInfoInside.isHidden = false
+                }
+               
             case 2:
                 let index = indexPath.row
-                let DJData = DataManager.newsDJData[index]
-                cell.setupDJCell(with: DJData)
-            default:
-                break
+                let DJData = DataManager.newsDJData
+                if !DJData.isEmpty {
+                    cell.setupDJCell(with: DJData[index])
+                } else {
+                    self.noInfoInside.isHidden = false
+                }
+                
+                default:
+                print("default in line article dequeue")
             }
             
             return cell

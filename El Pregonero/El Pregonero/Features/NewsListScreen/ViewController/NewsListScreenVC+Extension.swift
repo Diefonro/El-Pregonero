@@ -42,25 +42,33 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
         switch section {
         case 0:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProgramCell.reuseIdentifier, for: indexPath) as? ProgramCell {
-                if DataManager.showsData.isEmpty {
-                    cell.imageView.image = UIImage(named: "movieclapper.fill")
-                    cell.showNameLabel.text = "Show title"
-                } else {
-                    let data = DataManager.showsData[indexPath.row]
-                    cell.setupCell(with: data)
+                if let hasData = NewsListScreenVC.showsHasData {
+                    if hasData {
+                        let data = DataManager.showsData[indexPath.row]
+                        cell.setupCell(with: data)
+                        cell.updateUIWithData()
+                    } else {
+                        cell.updateUIWithNoData()
+                        cell.isUserInteractionEnabled = false
+                    }
                 }
+                
                 return cell
             }
+            
         case 1:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticlesContainerCell.reuseIdentifier, for: indexPath) as? ArticlesContainerCell {
                 cell.coordinator = self.newsCoordinator
+                cell.lottieView.isHidden = true
+                let lottieName = "NewsLottie"
                 switch index {
                 case 0:
-                    cell.setupCell(image: (viewModel?.getJPImageURL())!, name: (viewModel?.getJPName())!)
+                    cell.setupCell(image: (viewModel?.getJPImageURL())!, name: (viewModel?.getJPName())!, lottieName: lottieName)
+                    cell.tapToSearchLabel.isHidden = false
                 case 1:
-                    cell.setupCell(image: (viewModel?.getTNImageURL())!, name: (viewModel?.getTNName())!)
+                    cell.setupCell(image: (viewModel?.getTNImageURL())!, name: (viewModel?.getTNName())!, lottieName: lottieName)
                 case 2:
-                    cell.setupCell(image: (viewModel?.getDJImageURL())!, name: (viewModel?.getDJName())!)
+                    cell.setupCell(image: (viewModel?.getDJImageURL())!, name: (viewModel?.getDJName())!, lottieName: lottieName)
                 default:
                     print("Failed to get newspaper info.")
                 }
@@ -75,10 +83,15 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
             }
         case 3:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SportsHighlightsCell.reuseIdentifier, for: indexPath) as? SportsHighlightsCell {
+                if NewsListScreenVC.showsHasData != nil {
+                    let data = DataManager.matchesData[indexPath.item]
+                    cell.matchData = data
+                    cell.setupCell(with: data, lottieName: "NewsSkeleton")
+                } else {
+                    cell.noInfoView.isHidden = false
+                }
+                cell.lottieView.isHidden = true
                 cell.newsCoordinator = self.newsCoordinator
-                let data = DataManager.matchesData[indexPath.item]
-                cell.matchData = data
-                cell.setupCell(with: data)
                 cell.cellIndex = indexPath.item
                 return cell
             }
@@ -91,10 +104,18 @@ extension NewsListScreenVC: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.section
+        let item = indexPath.item
         switch index {
         case 0:
             let data = DataManager.showsData[indexPath.row]
             self.newsCoordinator?.pushToProgramDetail(with: data, navTitle: data.title)
+        case 1:
+            if indexPath.item == 0 {
+                let data = DataManager.newsJPData[indexPath.row]
+                self.newsCoordinator?.pushToJPNewsExtended(with: data, with: (viewModel?.getJPName())!, with: item, with: self.newsCoordinator!)
+            } else {
+                print("hi, tap an item to extend its information :D")
+            }
         default:
             print("hi, tap an item to extend its information :D")
         }

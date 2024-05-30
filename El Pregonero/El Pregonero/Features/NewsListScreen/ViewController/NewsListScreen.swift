@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class NewsListScreenVC: UIViewController, StoryboardInfo {
     
@@ -27,18 +28,19 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
     
     var page = 0
     
+    static var showsHasData: Bool?
+    static var newsJPHasData: Bool?
+    static var newsTNHasData: Bool?
+    static var newsDJHasData: Bool?
+    static var newsHasData: Bool?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-//        viewModel?.getNews {
-//            print("hi :D")
-//        }
         
-//        viewModel?.getShows {
-//            DispatchQueue.main.async {
-//                self.collectionView!.reloadSections(IndexSet(integer: 0))
-//            }
-//        }
+        fetchShows()
+        fetchNews()
+
         
         viewModel?.getSports {
             DispatchQueue.main.async {
@@ -46,11 +48,13 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
                 print("Data matches available :D, \(DataManager.matchesData.count)")
             }
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = "News List"
+        self.newsCoordinator?.enableDragPopGesture()
     }
     
     func setViewModel(viewModel: NewsScreenViewModel) {
@@ -59,6 +63,26 @@ class NewsListScreenVC: UIViewController, StoryboardInfo {
     
     func setCoordinator(coordinator: NewsScreenCoordinator?) {
         self.newsCoordinator = coordinator
+    }
+
+    
+    func fetchShows() {
+        Task {
+            await viewModel?.getShows()
+            DispatchQueue.main.async {
+                self.collectionView!.reloadSections(IndexSet(integer: 0))
+            }
+        }
+    }
+    
+    func fetchNews() {
+        Task {
+            await viewModel?.getJPNews()
+            await viewModel?.getTNNews()
+            await viewModel?.getDJNews()
+        
+        }
+
     }
     
     func setupCollectionView() {

@@ -55,6 +55,16 @@ class NewsScreenCoordinator: Coordinating {
             self.coordinator?.push(viewController: detailScreen, animated: true)
         }
     }
+    
+    func pushToJPNewsExtended(with jpData: NewsElement, with navTitle: String, with cellIndex: Int, with newsCoordinator: NewsScreenCoordinator) {
+        if let detailScreen = UIStoryboard(name: NewsExtendedScreenVC.storyboard, bundle: nil)
+            .instantiateViewController(withIdentifier: NewsExtendedScreenVC.identifier) as? NewsExtendedScreenVC {
+            detailScreen.navTitle = navTitle
+            detailScreen.cellIndex = cellIndex
+            detailScreen.coordinator = newsCoordinator
+            self.coordinator?.push(viewController: detailScreen, animated: true)
+        }
+    }
 
     func pushToTNNewsDetail(with tnData: Datum, navTitle: String) {
         if let detailScreen = UIStoryboard(name: NewsDetailScreenVC.storyboard, bundle: nil)

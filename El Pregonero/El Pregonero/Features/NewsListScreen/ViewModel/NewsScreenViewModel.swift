@@ -13,95 +13,148 @@ class NewsScreenViewModel {
     let showsServices = ShowsServices()
     let sportsServices = SportsServices()
     
-    //MARK: ShowsAPI
-    func getShows(completion: @escaping () -> Void) {
-        Task(priority: .userInitiated) {
-            let result = await showsServices.getShows()
-            switch result {
-            case .success(let shows):
-                let data = shows.getShows()
-                DataManager.showsData = data
-                print("SHOWS DATA: \(DataManager.showsData.count), \(DataManager.showsData)")
-                completion()
-            case .failure(let error):
-                AppError.handle(error: error)
-            }
-        }
-    }
-    
-    //MARK: NewsAPI's
-//    func getNews(completion: @escaping () -> Void) {
-//        Task(priority: .userInitiated) {
-//            async let jpNewsResult = newsServices.getJPNews()
-//            async let djNewsResult = newsServices.getDJNews()
-//            
-//            let jpNewsOutcome = await jpNewsResult
-//            let djNewsOutcome = await djNewsResult
-//            
-//            async let initialTNNewsResult = newsServices.getTNNews(page: 1)
-//            
-//            async let tnNewsPage2Result = newsServices.getTNNews(page: 2)
-//            async let tnNewsPage3Result = newsServices.getTNNews(page: 3)
-//            async let tnNewsPage4Result = newsServices.getTNNews(page: 4)
-//            
-//            let initialOutcome = await initialTNNewsResult
-//            let page2Outcome = await tnNewsPage2Result
-//            let page3Outcome = await tnNewsPage3Result
-//            let page4Outcome = await tnNewsPage4Result
-//            
-//            var combinedNews: [Datum] = []
-//            
-//            switch initialOutcome {
-//            case .success(let news):
-//                combinedNews.append(contentsOf: news.getNews())
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
-//            
-//            switch page2Outcome {
-//            case .success(let news):
-//                combinedNews.append(contentsOf: news.getNews())
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
-//            
-//            switch page3Outcome {
-//            case .success(let news):
-//                combinedNews.append(contentsOf: news.getNews())
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
-//            
-//            switch page4Outcome {
-//            case .success(let news):
-//                combinedNews.append(contentsOf: news.getNews())
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
-//
-//            DataManager.newsTNData = combinedNews
-//            
-//            NotificationCenter.default.post(name: .didUpdateTNNewsData, object: nil)
-//            
-//            switch jpNewsOutcome {
-//            case .success(let news):
-//                DataManager.newsJPData = news
-//                NotificationCenter.default.post(name: .didUpdateJPNewsData, object: nil)
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
-//            
-//            
-//            switch djNewsOutcome {
-//            case .success(let news):
-//                DataManager.newsDJData = news.getNews()
-//                NotificationCenter.default.post(name: .didUpdateDJNewsData, object: nil)
-//            case .failure(let error):
-//                AppError.handle(error: error)
-//            }
-//            completion()
-//        }
-//    }
+    // MARK: ShowsAPI
+     func getShows() async {
+         let result = await showsServices.getShows()
+         switch result {
+         case .success(let shows):
+             let data = shows.getShows()
+             DataManager.showsData = data
+             await MainActor.run {
+                 NewsListScreenVC.showsHasData = true
+             }
+         case .failure(let error):
+             AppError.handle(error: error)
+             await MainActor.run {
+                 NewsListScreenVC.showsHasData = false
+             }
+         }
+     }
+
+     // MARK: NewsAPI's
+
+     func getJPNews() async {
+         Task(priority: .userInitiated) {
+             async let jpNewsResult = newsServices.getJPNews()
+             let jpNewsOutcome = await jpNewsResult
+
+             switch jpNewsOutcome {
+             case .success(let news):
+                 DataManager.newsJPData = news
+                 await MainActor.run {
+                     NewsListScreenVC.newsJPHasData = true
+                     NotificationCenter.default.post(name: .didUpdateJPNewsData, object: nil)
+                 }
+             case .failure(let error):
+                 AppError.handle(error: error)
+                 await MainActor.run {
+                     NewsListScreenVC.newsJPHasData = false
+                 }
+             }
+         }
+     }
+
+     func getTNNews() async {
+         Task(priority: .userInitiated) {
+             async let initialTNNewsResult = newsServices.getTNNews(page: 1)
+             async let tnNewsPage2Result = newsServices.getTNNews(page: 2)
+             async let tnNewsPage3Result = newsServices.getTNNews(page: 3)
+             async let tnNewsPage4Result = newsServices.getTNNews(page: 4)
+
+             let initialOutcome = await initialTNNewsResult
+             let page2Outcome = await tnNewsPage2Result
+             let page3Outcome = await tnNewsPage3Result
+             let page4Outcome = await tnNewsPage4Result
+
+             var combinedNews: [Datum] = []
+
+             switch initialOutcome {
+             case .success(let news):
+                 combinedNews.append(contentsOf: news.getNews())
+                 await MainActor.run {
+                     NewsListScreenVC.newsTNHasData = true
+                     NotificationCenter.default.post(name: .didUpdateTNNewsData, object: nil)
+                 }
+             case .failure(let error):
+                 AppError.handle(error: error)
+                 await MainActor.run {
+                     NewsListScreenVC.newsTNHasData = false
+                 }
+             }
+
+             switch page2Outcome {
+             case .success(let news):
+                 combinedNews.append(contentsOf: news.getNews())
+                 await MainActor.run {
+                     NewsListScreenVC.newsTNHasData = true
+                     NotificationCenter.default.post(name: .didUpdateTNNewsData, object: nil)
+                 }
+             case .failure(let error):
+                 AppError.handle(error: error)
+                 await MainActor.run {
+                     NewsListScreenVC.newsTNHasData = false
+                 }
+             }
+
+             switch page3Outcome {
+             case .success(let news):
+                 combinedNews.append(contentsOf: news.getNews())
+                 await MainActor.run {
+                     NewsListScreenVC.newsTNHasData = true
+                     NotificationCenter.default.post(name: .didUpdateTNNewsData, object: nil)
+                 }
+             case .failure(let error):
+                 AppError.handle(error: error)
+                 await MainActor.run {
+                     NewsListScreenVC.newsTNHasData = false
+                 }
+             }
+
+             switch page4Outcome {
+             case .success(let news):
+                 combinedNews.append(contentsOf: news.getNews())
+                 await MainActor.run {
+                     NewsListScreenVC.newsTNHasData = true
+                     NotificationCenter.default.post(name: .didUpdateTNNewsData, object: nil)
+                 }
+             case .failure(let error):
+                 AppError.handle(error: error)
+                 await MainActor.run {
+                     NewsListScreenVC.newsTNHasData = false
+                 }
+             }
+             
+             if combinedNews.isEmpty {
+                 await MainActor.run {
+                     NewsListScreenVC.newsHasData = false
+                 }
+             } else {
+                 DataManager.newsTNData = combinedNews
+             }
+             
+         }
+     }
+
+     func getDJNews() async {
+         Task(priority: .userInitiated) {
+             async let djNewsResult = newsServices.getDJNews()
+             let djNewsOutcome = await djNewsResult
+
+             switch djNewsOutcome {
+             case .success(let news):
+                 DataManager.newsDJData = news.getNews()
+                 await MainActor.run {
+                     NewsListScreenVC.newsDJHasData = true
+                     NotificationCenter.default.post(name: .didUpdateDJNewsData, object: nil)
+                 }
+             case .failure(let error):
+                 AppError.handle(error: error)
+                 await MainActor.run {
+                     NewsListScreenVC.newsDJHasData = false
+                 }
+             }
+         }
+     }
     
     //MARK: JSONPlaceholder functions
     func getJPName() -> String {
@@ -167,7 +220,7 @@ class NewsScreenViewModel {
         NewsCellData(newsTitle: "World", newsImage: "https://media.cnn.com/api/v1/images/stellar/prod/240526184946-rafah-airstrike-052624-dle-card.jpg?c=16x9&q=h_438,w_780,c_fill")
     ]
     
-    //MARK: SportsAPI
+    // MARK: SportsAPI
     func getSports(completion: @escaping () -> Void) {
         Task(priority: .userInitiated) {
             let result = await sportsServices.getMatches()
@@ -175,22 +228,22 @@ class NewsScreenViewModel {
             case .success(let matches):
                 let matchesData = matches.flatMap { $0.getMatches() }
                 DataManager.matchesData = matchesData
-                
+
                 func setMatchNews(startIndex: Int, endIndex: Int, target: inout [News]) {
                     let slice = matchesData[startIndex..<endIndex]
                     let news = slice.flatMap { $0.getNews() }
                     target = news
                 }
-                
+
                 var matchesNews: [[News]] = []
-                
+
                 for i in 0..<4 {
                     let startIndex = i
                     let endIndex = min(i + 3, matchesData.count)
                     var matchNews: [News] = []
                     setMatchNews(startIndex: startIndex, endIndex: endIndex, target: &matchNews)
                     matchesNews.append(matchNews)
-                    
+
                     switch i {
                     case 0:
                         DataManager.matchesNewsOne = matchNews
@@ -204,14 +257,15 @@ class NewsScreenViewModel {
                         break
                     }
                 }
-                
-                NotificationCenter.default.post(name: .didUpdateMatchesData, object: nil)
-                completion()
-                
+
+                await MainActor.run {
+                    NotificationCenter.default.post(name: .didUpdateMatchesData, object: nil)
+                    completion()
+                }
+
             case .failure(let error):
                 AppError.handle(error: error)
             }
-            
         }
     }
     

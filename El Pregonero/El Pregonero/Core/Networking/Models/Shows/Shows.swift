@@ -23,62 +23,62 @@ struct Shows: Codable {
 }
 
 // MARK: - Show
-struct Show: Codable {
-    let itemType: ItemType
-    let showType: String
-    let id, imdbID, tmdbID, title: String
-    let overview: String
-    let releaseYear: Int?
-    let originalTitle: String
-    let genres: [Genre]?
-    let directors: [String]?
-    let cast: [String]?
-    let rating: Int
-    let imageSet: ShowImageSet
-    let streamingOptions: StreamingOptions
-    let firstAirYear, lastAirYear: Int?
-    let creators: [String]?
-    let seasonCount, episodeCount: Int?
-    
-    enum CodingKeys: String, CodingKey {
-        case itemType, showType, id
-        case imdbID = "imdbId"
-        case tmdbID = "tmdbId"
-        case title, overview, releaseYear, originalTitle, genres, directors, cast, rating, imageSet, streamingOptions, firstAirYear, lastAirYear, creators, seasonCount, episodeCount
-    }
-    
-    func getImageSet() -> ShowImageSet {
-        return self.imageSet
-    }
-    
-    func getStreamingOptions() -> StreamingOptions {
-        return self.streamingOptions
-    }
-    
-    func getGenres() -> [Genre] {
-        guard let genres = genres, !genres.isEmpty else {
-            return []
+    struct Show: Codable {
+        let itemType: ItemType
+        let showType: String
+        let id, imdbID, tmdbID, title: String
+        let overview: String
+        let releaseYear: Int?
+        let originalTitle: String
+        let genres: [Genre]?
+        let directors: [String]?
+        let cast: [String]?
+        let rating: Int
+        let imageSet: ShowImageSet
+        let streamingOptions: StreamingOptions
+        let firstAirYear, lastAirYear: Int?
+        let creators: [String]?
+        let seasonCount, episodeCount: Int?
+        
+        enum CodingKeys: String, CodingKey {
+            case itemType, showType, id
+            case imdbID = "imdbId"
+            case tmdbID = "tmdbId"
+            case title, overview, releaseYear, originalTitle, genres, directors, cast, rating, imageSet, streamingOptions, firstAirYear, lastAirYear, creators, seasonCount, episodeCount
         }
-
-        return genres
-    }
-    
-    func getDirectors() -> [String] {
-        guard let directors = directors, !directors.isEmpty else {
-            return []
+        
+        func getImageSet() -> ShowImageSet {
+            return self.imageSet
         }
-
-        return directors
-    }
-    
-    func getCast() -> [String] {
-        guard let cast = cast, !cast.isEmpty else {
-            return []
+        
+        func getStreamingOptions() -> StreamingOptions {
+            return self.streamingOptions
         }
+        
+        func getGenres() -> [Genre] {
+            guard let genres = genres, !genres.isEmpty else {
+                return []
+            }
 
-        return cast
+            return genres
+        }
+        
+        func getDirectors() -> [String] {
+            guard let directors = directors, !directors.isEmpty else {
+                return []
+            }
+
+            return directors
+        }
+        
+        func getCast() -> [String] {
+            guard let cast = cast, !cast.isEmpty else {
+                return []
+            }
+
+            return cast
+        }
     }
-}
 
 // MARK: - Genre
 struct Genre: Codable {

@@ -15,14 +15,13 @@ class UserInfoCell: UITableViewCell, CellInfo {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userPhoneLabel: UILabel!
     @IBOutlet weak var userMailLabel: UILabel!
+    @IBOutlet weak var lottieView: NLottieAnimation!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         print("Hi :P user cell")
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        self.selectionStyle = .none
+        lottieView.changeLottie(lottieName: "Animation - 1717004647484")
     }
     
     func configureCell(userData: User, pictureData: UsersPics) {

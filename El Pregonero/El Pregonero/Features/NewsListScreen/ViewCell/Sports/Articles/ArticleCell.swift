@@ -26,6 +26,11 @@ class ArticleCell: UICollectionViewCell, CellInfo {
         self.articleImageView.setImage(from: URL(string: data.urlImage)!)
         self.newsHeadlineLabel.text = data.title
         self.newsAuthorNameLabel.text = data.author
+        
+        let dateString = data.publishedAt
+        if let date = dateString.toDate() {
+            self.publishedTimeLabel.text = "Published \(date.timeAgoSinceNow())."
+        }
     }
 
 }

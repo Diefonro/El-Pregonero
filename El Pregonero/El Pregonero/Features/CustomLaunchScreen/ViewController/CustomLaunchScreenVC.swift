@@ -40,7 +40,7 @@ class CustomLaunchScreenVC: UIViewController, StoryboardInfo, Coordinating {
     
     func pushToTabBar() {
         UIView.animate(withDuration: 3.0) {
-            self.imageView.alpha = 0.1
+            self.imageView.alpha = 1
         } completion: { _ in
             if let tabBarScreen = UIStoryboard(name: TabBarScreenVC.storyboard, bundle: nil)
                 .instantiateViewController(withIdentifier: TabBarScreenVC.identifier) as? TabBarScreenVC {

@@ -18,6 +18,7 @@ class UsersListScreenVC: UIViewController, StoryboardInfo {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var findUsersButton: UIButton!
+    @IBOutlet weak var noInfoView: NoInfoView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,10 @@ class UsersListScreenVC: UIViewController, StoryboardInfo {
         tableView.delegate = self
         tableView.register(UINib(nibName: UserInfoCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: UserInfoCell.reuseIdentifier)
         findUsersButton.tintColor = .black
+        fetchUsers()
+    }
+    
+    func fetchUsers() {
         viewModel?.getUsers {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -67,10 +72,17 @@ extension UsersListScreenVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: UserInfoCell.reuseIdentifier) as? UserInfoCell {
-            let userData = DataManager.usersData[indexPath.row]
-            self.data = userData
-            let pictureData = DataManager.usersPictures[indexPath.item]
-            cell.configureCell(userData: userData, pictureData: pictureData)
+            let userData = DataManager.usersData
+            self.data = userData[indexPath.row]
+            let pictureData = DataManager.usersPictures
+            if !userData.isEmpty, !pictureData.isEmpty {
+                cell.lottieView.isHidden = true
+                cell.configureCell(userData: userData[indexPath.row], pictureData: pictureData [indexPath.item])
+            } else {
+                cell.lottieView.isHidden = true
+                self.findUsersButton.isEnabled = false
+            }
+           
             return cell
         }
         return UITableViewCell()
