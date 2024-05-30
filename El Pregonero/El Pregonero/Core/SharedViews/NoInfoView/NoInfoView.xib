@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Barlow-Bold.ttf">
+            <string>Barlow-Bold</string>
+        </array>
+        <array key="Barlow-ExtraBold.ttf">
+            <string>Barlow-ExtraBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoInfoView" customModule="El_Pregonero" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="cPC-G8-p2V" id="Nzg-JT-d2F"/>
+                <outlet property="descriptionLbl" destination="l2N-DP-nMR" id="Zdn-MS-VQp"/>
+                <outlet property="titleLbl" destination="RWe-MY-UtA" id="uPY-dI-AF4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="cPC-G8-p2V">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Lo sentimos!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RWe-MY-UtA">
+                    <rect key="frame" x="20" y="159" width="353" height="36"/>
+                    <fontDescription key="fontDescription" name="Barlow-ExtraBold" family="Barlow" pointSize="30"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No hay información para mostrar" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2N-DP-nMR">
+                    <rect key="frame" x="20" y="205" width="353" height="21.666666666666657"/>
+                    <fontDescription key="fontDescription" name="Barlow-Bold" family="Barlow" pointSize="18"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="QFD-PN-sjq"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="l2N-DP-nMR" firstAttribute="top" secondItem="RWe-MY-UtA" secondAttribute="bottom" constant="10" id="0EV-gM-r4y"/>
+                <constraint firstItem="RWe-MY-UtA" firstAttribute="leading" secondItem="cPC-G8-p2V" secondAttribute="leading" constant="20" id="D4R-Jb-TaE"/>
+                <constraint firstItem="RWe-MY-UtA" firstAttribute="top" secondItem="QFD-PN-sjq" secondAttribute="top" constant="100" id="RVq-SQ-1bO"/>
+                <constraint firstItem="l2N-DP-nMR" firstAttribute="leading" secondItem="cPC-G8-p2V" secondAttribute="leading" constant="20" id="ReH-Bo-R0j"/>
+                <constraint firstItem="QFD-PN-sjq" firstAttribute="trailing" secondItem="l2N-DP-nMR" secondAttribute="trailing" constant="20" id="SsI-ZI-tRL"/>
+                <constraint firstItem="QFD-PN-sjq" firstAttribute="trailing" secondItem="RWe-MY-UtA" secondAttribute="trailing" constant="20" id="sGm-di-3Vv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-50" y="-11"/>
+        </view>
+    </objects>
+</document>
