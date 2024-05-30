@@ -26,6 +26,10 @@ class UsersListScreenVC: UIViewController, StoryboardInfo {
         tableView.delegate = self
         tableView.register(UINib(nibName: UserInfoCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: UserInfoCell.reuseIdentifier)
         findUsersButton.tintColor = .black
+        fetchUsers()
+    }
+    
+    func fetchUsers() {
         viewModel?.getUsers {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
