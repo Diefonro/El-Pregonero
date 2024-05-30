@@ -23,3 +23,5 @@ Users crave seamless access to information and entertainment, making it crucial 
 
 ![](https://github.com/Diefonro/El-Pregonero/blob/main/Documentation%20Screenshot.png?raw=true)
 
+[Watch app video demo!](https://youtu.be/pudG6Ta6Uls)
+
